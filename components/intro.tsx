@@ -3,13 +3,25 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+
+// changes had to be made here to fix type differences between the react-icons and React (this fix is adequate for now)
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import { FaGithubSquare } from 'react-icons/fa';
 import { HiDownload } from 'react-icons/hi';
-const ArrowRightIcon = BsArrowRight as unknown as React.FC;
-const HiDownloadIcon = HiDownload as unknown as React.FC;
-const BsLinkedinIcon = BsLinkedin as unknown as React.FC;
-const FaGithubSquareIcon = FaGithubSquare as unknown as React.FC;
+
+const ArrowRightIcon = BsArrowRight as React.ComponentType<
+	React.HTMLAttributes<HTMLElement>
+>;
+// const HiDownloadIcon = HiDownload as React.ComponentType;
+const HiDownloadIcon = HiDownload as React.ComponentType<
+	React.HTMLAttributes<HTMLElement>
+>;
+const BsLinkedinIcon = BsLinkedin as React.ComponentType<
+	React.HTMLAttributes<HTMLElement>
+>;
+const FaGithubSquareIcon = FaGithubSquare as React.ComponentType<
+	React.HTMLAttributes<HTMLElement>
+>;
 
 export default function Intro() {
 	return (
