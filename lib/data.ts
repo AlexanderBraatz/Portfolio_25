@@ -31,7 +31,7 @@ export const links = [
 		name: 'Contact',
 		hash: '#contact'
 	}
-] as const;
+] as const; //makes the object read only and gives typescript intelesense
 
 export const experiencesData = [
 	{
