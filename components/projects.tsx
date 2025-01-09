@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import SectionHeading from './section-heading';
 import { projectsData } from '@/lib/data';
 import Project from './project';
@@ -13,7 +13,7 @@ export default function Projects() {
 		<section
 			ref={ref}
 			id="projects"
-			className="scroll-mt-28"
+			className="scroll-mt-28 mb-28"
 		>
 			<SectionHeading>My Projects</SectionHeading>
 			<div>
