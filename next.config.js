@@ -7,6 +7,9 @@ const nextConfig = {
 				hostname: 'jcpportraits.com'
 			}
 		]
+	},
+	experimental: {
+		serverActions: true // Enable serverActions here
 	}
 };
 

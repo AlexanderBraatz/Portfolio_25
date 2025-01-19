@@ -1,5 +1,6 @@
 'use client';
 
+import { useActiveSectionContext } from '@/context/active-section-context';
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -26,6 +27,8 @@ const FaGithubSquareIcon = FaGithubSquare as React.ComponentType<
 >;
 
 export default function Intro() {
+	const { activeSection, setActiveSection, setTimeOfLastCLick } =
+		useActiveSectionContext();
 	const { ref } = useSectionInView('Home', 0.5);
 
 	return (
@@ -89,6 +92,10 @@ export default function Intro() {
 				transition={{ delay: 0.1 }}
 			>
 				<Link
+					onClick={() => {
+						setActiveSection('Contact');
+						setTimeOfLastCLick(Date.now());
+					}}
 					href="#contact"
 					className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
 				>
@@ -97,7 +104,7 @@ export default function Intro() {
 				</Link>
 
 				<a
-					className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-black/10"
+					className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
 					href="/CV.pdf"
 					download
 				>
@@ -105,14 +112,14 @@ export default function Intro() {
 					<HiDownloadIcon className="opacity-60 group-hover:translate-y-1 transition" />
 				</a>
 				<a
-					className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer border border-black/10"
+					className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
 					href="https://linkedin.com"
 					target="_blank"
 				>
 					<BsLinkedinIcon />
 				</a>
 				<a
-					className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem]  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer border border-black/10"
+					className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem]  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
 					href="https://github.com"
 					target="_blank"
 				>
