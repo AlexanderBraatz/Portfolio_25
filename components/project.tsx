@@ -41,8 +41,8 @@ export default function Project({
 			}}
 			ref={ref}
 		>
-			<section className="rounded-lg  group-even:pl-8 flex relative bg-gray-100 max-w-[42rem] border border-black/5 overflow-hidden sm:pr-8 sm:h-[20rem]  hover:bg-gray-200 transition">
-				<div className="group-even:ml-[18rem] flex flex-col h-full pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%]">
+			<section className="rounded-lg  sm:group-even:pl-8 flex relative bg-gray-100 max-w-[42rem] border border-black/5 overflow-hidden sm:pr-8 sm:h-[20rem]  hover:bg-gray-200 transition">
+				<div className="sm:group-even:ml-[18rem] flex flex-col h-full pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%]">
 					<h3 className="text-2xl">{title}</h3>
 					<p className="mt-2 leading-relaxed text-gray-700">{description}</p>
 					<ul className="sm:mt-auto flex flex-wrap mt-4 gap-2">
@@ -58,7 +58,7 @@ export default function Project({
 				</div>
 
 				<Image
-					className="
+					className="hidden sm:block
                 group-hover:-translate-x-3
                 group-hover:translate-y-3
                 group-hover:-rotate-2
