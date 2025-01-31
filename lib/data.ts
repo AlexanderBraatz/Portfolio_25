@@ -2,9 +2,9 @@ import React from 'react';
 import { CgWorkAlt } from 'react-icons/cg';
 import { FaReact } from 'react-icons/fa';
 import { LuGraduationCap } from 'react-icons/lu';
-import corpcommentImg from '@/public/corpcomment.png';
-import rmtdevImg from '@/public/rmtdev.png';
-import wordanalyticsImg from '@/public/wordanalytics.png';
+import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
+import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
+import protfolioScreenshot1 from '@/public/protfolio-screenshot-1.png';
 
 export const links = [
 	{
@@ -12,12 +12,12 @@ export const links = [
 		hash: '#home'
 	},
 	{
-		name: 'About',
-		hash: '#about'
-	},
-	{
 		name: 'Projects',
 		hash: '#projects'
+	},
+	{
+		name: 'About',
+		hash: '#about'
 	},
 	{
 		name: 'Skills',
@@ -35,77 +35,77 @@ export const links = [
 
 export const experiencesData = [
 	{
-		title: 'Graduated bootcamp',
-		location: 'Miami, FL',
+		title: 'DevelopMe bootcamp',
+		location: 'Bristol, UK',
 		description:
-			'I graduated after 6 months of studying. I immediately found a job as a front-end developer.',
+			'I graduated after 4 months of studying. I continued building Projects during the Pandemic.',
 		icon: React.createElement(LuGraduationCap),
-		date: '2019'
+		date: '2020'
 	},
 	{
-		title: 'Front-End Developer',
-		location: 'Orlando, FL',
+		title: 'Web Developer',
+		location: 'Bristol, UK',
 		description:
-			'I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.',
+			'I acquire an Architectural firm as a client and built a Portfolio site to display 30+ Projects.',
 		icon: React.createElement(CgWorkAlt),
-		date: '2019 - 2021'
+		date: '2023'
 	},
 	{
-		title: 'Full-Stack Developer',
-		location: 'Houston, TX',
+		title: 'Full-Stack Developer & AI-tech advocate',
+		location: 'Berlin, GER (remote) ',
 		description:
-			"I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-		icon: React.createElement(FaReact),
-		date: '2021 - present'
+			'I promote company wide AI adoption by developing web apps for hundreds of conferences attendees and lessons for 30+ colleagues every month. ',
+		icon: React.createElement(CgWorkAlt),
+		date: '2024 - present'
 	}
 ] as const;
 
 export const projectsData = [
 	{
-		title: 'CorpComment',
+		title: 'AI Image Generator',
 		description:
-			'I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.',
-		tags: ['React', 'Next.js', 'MongoDB', 'Tailwind', 'Prisma'],
-		imageUrl: corpcommentImg
+			'Developed this web app for a convention showcase, where users designed and downloaded 200+ LinkedIn cover images.',
+		tags: ['Next.js', 'JavaScript', 'API', 'Figma', 'CI/CD'],
+		imageUrl: linkedinScreenshot1,
+		link: 'https://linkedin-banner-image-generator.vercel.app'
 	},
 	{
-		title: 'rmtDev',
+		title: 'Architecture Firm',
 		description:
-			'Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.',
-		tags: ['React', 'TypeScript', 'Next.js', 'Tailwind', 'Redux'],
-		imageUrl: rmtdevImg
+			'Led technical implementation of the website redesign, seamlessly displaying 30+ projects, driving conversion.',
+		tags: ['React', 'JavaScript', 'HTML5', 'CSS3'],
+		imageUrl: winsorScreenshot1,
+		link: 'https://www.winsorleaman.com'
 	},
 	{
-		title: 'Word Analytics',
+		title: 'This Portfolio',
 		description:
-			'A public web app for quick analytics on text. It shows word count, character count and social media post limits.',
-		tags: ['React', 'Next.js', 'SQL', 'Tailwind', 'Framer'],
-		imageUrl: wordanalyticsImg
+			'Built my personal Portfolio site while Learning new technologies, by following a Tutorial and then expanding on what i learned.',
+		tags: ['TypeScript', 'Tailwind', 'Next.js', 'Framer', 'CI/CD'],
+		imageUrl: protfolioScreenshot1,
+		link: 'https://alexander-braatz-portfolio-2025.vercel.app'
 	}
 ] as const;
 
 export const skillsData = [
+	'ReactJS',
+	'Next.js',
+	'TypeScript',
+	'JavaScript',
+	'Tailwind',
+	'AI-Integration',
+	'AI-Tooling',
+	'Figma',
+	'Git',
 	'HTML5',
 	'CSS3',
-	'JavaScript',
-	'TypeScript',
-	'React',
-	'Next.js',
 	'Node.js',
-	'Git',
-	'Tailwind',
-	// 'Prisma',
-	// 'MongoDB',
 	'Redux',
-	// 'GraphQL',
-	// 'Apollo',
-	// 'Express',
-	// 'PostgreSQL',
-	// 'Python',
-	// 'Django',
-	'Framer Motion',
-	'Figma',
-	'Styled-Components',
 	'Agile / Scrum',
-	'AI API intgration'
+	'Web Hosting',
+	// 'Styled-Components',
+	'Debugging',
+	'RESTful API',
+	'CI/CD',
+	'Client Engagement'
 ] as const;

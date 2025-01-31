@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import headshot from '@/public/headshot.jpeg';
 
 // changes had to be made here to fix type differences between the react-icons and React (this fix is adequate for now)
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
@@ -45,7 +46,8 @@ export default function Intro() {
 						transition={{ type: 'tween', duration: 0.2 }}
 					>
 						<Image
-							src="https://jcpportraits.com/wp-content/uploads/2021/11/224-081-JCP-1080x1080-Gallery-Business-3.jpg"
+							// src="https://jcpportraits.com/wp-content/uploads/2021/11/224-081-JCP-1080x1080-Gallery-Business-3.jpg"
+							src={headshot}
 							alt="placholder headshot"
 							width="192"
 							height="192"
@@ -74,11 +76,11 @@ export default function Intro() {
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
 			>
-				<span className="font-bold">Hello, I'm Ricardo.</span> I'm a{' '}
+				<span className="font-bold">Hello, I'm Alexander.</span> I'm a{' '}
 				<span className="font-bold">full-stack developer</span> with{' '}
-				<span className="font-bold">8 years</span> of experience. I enjoy
-				building <span className="italic">sites & apps</span>. My focus is{' '}
-				<span className="underline">React (Next.js)</span>.
+				<span className="font-bold">1 year</span> of experience. I enjoy
+				building <span className="italic"> AI-powered web apps</span>. My focus
+				is <span className="underline">React (Next.js)</span>.
 				{/* <span className="font-bold">Hello, I'm Alexander.</span> I'm a{' '}
 				<span className="font-bold">full-stack developer</span> with{' '}
 				<span className="font-bold">2 years</span> of experience. I enjoy
@@ -105,7 +107,7 @@ export default function Intro() {
 
 				<a
 					className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
-					href="/CV.pdf"
+					href="/CV_Alexander_Braatz_2025.pdf"
 					download
 				>
 					Download CV{' '}
