@@ -17,3 +17,14 @@ export const getErrorMessage = (error: unknown): string => {
 	} else message = 'Something went wrong ';
 	return message;
 };
+export const getErrorMessageWithDefaultMessage = (
+	error: unknown,
+	defaultMessage: string = 'Something went wrong'
+) => {
+	console.error(error);
+	let errorMessage = defaultMessage;
+	if (error instanceof Error && error.message.length < 100) {
+		errorMessage = error.message;
+	}
+	return errorMessage;
+};
