@@ -37,3 +37,14 @@ export async function loginAction(formData: FormData) {
 		return { errorMessage: getErrorMessageWithDefaultMessage(error) };
 	}
 }
+export async function signOutAction() {
+	try {
+		const supabaseServerClient = createSupabaseClient();
+		const response = (await supabaseServerClient).auth.signOut();
+		const error = (await response).error;
+		if (error) throw error;
+		return { errorMessage: null };
+	} catch (error) {
+		return { errorMessage: getErrorMessageWithDefaultMessage(error) };
+	}
+}
