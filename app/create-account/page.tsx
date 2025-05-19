@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'; // ! /navigation not /router!
 import { createAccountAction } from '@/actions/users';
 import { Loader2 } from 'lucide-react';
 
-function CreateAccountPage() {
+function CreateAccount() {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 
@@ -67,4 +67,4 @@ function CreateAccountPage() {
 	);
 }
 
-export default CreateAccountPage;
+export default CreateAccount;
