@@ -27,7 +27,8 @@ export default function Project({
 	description,
 	tags,
 	imageUrl,
-	link
+	link,
+	linkText
 }: ProjectProps) {
 	const ref = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll({
@@ -58,7 +59,7 @@ export default function Project({
 							{title}{' '}
 							<div className="flex flex-row gap-x-1 items-center">
 								<span className="text-base underline text-blue-500">
-									open live site
+									{linkText}
 								</span>
 								<FaLinkIcon className="inline text-base underline text-blue-500 " />
 							</div>
