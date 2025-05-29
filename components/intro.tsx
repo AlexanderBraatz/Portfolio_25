@@ -36,7 +36,7 @@ export default function Intro() {
 		<section
 			ref={ref}
 			id="home"
-			className="scroll-mt-[100rem] mb-28 max-w-[50rem] text-center sm:mb-0"
+			className="scroll-mt-[100rem] mb-28 max-w-[49rem] text-center sm:mb-0"
 		>
 			<div className="flex items-center justify-center ">
 				<div className="relative">
@@ -78,8 +78,8 @@ export default function Intro() {
 			>
 				<span className="font-bold">Hello, I'm Alexander.</span> I'm a{' '}
 				<span className="font-bold">full-stack developer</span> with{' '}
-				<span className="font-bold">1 year</span> of experience. I enjoy
-				building <span className="italic"> AI-powered web apps</span>. My focus
+				<span className="font-bold">2 years</span> of experience. I enjoy
+				building <span className="italic">AI-powered web apps</span>. My focus
 				is <span className="underline">React (Next.js)</span>.
 				{/* <span className="font-bold">Hello, I'm Alexander.</span> I'm a{' '}
 				<span className="font-bold">full-stack developer</span> with{' '}
@@ -115,18 +115,18 @@ export default function Intro() {
 				</a>
 				<a
 					className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-					href="https://linkedin.com"
+					href="https://linkedin.com/in/alexander-braatz-90436a109"
 					target="_blank"
 				>
 					<BsLinkedinIcon />
 				</a>
-				<a
+				{/* <a
 					className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem]  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-					href="https://github.com"
+					href="https://github.com/AlexanderBraatz"
 					target="_blank"
 				>
 					<FaGithubSquareIcon />
-				</a>
+				</a> */}
 			</motion.div>
 		</section>
 	);
