@@ -96,16 +96,16 @@ export const projectsData = [
 		imageUrl: winsorScreenshot1,
 		link: 'https://www.winsorleaman.com',
 		linkText: 'open live site'
-	},
-	{
-		title: 'This Portfolio',
-		description:
-			'Built my personal Portfolio site while Learning new technologies, by following a Tutorial and then expanding on what i learned.',
-		tags: ['TypeScript', 'Tailwind', 'Next.js', 'Framer'],
-		imageUrl: protfolioScreenshot1,
-		link: 'https://alexander-braatz-portfolio-2025.vercel.app',
-		linkText: 'open live site'
 	}
+	// {
+	// 	title: 'This Portfolio',
+	// 	description:
+	// 		'Built my personal Portfolio site while Learning new technologies, by following a Tutorial and then expanding on what i learned.',
+	// 	tags: ['TypeScript', 'Tailwind', 'Next.js', 'Framer'],
+	// 	imageUrl: protfolioScreenshot1,
+	// 	link: 'https://alexander-braatz-portfolio-2025.vercel.app',
+	// 	linkText: 'open live site'
+	// }
 ] as const;
 
 export const skillsData = [
