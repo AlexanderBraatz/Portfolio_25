@@ -1,6 +1,6 @@
 'use server';
 
-import { supabase } from '@/lib/supabaseClient';
+import { createSupabaseClient } from '@/auth/server';
 
 type Testimonial = {
 	created_at?: string;
@@ -24,7 +24,7 @@ export const addNewTestimonial = async (
 	const new_user_testimonial =
 		formData.get('user_testimonial')?.toString() || null;
 	const new_user_location = formData.get('user_location')?.toString() || null;
-
+	const supabase = await createSupabaseClient();
 	const { data, error } = await supabase
 		.from('Testimonials')
 		.insert([
@@ -37,14 +37,12 @@ export const addNewTestimonial = async (
 		.select();
 
 	if (error) {
-		console.log(error);
+		console.log('error---->', error);
 		return {
 			data: null,
 			error: error.message ?? 'An unknown error has occurred'
 		};
 	}
-	console.log('-----new testamonial has been submitted');
-	console.log(data);
 	return {
 		data: data,
 		error: null
