@@ -17,7 +17,7 @@ export default async function Home() {
 	return (
 		<main className="flex flex-col items-center px-4">
 			<>
-				{user ? (
+				{/* {user ? (
 					<div className="flex flex-col items-center gap-4">
 						<p>User is logged in as {user.email}</p>
 
@@ -34,11 +34,12 @@ export default async function Home() {
 							Login
 						</Link>
 					</div>
-				)}
+				)} */}
 			</>
-			<InputTestimonials />
-			<Testimonials />
+			{/* <InputTestimonials /> */}
 			<Intro />
+			<SectionDivider />
+			<Testimonials />
 			<SectionDivider />
 			<Projects />
 			<About />
