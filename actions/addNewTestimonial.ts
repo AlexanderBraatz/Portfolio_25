@@ -20,18 +20,17 @@ export const addNewTestimonial = async (
 	formData: FormData
 ): Promise<addNewTestimonialResponse> => {
 	//i am using type cooersion here becasue i know these inputs are strings not files formData gives a FormDataEntryValue type back which could be a file too
-	const new_user_name = formData.get('user_name')?.toString() || null;
-	const new_user_testimonial =
-		formData.get('user_testimonial')?.toString() || null;
-	const new_user_location = formData.get('user_location')?.toString() || null;
+	const name = formData.get('name')?.toString() || null;
+	const quote = formData.get('quote')?.toString() || null;
+	const role = formData.get('role')?.toString() || null;
 	const supabase = await createSupabaseClient();
 	const { data, error } = await supabase
 		.from('Testimonials')
 		.insert([
 			{
-				user_name: new_user_name,
-				user_testimonial: new_user_testimonial,
-				user_location: new_user_location
+				name,
+				quote,
+				role
 			}
 		])
 		.select();

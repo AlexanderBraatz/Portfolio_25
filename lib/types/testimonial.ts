@@ -1,6 +1,6 @@
 export type Testimonial = {
-	quote: string;
-	name: string;
-	role: string;
-	imgSrc: string;
+	quote: string | null;
+	name: string | null;
+	role: string | null;
+	imgSrc: string | null;
 };

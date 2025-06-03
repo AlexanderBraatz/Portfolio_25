@@ -1,9 +1,16 @@
+'use client';
 import React from 'react';
 import SectionHeading from './section-heading';
 import { supabase } from '@/lib/supabaseClient';
+import { motion } from 'framer-motion';
 
 import TestimonialSlider from '@/components/testimonials-slider';
 import TestimonialSliderCard from '@/components/testimonials-slider-card';
+import Link from 'next/link';
+import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
+const ArrowRightIcon = BsArrowRight as React.ComponentType<
+	React.HTMLAttributes<HTMLElement>
+>;
 
 const testimonialz = [
 	{
@@ -87,6 +94,20 @@ export default async function Testimonials() {
 			<div className="container">
 				<TestimonialSlider testimonials={testimonials} />
 			</div>
+			<motion.div
+				className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
+				initial={{ opacity: 0, y: 100 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ delay: 0.1 }}
+			>
+				<Link
+					href="/testimonials/new"
+					className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
+				>
+					add your Testimonial
+					<ArrowRightIcon className="opacity-70 group-hover:translate-x-1 transition" />
+				</Link>
+			</motion.div>
 			{/* <div className="container">
 				<h1>shadcn cards</h1>
 				<TestimonialSliderCard testimonials={testimonialz} />
