@@ -25,7 +25,17 @@ function CreateAccount() {
 
 	return (
 		<div className="bg-emerald-700 w-96 rounded-lg p-8">
-			<h1 className="text-2xl text-center mb-8">Create Account</h1>
+			<h1 className="text-2xl text-center mb-8">Create Account </h1>
+			<p className="text-center text-sm mt-4">
+				Please create an account or{' '}
+				<Link
+					href="/login"
+					className="underline"
+				>
+					Login
+				</Link>{' '}
+				to leave your Testimonial.
+			</p>
 
 			<form
 				className="flex flex-col bg-emerald-700 gap-4"

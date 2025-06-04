@@ -17,7 +17,7 @@ function LoginPage() {
 			if (errorMessage) {
 				toast.error(errorMessage);
 			} else {
-				router.push('/');
+				router.push('/testimonials/new');
 				toast.success('Successfully logged in.');
 			}
 		});

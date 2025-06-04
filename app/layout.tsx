@@ -36,7 +36,7 @@ export default function RootLayout({
 				></div>
 				<ActiveSectionContext>
 					<Header />
-					{children}
+					<main className="flex flex-col items-center px-4">{children}</main>
 					<Toaster position="top-right" />
 					<Footer />
 				</ActiveSectionContext>

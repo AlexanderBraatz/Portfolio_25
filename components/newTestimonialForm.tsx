@@ -55,7 +55,7 @@ export default function NewTestimonialForm() {
 					type="role"
 					name="role"
 					placeholder="Your role at the time of our collaboration"
-					className="h-14 px-4 bg-white borderBlack rounded-lg"
+					className="h-14 mt-3  px-4 bg-white borderBlack rounded-lg"
 					required
 					maxLength={500}
 				></input>

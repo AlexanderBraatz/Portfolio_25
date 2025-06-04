@@ -1,6 +1,7 @@
 'use server';
 
 import { createSupabaseClient } from '@/auth/server';
+import { revalidatePath } from 'next/cache';
 
 type Testimonial = {
 	created_at?: string;
@@ -34,7 +35,7 @@ export const addNewTestimonial = async (
 			}
 		])
 		.select();
-
+	revalidatePath('/');
 	if (error) {
 		console.log('error---->', error);
 		return {

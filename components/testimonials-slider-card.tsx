@@ -37,15 +37,27 @@ export default function TestimonialSliderCard({
 											</q>
 											<div className="mt-6 flex gap-3">
 												<span className="inline-flex rounded-full">
-													<Image
-														loader={imageLoader}
-														className="h-10 w-10 rounded-full"
-														height={40}
-														width={40}
-														alt={testimonial.name}
-														src={testimonial.imgSrc}
-														loading="lazy"
-													/>
+													{testimonial.imgSrc != null ? (
+														<Image
+															loader={imageLoader}
+															className="h-10 w-10 rounded-full"
+															height={40}
+															width={40}
+															alt={testimonial.name as string}
+															src={testimonial.imgSrc}
+															loading="lazy"
+														/>
+													) : (
+														<Image
+															loader={imageLoader}
+															className="h-10 w-10 rounded-full"
+															height={40}
+															width={40}
+															alt="placeholder image"
+															src="https://i.pravatar.cc/120?img=3" // repcalce with plcholderimage
+															loading="lazy"
+														/>
+													)}
 												</span>
 												<div>
 													<p className="text-sm font-semibold text-gray-900 dark:text-white">

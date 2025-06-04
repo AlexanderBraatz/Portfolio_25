@@ -41,12 +41,10 @@ export default function TestimonialSlider({
 							{testimonials.map((testimonial, index) => (
 								<CarouselItem
 									key={index}
-									className="md:basis-1/2 lg:basis-1/3"
+									className="md:basis-full lg:basis-full"
 								>
 									<div className="flex flex-col px-4 py-5 sm:p-6">
-										<q className="flex-1 text-gray-600 dark:text-gray-300">
-											{testimonial.quote}
-										</q>
+										<q className="flex-1">{testimonial.quote}</q>
 										<div className="mt-6 flex gap-3">
 											<span className="inline-flex rounded-full">
 												{testimonial.imgSrc != null ? (

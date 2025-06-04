@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
 	});
 	const path = new URL(request.url).pathname;
 
-	const protectedRoutes = ['/protected'];
+	const protectedRoutes = ['/protected', '/testimonials/new'];
 	const authRoutes = ['/login', '/create-account'];
 
 	const isProtectedRoute = protectedRoutes.includes(path);
@@ -18,11 +18,11 @@ export async function middleware(request: NextRequest) {
 		const user = await getUser(response, request);
 
 		if (isProtectedRoute && !user) {
-			return NextResponse.redirect(new URL('/login', request.url));
+			return NextResponse.redirect(new URL('/create-account', request.url));
 		}
 
 		if (isAuthRoute && user) {
-			return NextResponse.redirect(new URL('/', request.url));
+			return NextResponse.redirect(new URL('/testimonials/new', request.url));
 		}
 	}
 }

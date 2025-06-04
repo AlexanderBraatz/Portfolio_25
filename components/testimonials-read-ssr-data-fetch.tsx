@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import SectionHeading from './section-heading';
 import { supabase } from '@/lib/supabaseClient';
@@ -9,7 +7,7 @@ import TestimonialSlider from '@/components/testimonials-slider';
 import TestimonialSliderCard from '@/components/testimonials-slider-card';
 import Link from 'next/link';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
-import { Testimonial } from '@/lib/types/testimonial';
+import Testimonials from './testimonials-read';
 const ArrowRightIcon = BsArrowRight as React.ComponentType<
 	React.HTMLAttributes<HTMLElement>
 >;
@@ -66,46 +64,20 @@ const testimonialz = [
 	}
 ];
 
-interface TestimonialsProps {
-	testimonials: Testimonial[];
-}
+export default async function TestimonialsWithData() {
+	let { data: testimonials, error } = await supabase
+		.from('Testimonials')
+		.select('name,quote,role,imgSrc');
 
-export default function Testimonials({ testimonials }: TestimonialsProps) {
-	return (
-		<section className="mb-28 sm:mb-40">
-			{/* <section> */}
-			<SectionHeading>What Colleagues & Clients Are Saying</SectionHeading>
-			{/* <div>
-				{testimonials.map((testimonial, i) => (
-					<React.Fragment key={i}>
-						<p>{testimonial.user_name}</p>
-						<p>{testimonial.user_testimonial}</p>
-						<p>{testimonial.user_location}</p>
-					</React.Fragment>
-				))}
-			</div> */}
-			<div className="container bg-gray-100 rounded-lg max-w-[42rem] border border-black/5">
-				<TestimonialSlider testimonials={testimonials} />
-				{/* <TestimonialSliderCard testimonials={testimonials} /> */}
-			</div>
-			<motion.div
-				className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-				initial={{ opacity: 0, y: 100 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.1 }}
-			>
-				<Link
-					href="/testimonials/new"
-					className="group bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
-				>
-					Share Your Experience
-					<ArrowRightIcon className="opacity-70 group-hover:translate-x-1 transition" />
-				</Link>
-			</motion.div>
-			{/* <div className="container">
-				<h1>shadcn cards</h1>
-				<TestimonialSliderCard testimonials={testimonialz} />
-			</div> */}
-		</section>
-	);
+	//remove these early return statments , they are only hee to make typescript happy, probably form gpt origionally
+	if (error) {
+		console.error('Error fetching testimonials:', error.message);
+		return <p>Error loading testimonials.</p>;
+	}
+	if (testimonials === null) {
+		console.error('No testimonials available.');
+		return <p>No testimonials available.</p>;
+	}
+
+	return <Testimonials testimonials={testimonials} />;
 }
