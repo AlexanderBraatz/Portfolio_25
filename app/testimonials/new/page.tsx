@@ -10,23 +10,29 @@ import headshot from '@/public/headshot.jpeg';
 import TestimonialSlider from '@/components/testimonials-slider';
 import { supabase } from '@/lib/supabaseClient';
 import SectionDivider from '@/components/section-divider';
-
+import Header from '@/components/header';
+import { links, linksTestimonials } from '@/lib/data';
 export default async function NewTestimonial() {
-	let { data: testimonials, error } = await supabase
-		.from('Testimonials')
-		.select('name,quote,role,imgSrc');
+	// let { data: testimonials, error } = await supabase
+	// 	.from('Testimonials')
+	// 	.select('name,quote,role,imgSrc');
 
-	//remove these early return statments , they are only hee to make typescript happy, probably form gpt origionally
-	if (error) {
-		console.error('Error fetching testimonials:', error.message);
-		return <p>Error loading testimonials.</p>;
-	}
-	if (testimonials === null) {
-		console.error('No testimonials available.');
-		return <p>No testimonials available.</p>;
-	}
+	// //remove these early return statments , they are only hee to make typescript happy, probably form gpt origionally
+	// if (error) {
+	// 	console.error('Error fetching testimonials:', error.message);
+	// 	return <p>Error loading testimonials.</p>;
+	// }
+	// if (testimonials === null) {
+	// 	console.error('No testimonials available.');
+	// 	return <p>No testimonials available.</p>;
+	// }
 	return (
 		<>
+			{/* <Header
+				// @ts-ignore: readonly array cannot be assigned to mutable LinksTypeGeneric[]
+				links={linksTestimonials}
+				headerWidth={'sm:w-[18rem]'}
+			/> */}
 			{/* <AuthStatusPanel /> */}
 			<section className="scroll-mt-[100rem] mb-28 max-w-[49rem] text-center sm:mb-0">
 				<div className="flex items-center justify-center ">
@@ -65,9 +71,9 @@ export default async function NewTestimonial() {
 			</section>
 			<NewTestimonialForm />
 			{/* <Testimonials /> */}
-			<div className="container">
+			{/* <div className="container">
 				<TestimonialSlider testimonials={testimonials} />
-			</div>
+			</div> */}
 			<div className=" w-1 h-16 my-24 rounded-full hidden sm:block "></div>
 		</>
 	);

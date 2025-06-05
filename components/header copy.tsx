@@ -2,22 +2,26 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { links } from '@/lib/data';
+
 import Link from 'next/link';
 import clsx from 'clsx';
 import { useActiveSectionContext } from '@/context/active-section-context';
+import {
+	type LinksType,
+	type LinksTypeTestimonials,
+	type LinksTypeGeneric
+} from '@/lib/data';
 
-export default function Header() {
-	const {
-		activeSection,
-		setActiveSection,
-		setTimeOfLastCLick,
-		headerSections,
-		setHeaderSections
-	} = useActiveSectionContext();
-
-	const headerWidth =
-		headerSections === links ? 'sm:w-[36rem]' : 'sm:w-[18rem]';
+//}: { links: LinksType[] } | { links: LinksTypeTestimonials[] }) {
+export default function Header({
+	links,
+	headerWidth
+}: {
+	links: LinksTypeGeneric[];
+	headerWidth: string;
+}) {
+	const { activeSection, setActiveSection, setTimeOfLastCLick } =
+		useActiveSectionContext();
 	return (
 		<header className="z-[999] relative">
 			<motion.div
@@ -28,7 +32,7 @@ export default function Header() {
 
 			<nav className="flex fixed top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0">
 				<ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[initial] sm:flex-nowrap sm:gap-5">
-					{headerSections.map(link => (
+					{links.map(link => (
 						<motion.li
 							className={'flex justify-center items-center h-3/4 relative '}
 							initial={{ y: -100, opacity: 0 }}
@@ -44,7 +48,7 @@ export default function Header() {
 								)}
 								href={link.hash}
 								onClick={() => {
-									link.name == 'Home' && setHeaderSections(links);
+									// @ts-ignore: Argument of type 'string' is not assignable to union type
 									setActiveSection(link.name);
 									setTimeOfLastCLick(Date.now());
 								}}

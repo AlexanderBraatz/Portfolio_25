@@ -7,10 +7,33 @@ import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
 import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
 import protfolioScreenshot1 from '@/public/protfolio-screenshot-1.png';
 
+// keeping it generic
+
+export interface LinksTypeGeneric {
+	readonly name: string;
+	readonly hash: string;
+}
+export type LinksTypeTestimonials = (typeof links)[number];
+export const linksTestimonials = [
+	{
+		name: 'Home',
+		hash: '/#Home'
+	},
+	{
+		name: 'Review',
+		hash: '/testimonials/new'
+	},
+	{
+		name: 'Log Out',
+		hash: '/login'
+	}
+] as const;
+
+export type LinksType = (typeof links)[number];
 export const links = [
 	{
 		name: 'Home',
-		hash: '#home'
+		hash: '/#home'
 	},
 	{
 		name: 'Work',
@@ -33,6 +56,11 @@ export const links = [
 		hash: '#contact'
 	}
 ] as const; //makes the object read only and gives typescript intelesense
+
+export const allLinks = {
+	homepage: links,
+	testimonials: linksTestimonials
+} as const;
 
 export const experiencesData = [
 	{

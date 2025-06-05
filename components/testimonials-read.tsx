@@ -10,6 +10,8 @@ import TestimonialSliderCard from '@/components/testimonials-slider-card';
 import Link from 'next/link';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import { Testimonial } from '@/lib/types/testimonial';
+import { useActiveSectionContext } from '@/context/active-section-context';
+import { linksTestimonials } from '@/lib/data';
 const ArrowRightIcon = BsArrowRight as React.ComponentType<
 	React.HTMLAttributes<HTMLElement>
 >;
@@ -71,10 +73,17 @@ interface TestimonialsProps {
 }
 
 export default function Testimonials({ testimonials }: TestimonialsProps) {
+	const {
+		activeSection,
+		setActiveSection,
+		setTimeOfLastCLick,
+		setHeaderSections
+	} = useActiveSectionContext();
 	return (
 		<section className="mb-28 sm:mb-40">
 			{/* <section> */}
-			<SectionHeading>What Colleagues & Clients Are Saying</SectionHeading>
+			<SectionHeading>My Reviews</SectionHeading>
+			{/* <SectionHeading>What Colleagues & Clients Are Saying</SectionHeading> */}
 			{/* <div>
 				{testimonials.map((testimonial, i) => (
 					<React.Fragment key={i}>
@@ -97,6 +106,12 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 				<Link
 					href="/testimonials/new"
 					className="group bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
+					onClick={() => {
+						// @ts-ignore: Argument of type 'string' is not assignable to union type
+						setHeaderSections(linksTestimonials);
+						setActiveSection('Review');
+						setTimeOfLastCLick(Date.now());
+					}}
 				>
 					Share Your Experience
 					<ArrowRightIcon className="opacity-70 group-hover:translate-x-1 transition" />

@@ -25,7 +25,8 @@ export default function NewTestimonialForm() {
 			transition={{ duration: 1 }}
 			className="text-center scroll-mt-28 mb-20 sm:mb-28 w-[min(100%,38rem)]"
 		>
-			<SectionHeading>New Testimonial</SectionHeading>
+			<div className="h-8"></div>
+			<SectionHeading>New Review</SectionHeading>
 			<p className="text-gray-700 -mt-6">
 				Please leave a short testimonial about our work
 			</p>

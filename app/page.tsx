@@ -12,10 +12,17 @@ import SignOutButton from '@/components/SignOutButton';
 import Link from 'next/link';
 import { getUser } from '@/auth/server';
 import AuthStatusPanel from '@/components/authStatusPanel';
+import Header from '@/components/header';
+import { links } from '@/lib/data';
 
 export default function Home() {
 	return (
 		<>
+			{/* <Header
+				// @ts-ignore: readonly array cannot be assigned to mutable LinksTypeGeneric[]
+				links={links}
+				headerWidth={'sm:w-[36rem]'}
+			/> */}
 			{/* <AuthStatusPanel /> */}
 			{/* <InputTestimonials /> */}
 			<Intro />
