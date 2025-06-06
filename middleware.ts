@@ -17,9 +17,10 @@ export async function middleware(request: NextRequest) {
 	if (isProtectedRoute || isAuthRoute) {
 		const user = await getUser(response, request);
 
-		if (isProtectedRoute && !user) {
-			return NextResponse.redirect(new URL('/create-account', request.url));
-		}
+		// comented fo now to see testimonial form while i am signed out
+		// if (isProtectedRoute && !user) {
+		// 	return NextResponse.redirect(new URL('/create-account', request.url));
+		// }
 
 		if (isAuthRoute && user) {
 			return NextResponse.redirect(new URL('/testimonials/new', request.url));

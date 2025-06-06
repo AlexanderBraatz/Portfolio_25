@@ -31,7 +31,6 @@ export default function ActiveSectionContextProvider({
 		onTestimonials ? 'Review' : 'Home'
 	);
 	const [timeOfLastClick, setTimeOfLastCLick] = useState(0); // we need keep track of this to temporarrily block the observer
-	console.log('xoxoxoxoxoxoxxo', pathname);
 	const [headerSections, setHeaderSections] = useState(
 		onTestimonials ? linksTestimonials : links
 	);

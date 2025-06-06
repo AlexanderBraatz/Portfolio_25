@@ -6,6 +6,8 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation'; // ! /navigation not /router!
 import { createAccountAction } from '@/actions/users';
 import { Loader2 } from 'lucide-react';
+import SubmitBtn from '@/components/submit-btn';
+import CreateAccountButton from '@/components/creat-account-btn';
 
 function CreateAccount() {
 	const router = useRouter();
@@ -17,16 +19,16 @@ function CreateAccount() {
 			if (errorMessage) {
 				toast.error(errorMessage);
 			} else {
-				router.push('/');
+				router.push('/testimonials/pending');
 				toast.success('A verification link has been sent to your email.');
 			}
 		});
 	};
 
 	return (
-		<div className="bg-emerald-700 w-96 rounded-lg p-8">
-			<h1 className="text-2xl text-center mb-8">Create Account </h1>
-			<p className="text-center text-sm mt-4">
+		<div className="bg-gray-100 border border-black/5 w-96 rounded-lg p-8">
+			<h1 className="text-2xl text-center mb-2">Create Account </h1>
+			<p className="text-center text-sm mt-2 mb-6 px-4">
 				Please create an account or{' '}
 				<Link
 					href="/login"
@@ -34,17 +36,17 @@ function CreateAccount() {
 				>
 					Login
 				</Link>{' '}
-				to leave your Testimonial.
+				to leave your Review.
 			</p>
 
 			<form
-				className="flex flex-col bg-emerald-700 gap-4"
+				className="flex flex-col bg-gray-100 gap-4"
 				action={handleClickCreateAccountButton}
 			>
 				<input
 					type="email"
 					name="email"
-					className="rounded-lg p-2"
+					className="h-14 px-4 bg-white borderBlack rounded-lg"
 					placeholder="Email"
 					disabled={isPending}
 				/>
@@ -52,16 +54,12 @@ function CreateAccount() {
 					type="password"
 					name="password"
 					placeholder="Password"
-					className="rounded-lg p-2"
+					className="h-14 px-4 bg-white borderBlack rounded-lg"
 					disabled={isPending}
 				/>
-
-				<button
-					className="rounded-lg p-2 mt-4 bg-black text-white flex justify-center"
-					disabled={isPending}
-				>
-					{isPending ? <Loader2 className="animate-spin" /> : 'Create Account'}
-				</button>
+				<div className="mx-auto">
+					<CreateAccountButton />
+				</div>
 			</form>
 
 			<p className="text-center text-sm mt-4">

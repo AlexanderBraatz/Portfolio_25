@@ -23,7 +23,7 @@ export default function Home() {
 				links={links}
 				headerWidth={'sm:w-[36rem]'}
 			/> */}
-			{/* <AuthStatusPanel /> */}
+			<AuthStatusPanel />
 			{/* <InputTestimonials /> */}
 			<Intro />
 			<SectionDivider />

@@ -1,6 +1,7 @@
 'use client';
 
 import { loginAction } from '@/actions/users';
+import LoginButton from '@/components/login-btn';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -24,17 +25,20 @@ function LoginPage() {
 	};
 
 	return (
-		<div className="bg-emerald-700 w-96 rounded-lg p-8">
-			<h1 className="text-2xl text-center mb-8">Login</h1>
+		<div className="bg-gray-100 border border-black/5 w-96 rounded-lg p-8">
+			<h1 className="text-2xl text-center mb-2">Login</h1>
+			<p className="text-center text-sm mt-2 mb-6 px-4">
+				Knock knock. who’s there? You! Log in to update your Review.
+			</p>
 
 			<form
-				className="flex flex-col bg-emerald-700 gap-4"
+				className="flex flex-col bg-gray-100 gap-4"
 				action={handleClickLoginButton}
 			>
 				<input
 					type="email"
 					name="email"
-					className="rounded-lg p-2"
+					className="h-14 px-4 bg-white borderBlack rounded-lg"
 					placeholder="Email"
 					disabled={isPending}
 				/>
@@ -42,16 +46,13 @@ function LoginPage() {
 					type="password"
 					name="password"
 					placeholder="Password"
-					className="rounded-lg p-2"
+					className="h-14 px-4 bg-white borderBlack rounded-lg"
 					disabled={isPending}
 				/>
 
-				<button
-					className="rounded-lg p-2 mt-4 bg-black text-white flex justify-center"
-					disabled={isPending}
-				>
-					{isPending ? <Loader2 className="animate-spin" /> : 'Login'}
-				</button>
+				<div className="mx-auto">
+					<LoginButton />
+				</div>
 			</form>
 
 			<p className="text-center text-sm mt-4">

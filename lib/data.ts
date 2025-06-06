@@ -24,8 +24,8 @@ export const linksTestimonials = [
 		hash: '/testimonials/new'
 	},
 	{
-		name: 'Log Out',
-		hash: '/login'
+		name: 'Account',
+		hash: '/account'
 	}
 ] as const;
 

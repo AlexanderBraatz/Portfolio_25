@@ -23,9 +23,7 @@ export default function RootLayout({
 			lang="en"
 			className="!scroll-smooth"
 		>
-			<body
-				className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36`}
-			>
+			<body className={`${inter.className} bg-gray-50 text-gray-950 relative `}>
 				<div
 					className=" bg-[#fde2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] blur-[10rem] rounded-full  
         sm:w-[68.75rem]"
@@ -36,7 +34,10 @@ export default function RootLayout({
 				></div>
 				<ActiveSectionContext>
 					<Header />
-					<main className="flex flex-col items-center px-4">{children}</main>
+					<main className="flex flex-col items-center px-4 -mb-20 min-h-screen pt-28 sm:pt-36">
+						{children}
+						<div className="h-20"></div>
+					</main>
 					<Toaster position="top-right" />
 					<Footer />
 				</ActiveSectionContext>
