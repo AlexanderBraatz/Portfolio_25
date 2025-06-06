@@ -1,21 +1,29 @@
 'use client';
 
 import { signOutAction } from '@/actions/users';
+import { useActiveSectionContext } from '@/context/active-section-context';
+import { links } from '@/lib/data';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import toast from 'react-hot-toast';
+import { FaUserTimes } from 'react-icons/fa';
 
-function SignOutButton() {
+const FaUserTimesIcon = FaUserTimes as React.ComponentType<
+	React.HTMLAttributes<HTMLElement>
+>;
+
+export default function SignOutButton() {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
-
+	const { setHeaderSections } = useActiveSectionContext();
 	const handleClickSignOutButton = () => {
 		startTransition(async () => {
 			const { errorMessage } = await signOutAction();
 			if (errorMessage) {
 				toast.error(errorMessage);
 			} else {
+				setHeaderSections(links);
 				router.push('/');
 				toast.success('Successfully signed out.');
 			}
@@ -25,12 +33,17 @@ function SignOutButton() {
 	return (
 		<button
 			onClick={handleClickSignOutButton}
-			className="rounded-lg p-2 text-white flex justify-center bg-emerald-700 w-40"
+			className=" transform-gpu group h-[3rem] w-40 bg-gray-900 text-white rounded-full outline-none transition-all px-7 py-3 flex items-center justify-center gap-2 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 disabled:scale-100 disabled:bg-opacity-[65%]"
 			disabled={isPending}
 		>
-			{isPending ? <Loader2 /> : 'Sign Out'}
+			{isPending ? (
+				<div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
+			) : (
+				<>
+					Sign Out{' '}
+					<FaUserTimesIcon className="transform-gpu opacity-70   transition-all" />
+				</>
+			)}
 		</button>
 	);
 }
-
-export default SignOutButton;

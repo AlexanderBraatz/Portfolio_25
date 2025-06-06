@@ -19,7 +19,7 @@ function CreateAccount() {
 			if (errorMessage) {
 				toast.error(errorMessage);
 			} else {
-				router.push('/testimonials/pending');
+				router.push('/testimonials/new');
 				toast.success('A verification link has been sent to your email.');
 			}
 		});
@@ -31,7 +31,7 @@ function CreateAccount() {
 			<p className="text-center text-sm mt-2 mb-6 px-4">
 				Please create an account or{' '}
 				<Link
-					href="/login"
+					href="/account/login"
 					className="underline"
 				>
 					Login
@@ -65,7 +65,7 @@ function CreateAccount() {
 			<p className="text-center text-sm mt-4">
 				Already have an account?{' '}
 				<Link
-					href="/login"
+					href="/account/login"
 					className="underline"
 				>
 					Login

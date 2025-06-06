@@ -6,6 +6,7 @@ import { links } from '@/lib/data';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { useActiveSectionContext } from '@/context/active-section-context';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
 	const {
@@ -15,6 +16,9 @@ export default function Header() {
 		headerSections,
 		setHeaderSections
 	} = useActiveSectionContext();
+
+	const pathname = usePathname();
+	console.log('header ', pathname);
 
 	const headerWidth =
 		headerSections === links ? 'sm:w-[36rem]' : 'sm:w-[18rem]';

@@ -27,12 +27,13 @@ export default function ActiveSectionContextProvider({
 }: ActiveSectionContextProviderProps) {
 	const pathname = usePathname();
 	const onTestimonials = pathname.startsWith('/testimonials');
+	const onAccount = pathname.startsWith('/account');
 	const [activeSection, setActiveSection] = useState<SectionName>(
-		onTestimonials ? 'Review' : 'Home'
+		onAccount ? 'Account' : onTestimonials ? 'Review' : 'Home'
 	);
 	const [timeOfLastClick, setTimeOfLastCLick] = useState(0); // we need keep track of this to temporarrily block the observer
 	const [headerSections, setHeaderSections] = useState(
-		onTestimonials ? linksTestimonials : links
+		onAccount || onTestimonials ? linksTestimonials : links
 	);
 
 	return (

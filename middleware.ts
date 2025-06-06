@@ -1,26 +1,34 @@
 import { createServerClient } from '@supabase/ssr';
 import { Herr_Von_Muellerhoff } from 'next/font/google';
 import { NextResponse, type NextRequest } from 'next/server';
+import { useActiveSectionContext } from './context/active-section-context';
 
 export async function middleware(request: NextRequest) {
 	let response = NextResponse.next({
 		request: { headers: request.headers }
 	});
 	const path = new URL(request.url).pathname;
-
-	const protectedRoutes = ['/protected', '/testimonials/new'];
-	const authRoutes = ['/login', '/create-account'];
+	console.log('xoxoxoxoxoxoxoxoxoxoxxoo', path);
+	const protectedRoutes = [
+		'/protected',
+		'/testimonials/new',
+		'/account/logout'
+	];
+	const authRoutes = ['/account/login', '/account/create-account'];
 
 	const isProtectedRoute = protectedRoutes.includes(path);
 	const isAuthRoute = authRoutes.includes(path);
-
 	if (isProtectedRoute || isAuthRoute) {
 		const user = await getUser(response, request);
 
 		// comented fo now to see testimonial form while i am signed out
-		// if (isProtectedRoute && !user) {
-		// 	return NextResponse.redirect(new URL('/create-account', request.url));
-		// }
+		if (isProtectedRoute && !user) {
+			// revalidatePath('/blog/post-1')
+
+			return NextResponse.redirect(
+				new URL('/account/create-account', request.url)
+			);
+		}
 
 		if (isAuthRoute && user) {
 			return NextResponse.redirect(new URL('/testimonials/new', request.url));

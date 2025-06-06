@@ -17,7 +17,7 @@ export type LinksTypeTestimonials = (typeof links)[number];
 export const linksTestimonials = [
 	{
 		name: 'Home',
-		hash: '/#Home'
+		hash: '/'
 	},
 	{
 		name: 'Review',
@@ -25,7 +25,7 @@ export const linksTestimonials = [
 	},
 	{
 		name: 'Account',
-		hash: '/account'
+		hash: '/account/logout'
 	}
 ] as const;
 

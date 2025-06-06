@@ -2,6 +2,8 @@
 
 import { loginAction } from '@/actions/users';
 import LoginButton from '@/components/login-btn';
+import { useActiveSectionContext } from '@/context/active-section-context';
+import { linksTestimonials } from '@/lib/data';
 import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -12,6 +14,8 @@ function LoginPage() {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 
+	const { setActiveSection, setHeaderSections } = useActiveSectionContext();
+
 	const handleClickLoginButton = (formData: FormData) => {
 		startTransition(async () => {
 			const { errorMessage } = await loginAction(formData);
@@ -19,6 +23,8 @@ function LoginPage() {
 				toast.error(errorMessage);
 			} else {
 				router.push('/testimonials/new');
+				setActiveSection('Review');
+				setHeaderSections(linksTestimonials);
 				toast.success('Successfully logged in.');
 			}
 		});
@@ -58,7 +64,7 @@ function LoginPage() {
 			<p className="text-center text-sm mt-4">
 				Don't have an account?{' '}
 				<Link
-					href="/create-account"
+					href="/account/create-account"
 					className="underline"
 				>
 					Create Account
