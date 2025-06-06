@@ -8,7 +8,6 @@ export async function middleware(request: NextRequest) {
 		request: { headers: request.headers }
 	});
 	const path = new URL(request.url).pathname;
-	console.log('xoxoxoxoxoxoxoxoxoxoxxoo', path);
 	const protectedRoutes = [
 		'/protected',
 		'/testimonials/new',

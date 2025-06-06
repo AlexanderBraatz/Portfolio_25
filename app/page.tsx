@@ -21,7 +21,7 @@ export default function Home() {
 			{/* <Header
 				// @ts-ignore: readonly array cannot be assigned to mutable LinksTypeGeneric[]
 				links={links}
-				headerWidth={'sm:w-[36rem]'}
+				headerWidth={'sm:w-[41rem]'}
 			/> */}
 			{/* <AuthStatusPanel /> */}
 			{/* <InputTestimonials /> */}

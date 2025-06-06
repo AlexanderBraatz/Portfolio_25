@@ -21,7 +21,7 @@ export default function Header() {
 	console.log('header ', pathname);
 
 	const headerWidth =
-		headerSections === links ? 'sm:w-[36rem]' : 'sm:w-[18rem]';
+		headerSections === links ? 'sm:w-[41rem]' : 'sm:w-[18rem]';
 	return (
 		<header className="z-[999] relative">
 			<motion.div

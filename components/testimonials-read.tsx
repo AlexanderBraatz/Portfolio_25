@@ -12,6 +12,7 @@ import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import { Testimonial } from '@/lib/types/testimonial';
 import { useActiveSectionContext } from '@/context/active-section-context';
 import { linksTestimonials } from '@/lib/data';
+import { useSectionInView } from '@/lib/hooks';
 const ArrowRightIcon = BsArrowRight as React.ComponentType<
 	React.HTMLAttributes<HTMLElement>
 >;
@@ -79,8 +80,14 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 		setTimeOfLastCLick,
 		setHeaderSections
 	} = useActiveSectionContext();
+
+	const { ref } = useSectionInView('Reviews', 0.8);
 	return (
-		<section className="mb-28 sm:mb-40">
+		<section
+			ref={ref}
+			id="reviews"
+			className=" scroll-mt-28 mb-28 sm:mb-40"
+		>
 			{/* <section> */}
 			<SectionHeading>My Reviews</SectionHeading>
 			{/* <SectionHeading>What Colleagues & Clients Are Saying</SectionHeading> */}

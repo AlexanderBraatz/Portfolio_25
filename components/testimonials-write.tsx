@@ -16,8 +16,6 @@ export default function InputTestimonials() {
 					return;
 				}
 				if (data) {
-					console.log('data');
-					console.log(data);
 					toast.success('Testimonial submitted successfully!!');
 					return;
 				}

@@ -37,7 +37,7 @@ export const addNewTestimonial = async (
 		.select();
 	revalidatePath('/');
 	if (error) {
-		console.log('error---->', error);
+		console.log('error->', error);
 		return {
 			data: null,
 			error: error.message ?? 'An unknown error has occurred'
