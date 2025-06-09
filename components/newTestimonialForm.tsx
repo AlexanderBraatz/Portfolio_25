@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 
 import SubmitBtn from './submit-btn';
 import toast from 'react-hot-toast';
+import ImageUploader from './image-uploader';
 
 export default function NewTestimonialForm() {
 	const formRef = useRef<HTMLFormElement>(null);
@@ -69,6 +70,7 @@ export default function NewTestimonialForm() {
 				></textarea>
 				<SubmitBtn />
 			</form>
+			<ImageUploader />
 		</motion.section>
 	);
 }
