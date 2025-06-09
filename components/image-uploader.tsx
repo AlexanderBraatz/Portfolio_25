@@ -1,7 +1,9 @@
 'use client';
 
+import { convertBlobUrlToFile } from '@/lib/utils';
+import { uploadImage } from '@/supabase/storage/client';
 import Image from 'next/image';
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, useRef, useState, useTransition } from 'react';
 
 export default function ImageUploader() {
 	const imageInputRef = useRef<HTMLInputElement>(null);
@@ -15,6 +17,29 @@ export default function ImageUploader() {
 			setImageUrls([...imageUrls, ...newImageUrls]);
 		}
 	};
+
+	const [isPending, startTransition] = useTransition();
+	const handleUploadImagesButton = () => {
+		startTransition(async () => {
+			let urls = [];
+			for (const url of imageUrls) {
+				const imageFile = await convertBlobUrlToFile(url);
+				const { imageUrl, error } = await uploadImage({
+					file: imageFile,
+					bucket: 'avatar-pics'
+				});
+
+				if (error) {
+					console.error('error:', error);
+					return;
+				}
+				//TODO: i will have to connect the url to the testimonial or user in the database
+				urls.push(imageUrl);
+			}
+			console.log('urls:', urls);
+			setImageUrls([]);
+		});
+	};
 	return (
 		<div className="bg-slate-50 min-h-screen flex justify-center items-center flex-col gap-8">
 			<input
@@ -23,10 +48,12 @@ export default function ImageUploader() {
 				ref={imageInputRef}
 				onChange={handleImageChange}
 				hidden
+				disabled={isPending}
 			/>
 			<button
 				onClick={() => imageInputRef.current?.click()}
 				className="bg-slate-600 py-2 w-40 rounded-lg"
+				disabled={isPending}
 			>
 				Select Images
 			</button>
@@ -41,8 +68,11 @@ export default function ImageUploader() {
 					/>
 				))}
 			</div>
-			<button className="bg-slate-600 py-2 w-40 rounded-lg">
-				Upload Images
+			<button
+				onClick={handleUploadImagesButton}
+				className="bg-slate-600 py-2 w-40 rounded-lg"
+			>
+				{isPending ? 'Uploading...' : 'Upload Images'}
 			</button>
 		</div>
 	);
