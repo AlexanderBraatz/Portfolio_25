@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { MutableRefObject, useRef, useState } from 'react';
 import SectionHeading from './section-heading';
 import { addNewTestimonial } from '@/actions/addNewTestimonial';
 
@@ -11,6 +11,7 @@ import ImageUploader from './image-uploader';
 
 export default function NewTestimonialForm() {
 	const formRef = useRef<HTMLFormElement>(null);
+	const imgSrcRef: MutableRefObject<string | null> = useRef<string>(null);
 	return (
 		<motion.section
 			id="NewTestimonialForm"
@@ -35,7 +36,10 @@ export default function NewTestimonialForm() {
 				ref={formRef}
 				className="mt-10 flex flex-col"
 				action={async formData => {
-					const { data, error } = await addNewTestimonial(formData);
+					const { data, error } = await addNewTestimonial(
+						formData,
+						imgSrcRef.current
+					);
 
 					if (error) {
 						toast.error(error);
@@ -70,7 +74,7 @@ export default function NewTestimonialForm() {
 				></textarea>
 				<SubmitBtn />
 			</form>
-			<ImageUploader />
+			<ImageUploader imgSrcRef={imgSrcRef} />
 		</motion.section>
 	);
 }

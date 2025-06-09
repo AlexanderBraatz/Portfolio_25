@@ -18,7 +18,8 @@ type addNewTestimonialResponse = {
 };
 
 export const addNewTestimonial = async (
-	formData: FormData
+	formData: FormData,
+	imgSrc: string | null
 ): Promise<addNewTestimonialResponse> => {
 	//i am using type cooersion here becasue i know these inputs are strings not files formData gives a FormDataEntryValue type back which could be a file too
 	const name = formData.get('name')?.toString() || null;
@@ -31,7 +32,8 @@ export const addNewTestimonial = async (
 			{
 				name,
 				quote,
-				role
+				role,
+				imgSrc
 			}
 		])
 		.select();

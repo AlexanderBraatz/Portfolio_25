@@ -3,9 +3,19 @@
 import { convertBlobUrlToFile } from '@/lib/utils';
 import { uploadImage } from '@/supabase/storage/client';
 import Image from 'next/image';
-import React, { ChangeEvent, useRef, useState, useTransition } from 'react';
+import React, {
+	ChangeEvent,
+	MutableRefObject,
+	useRef,
+	useState,
+	useTransition
+} from 'react';
 
-export default function ImageUploader() {
+export default function ImageUploader({
+	imgSrcRef
+}: {
+	imgSrcRef: MutableRefObject<string | null>;
+}) {
 	const imageInputRef = useRef<HTMLInputElement>(null);
 	const [imageUrls, setImageUrls] = useState<string[]>([]);
 
@@ -37,6 +47,7 @@ export default function ImageUploader() {
 				urls.push(imageUrl);
 			}
 			console.log('urls:', urls);
+			imgSrcRef.current = urls[0];
 			setImageUrls([]);
 		});
 	};
