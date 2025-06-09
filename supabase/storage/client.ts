@@ -15,7 +15,7 @@ type UploadProps = {
 
 export async function uploadImage({ file, bucket, folder }: UploadProps) {
 	const fileName = file.name;
-	const fileExtension = fileName.slice(fileName.lastIndexOf('.' + 1));
+	const fileExtension = fileName.slice(fileName.lastIndexOf('.') + 1);
 	const path = `${folder ? folder + '/' : ''}${uuidv4()}.${fileExtension}`;
 
 	try {
@@ -37,7 +37,7 @@ export async function uploadImage({ file, bucket, folder }: UploadProps) {
 	}
 
 	const imageUrl = `${process.env
-		.NEXT_PUBLIC_SUPABASE_URL!}/storage/vi/object/public/${bucket}/${
+		.NEXT_PUBLIC_SUPABASE_URL!}/storage/v1/object/public/${bucket}/${
 		data?.path
 	}`;
 

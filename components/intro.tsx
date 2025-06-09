@@ -46,7 +46,6 @@ export default function Intro() {
 						transition={{ type: 'tween', duration: 0.2 }}
 					>
 						<Image
-							// src="https://jcpportraits.com/wp-content/uploads/2021/11/224-081-JCP-1080x1080-Gallery-Business-3.jpg"
 							src={headshot}
 							alt="placholder headshot"
 							width="192"

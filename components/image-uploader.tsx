@@ -42,6 +42,12 @@ export default function ImageUploader() {
 	};
 	return (
 		<div className="bg-slate-50 min-h-screen flex justify-center items-center flex-col gap-8">
+			<Image
+				src="https://pyoalxsojnjucwmeddcz.supabase.co/storage/v1/object/public/avatar-pics/a67497cf-0926-49c9-bd3d-6ef1416db43a.png"
+				width={300}
+				height={300}
+				alt={`image`}
+			/>
 			<input
 				type="file"
 				multiple
