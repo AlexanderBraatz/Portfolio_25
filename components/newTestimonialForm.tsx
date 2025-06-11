@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import SubmitBtn from './submit-btn';
 import toast from 'react-hot-toast';
 import ImageUploader from './image-uploader';
+import { FileUploadDirectUploadDemo } from './file-upload-component';
 
 export default function NewTestimonialForm() {
 	const formRef = useRef<HTMLFormElement>(null);
@@ -28,9 +29,9 @@ export default function NewTestimonialForm() {
 			className="text-center scroll-mt-28 mb-20 sm:mb-28 w-[min(100%,38rem)]"
 		>
 			<div className="h-8"></div>
-			<SectionHeading>New Review</SectionHeading>
+			<SectionHeading>Share Your Experience</SectionHeading>
 			<p className="text-gray-700 -mt-6">
-				Please leave a short testimonial about our work
+				Just a couple of sentences about working together go a long way.
 			</p>
 			<form
 				ref={formRef}
@@ -68,13 +69,14 @@ export default function NewTestimonialForm() {
 				<textarea
 					name="quote"
 					placeholder="Your Testimonial"
-					className="h-52 bg-white borderBlack my-3 rounded-lg p-4"
+					className="h-36 bg-white borderBlack my-3 rounded-lg p-4"
 					required
 					maxLength={5000}
 				></textarea>
+				<FileUploadDirectUploadDemo imgSrcRef={imgSrcRef} />
 				<SubmitBtn />
 			</form>
-			<ImageUploader imgSrcRef={imgSrcRef} />
+			{/* <ImageUploader imgSrcRef={imgSrcRef} /> */}
 		</motion.section>
 	);
 }

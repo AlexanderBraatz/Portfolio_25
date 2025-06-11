@@ -11,7 +11,7 @@ export default function SubmitBtn() {
 	return (
 		<button
 			type="submit"
-			className="group h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all px-7 py-3 flex items-center justify-center gap-2 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition=all disabled:scale-100 disabled:bg-opacity-[65%]"
+			className="group h-[3rem] w-[8rem] bg-gray-900 text-white rounded-full outline-none transition-all px-7 py-3 flex items-center justify-center gap-2 focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition=all disabled:scale-100 disabled:bg-opacity-[65%] my-3"
 			disabled={pending}
 		>
 			{pending ? (
