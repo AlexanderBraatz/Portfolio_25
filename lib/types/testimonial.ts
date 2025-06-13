@@ -3,4 +3,6 @@ export type Testimonial = {
 	name: string | null;
 	role: string | null;
 	imgSrc: string | null;
+	hasPassedModeration: boolean | null;
+	createdByUserEmail: string | null;
 };

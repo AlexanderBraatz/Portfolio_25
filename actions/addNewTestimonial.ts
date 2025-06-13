@@ -1,5 +1,5 @@
 'use server';
-
+import { getUser } from '@/auth/server';
 import { createSupabaseClient } from '@/auth/server';
 import { revalidatePath } from 'next/cache';
 
@@ -25,6 +25,8 @@ export const addNewTestimonial = async (
 	const name = formData.get('name')?.toString() || null;
 	const quote = formData.get('quote')?.toString() || null;
 	const role = formData.get('role')?.toString() || null;
+	const hasPassedModeration = false;
+	const user = await getUser();
 	const supabase = await createSupabaseClient();
 	const { data, error } = await supabase
 		.from('Testimonials')
@@ -33,7 +35,9 @@ export const addNewTestimonial = async (
 				name,
 				quote,
 				role,
-				imgSrc
+				imgSrc,
+				hasPassedModeration,
+				createdByUserEmail: user?.email || null
 			}
 		])
 		.select();

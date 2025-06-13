@@ -8,6 +8,8 @@ import TestimonialSliderCard from '@/components/testimonials-slider-card';
 import Link from 'next/link';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import Testimonials from './testimonials-read';
+import { getUser } from '@/auth/server';
+import { Testimonial } from '@/lib/types/testimonial';
 const ArrowRightIcon = BsArrowRight as React.ComponentType<
 	React.HTMLAttributes<HTMLElement>
 >;
@@ -65,9 +67,10 @@ const testimonialz = [
 ];
 
 export default async function TestimonialsWithData() {
+	const user = await getUser();
 	let { data: testimonials, error } = await supabase
 		.from('Testimonials')
-		.select('name,quote,role,imgSrc');
+		.select('name,quote,role,imgSrc,hasPassedModeration,createdByUserEmail');
 
 	//remove these early return statments , they are only hee to make typescript happy, probably form gpt origionally
 	if (error) {
@@ -78,6 +81,31 @@ export default async function TestimonialsWithData() {
 		console.error('No testimonials available.');
 		return <p>No testimonials available.</p>;
 	}
+	const fillterdTestimonials = testimonials.filter(testimonial => {
+		// get new types to fix the ts complaint below
+		if (testimonial.createdByUserEmail === user?.email) {
+			console.log(testimonial.createdByUserEmail, user?.email);
+			return true;
+		}
+		if (testimonial.hasPassedModeration) {
+			console.log(testimonial.hasPassedModeration);
+			return true;
+		}
+		console.log('other');
+		return false;
+	});
+	// in here i want to use a reduce method to reorder the testemaoil
+	const reorderedTestimonials = fillterdTestimonials.reduce(
+		(acc, testimonial) => {
+			if (testimonial.createdByUserEmail === user?.email) {
+				acc.unshift(testimonial);
+			} else {
+				acc.push(testimonial);
+			}
+			return acc;
+		},
+		[] as Testimonial[]
+	);
 
-	return <Testimonials testimonials={testimonials} />;
+	return <Testimonials testimonials={reorderedTestimonials} />;
 }

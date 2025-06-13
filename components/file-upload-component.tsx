@@ -129,9 +129,11 @@ export function FileUploadDirectUploadDemo({
 						<div className="flex items-center justify-center rounded-full border p-2.5">
 							<Upload className="size-6 text-muted-foreground" />
 						</div>
-						<p className="font-medium text-sm">Drag & drop files here</p>
+						<p className="font-medium text-sm">
+							Drag & drop your Avatar Picture here
+						</p>
 						<p className="text-muted-foreground text-xs">
-							Or click to browse (max 2 files)
+							Or click to select a file
 						</p>
 					</div>
 					<FileUploadTrigger asChild>

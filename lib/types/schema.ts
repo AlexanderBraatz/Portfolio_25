@@ -38,6 +38,8 @@ export type Database = {
         Row: {
           company: string | null
           created_at: string
+          createdByUserEmail: string | null
+          hasPassedModeration: boolean | null
           id: number
           imgSrc: string | null
           name: string | null
@@ -48,6 +50,8 @@ export type Database = {
         Insert: {
           company?: string | null
           created_at?: string
+          createdByUserEmail?: string | null
+          hasPassedModeration?: boolean | null
           id?: number
           imgSrc?: string | null
           name?: string | null
@@ -58,6 +62,8 @@ export type Database = {
         Update: {
           company?: string | null
           created_at?: string
+          createdByUserEmail?: string | null
+          hasPassedModeration?: boolean | null
           id?: number
           imgSrc?: string | null
           name?: string | null

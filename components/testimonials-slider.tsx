@@ -45,7 +45,7 @@ export default function TestimonialSlider({
 								>
 									<div className="flex flex-col px-4 py-5 sm:p-6">
 										<q className="flex-1">{testimonial.quote}</q>
-										<div className="mt-6 flex gap-3">
+										<div className="mt-6 flex gap-3 ">
 											<span className="inline-flex rounded-full">
 												{testimonial.imgSrc != null ? (
 													<Image
@@ -69,13 +69,25 @@ export default function TestimonialSlider({
 													/>
 												)}
 											</span>
-											<div>
-												<p className="text-sm font-semibold text-gray-900 dark:text-white">
+											<div className="">
+												<p className="text-sm font-semibold text-gray-900">
 													{testimonial.name}
 												</p>
-												<p className="text-sm text-gray-500 dark:text-gray-400">
+												<p className="text-sm text-gray-500 0">
 													{testimonial.role}
 												</p>
+											</div>
+											<div className=" flex-grow">
+												<div className=" w-fit float-right">
+													<p className="text-sm font-light text-gray-500 w-48">
+														{testimonial.hasPassedModeration
+															? ''
+															: 'still pending approval, only you can see it right now'}
+													</p>
+													{/* <p className="text-sm text-gray-500 dark:text-gray-400">
+														{testimonial.createdByUserEmail}
+													</p> */}
+												</div>
 											</div>
 										</div>
 									</div>

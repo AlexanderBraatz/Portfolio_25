@@ -20,7 +20,8 @@ export async function uploadImage({ file, bucket, folder }: UploadProps) {
 
 	try {
 		file = await imageCompression(file, {
-			maxSizeMB: 1
+			maxSizeMB: 0.5,
+			maxWidthOrHeight: 400
 		});
 	} catch (error) {
 		console.error(error);
