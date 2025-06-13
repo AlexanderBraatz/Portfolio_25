@@ -50,7 +50,7 @@ export default function TestimonialSlider({
 												{testimonial.imgSrc != null ? (
 													<Image
 														loader={imageLoader}
-														className="h-10 w-10 rounded-full"
+														className="h-10 w-10 rounded-full   border-[0.05rem] border-black/50 "
 														height={40}
 														width={40}
 														alt={testimonial.name as string}
@@ -60,11 +60,11 @@ export default function TestimonialSlider({
 												) : (
 													<Image
 														loader={imageLoader}
-														className="h-10 w-10 rounded-full"
+														className="h-10 w-10 rounded-full   border-[0.05rem] border-black/50"
 														height={40}
 														width={40}
 														alt="placeholder image"
-														src="https://i.pravatar.cc/120?img=3" // repcalce with plcholderimage
+														src="https://pyoalxsojnjucwmeddcz.supabase.co/storage/v1/object/public/avatar-pics/e67e519a-69cd-42d3-a1db-8137128a8c29.jpeg" // repcalce with plcholderimage
 														loading="lazy"
 													/>
 												)}
@@ -78,24 +78,24 @@ export default function TestimonialSlider({
 												</p>
 											</div>
 											<div className=" flex-grow">
-												<div className=" w-fit float-right">
-													<p className="text-sm font-light text-gray-500 w-48">
-														{testimonial.hasPassedModeration
-															? ''
-															: 'still pending approval, only you can see it right now'}
-													</p>
-													{/* <p className="text-sm text-gray-500 dark:text-gray-400">
-														{testimonial.createdByUserEmail}
-													</p> */}
-												</div>
+												{!testimonial.hasPassedModeration ? (
+													<div className="w-fit float-right rounded-md p-1 px-2 border border-gray-900  bg-[#fde2e3]">
+														<p className="text-sm text-gray-900 w-48 ">
+															Still pending approval, only you can see this
+															right now.
+														</p>
+													</div>
+												) : (
+													<div></div>
+												)}
 											</div>
 										</div>
 									</div>
 								</CarouselItem>
 							))}
 						</CarouselContent>
-						<CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 fill-black" />
-						<CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 fill-black" />
+						<CarouselPrevious className="absolute left-[-70px] top-1/2 -translate-y-1/2 fill-black" />
+						<CarouselNext className="absolute right-[-70px] top-1/2 -translate-y-1/2 fill-black" />
 					</Carousel>
 				</div>
 			</section>

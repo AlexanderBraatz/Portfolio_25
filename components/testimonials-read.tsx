@@ -86,10 +86,13 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 		<section
 			ref={ref}
 			id="reviews"
-			className=" scroll-mt-28 mb-28 sm:mb-40"
+			className=" scroll-mt-28 mb-28 sm:mb-40 "
 		>
 			{/* <section> */}
 			<SectionHeading>My Reviews</SectionHeading>
+			{/* <p className="mb-8 -mt-4 text-center text-gray-700 ">
+				Flick through all the lovely things colleagues & clients had to say.
+			</p> */}
 			{/* <SectionHeading>What Colleagues & Clients Are Saying</SectionHeading> */}
 			{/* <div>
 				{testimonials.map((testimonial, i) => (
@@ -100,9 +103,18 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 					</React.Fragment>
 				))}
 			</div> */}
-			<div className="container bg-gray-100 rounded-lg max-w-[42rem] border border-black/5">
+			{/* <div className="container relative overflow-hidden rounded-lg max-w-[42rem] border border-black/5"> */}
+			<div className="container relative bg-gray-100 rounded-lg max-w-[42rem] border border-black/5">
 				<TestimonialSlider testimonials={testimonials} />
 				{/* <TestimonialSliderCard testimonials={testimonials} /> */}
+				{/* <div
+					className=" bg-[#fde2e3] absolute top-[-2rem] -z-10 right-[-2rem] h-[11.25rem] w-[11.25rem] blur-[rem]  rounded-full "
+					// sm:w-[68.75rem]"
+				></div>
+				<div
+					className=" bg-[#dbd7fb] absolute bottom-[-2rem] -z-10 left-[-2rem] h-[11.25rem] w-[10rem] blur-[5rem] rounded-full"
+					// sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left=[-15rem] 2xl:left-[-5rem]"
+				></div> */}
 			</div>
 			<motion.div
 				className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"

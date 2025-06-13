@@ -1,11 +1,6 @@
 import React from 'react';
-import SectionHeading from './section-heading';
 import { supabase } from '@/lib/supabaseClient';
-import { motion } from 'framer-motion';
 
-import TestimonialSlider from '@/components/testimonials-slider';
-import TestimonialSliderCard from '@/components/testimonials-slider-card';
-import Link from 'next/link';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import Testimonials from './testimonials-read';
 import { getUser } from '@/auth/server';
