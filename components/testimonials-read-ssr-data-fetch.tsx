@@ -102,5 +102,10 @@ export default async function TestimonialsWithData() {
 		[] as Testimonial[]
 	);
 
-	return <Testimonials testimonials={reorderedTestimonials} />;
+	return (
+		<Testimonials
+			testimonials={reorderedTestimonials}
+			userIsLoggedIn={user ? true : false}
+		/>
+	);
 }

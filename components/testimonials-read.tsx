@@ -71,9 +71,13 @@ const testimonialz = [
 
 interface TestimonialsProps {
 	testimonials: Testimonial[];
+	userIsLoggedIn: boolean;
 }
 
-export default function Testimonials({ testimonials }: TestimonialsProps) {
+export default function Testimonials({
+	testimonials,
+	userIsLoggedIn
+}: TestimonialsProps) {
 	const {
 		activeSection,
 		setActiveSection,
@@ -88,33 +92,9 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 			id="reviews"
 			className=" scroll-mt-28 mb-28 sm:mb-40 "
 		>
-			{/* <section> */}
 			<SectionHeading>My Reviews</SectionHeading>
-			{/* <p className="mb-8 -mt-4 text-center text-gray-700 ">
-				Flick through all the lovely things colleagues & clients had to say.
-			</p> */}
-			{/* <SectionHeading>What Colleagues & Clients Are Saying</SectionHeading> */}
-			{/* <div>
-				{testimonials.map((testimonial, i) => (
-					<React.Fragment key={i}>
-						<p>{testimonial.user_name}</p>
-						<p>{testimonial.user_testimonial}</p>
-						<p>{testimonial.user_location}</p>
-					</React.Fragment>
-				))}
-			</div> */}
-			{/* <div className="container relative overflow-hidden rounded-lg max-w-[42rem] border border-black/5"> */}
 			<div className="container relative bg-gray-100 rounded-lg max-w-[42rem] border border-black/5">
 				<TestimonialSlider testimonials={testimonials} />
-				{/* <TestimonialSliderCard testimonials={testimonials} /> */}
-				{/* <div
-					className=" bg-[#fde2e3] absolute top-[-2rem] -z-10 right-[-2rem] h-[11.25rem] w-[11.25rem] blur-[rem]  rounded-full "
-					// sm:w-[68.75rem]"
-				></div>
-				<div
-					className=" bg-[#dbd7fb] absolute bottom-[-2rem] -z-10 left-[-2rem] h-[11.25rem] w-[10rem] blur-[5rem] rounded-full"
-					// sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left=[-15rem] 2xl:left-[-5rem]"
-				></div> */}
 			</div>
 			<motion.div
 				className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
@@ -123,12 +103,18 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 				transition={{ delay: 0.1 }}
 			>
 				<Link
-					href="/account/create-account"
+					href={
+						userIsLoggedIn ? '/testimonials/new' : '/account/create-account'
+					}
 					className="group bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
 					onClick={() => {
+						if (userIsLoggedIn) {
+							setActiveSection('Review');
+						} else {
+							setActiveSection('Account');
+						}
 						// @ts-ignore: Argument of type 'string' is not assignable to union type
 						setHeaderSections(linksTestimonials);
-						setActiveSection('Account');
 						setTimeOfLastCLick(Date.now());
 					}}
 				>
@@ -136,10 +122,6 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 					<ArrowRightIcon className="opacity-70 group-hover:translate-x-1 transition" />
 				</Link>
 			</motion.div>
-			{/* <div className="container">
-				<h1>shadcn cards</h1>
-				<TestimonialSliderCard testimonials={testimonialz} />
-			</div> */}
 		</section>
 	);
 }
