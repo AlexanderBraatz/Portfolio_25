@@ -1,6 +1,6 @@
 import React from 'react';
 import { supabase } from '@/lib/supabaseClient';
-
+import * as motion from 'motion/react-client';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import Testimonials from './testimonials-read';
 import { getUser } from '@/auth/server';

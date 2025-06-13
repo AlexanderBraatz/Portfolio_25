@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { animate, motion } from 'framer-motion';
 import { links } from '@/lib/data';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -16,7 +16,11 @@ export default function Header() {
 		headerSections,
 		setHeaderSections
 	} = useActiveSectionContext();
-
+	const isPastFirstLoadRef = useRef(false);
+	// ... reset it after first render
+	useEffect(() => {
+		isPastFirstLoadRef.current = true;
+	}, []);
 	const pathname = usePathname();
 	console.log('header ', pathname);
 
@@ -35,7 +39,11 @@ export default function Header() {
 					{headerSections.map(link => (
 						<motion.li
 							className={'flex justify-center items-center h-3/4 relative '}
-							initial={{ y: -100, opacity: 0 }}
+							initial={
+								isPastFirstLoadRef.current
+									? { y: 0, opacity: 100 }
+									: { y: -100, opacity: 0 }
+							}
 							animate={{ y: 0, opacity: 100 }}
 							key={link.hash}
 						>
@@ -56,7 +64,7 @@ export default function Header() {
 								{link.name}
 								{activeSection === link.name && (
 									<motion.span
-										className="bg-gray-100 rounded-full absolute inset-0 -z-10"
+										className="bg-gray-200 rounded-full absolute inset-0 -z-10"
 										layoutId="activeSection"
 										transition={{
 											type: 'spring',

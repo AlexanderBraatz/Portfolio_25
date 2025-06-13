@@ -108,6 +108,7 @@ export default function Testimonials({
 					}
 					className="group bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
 					onClick={() => {
+						setTimeOfLastCLick(Date.now());
 						if (userIsLoggedIn) {
 							setActiveSection('Review');
 						} else {
@@ -115,7 +116,6 @@ export default function Testimonials({
 						}
 						// @ts-ignore: Argument of type 'string' is not assignable to union type
 						setHeaderSections(linksTestimonials);
-						setTimeOfLastCLick(Date.now());
 					}}
 				>
 					Share Your Experience
