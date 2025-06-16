@@ -8,11 +8,12 @@ import { motion } from 'framer-motion';
 import SubmitBtn from './submit-btn';
 import toast from 'react-hot-toast';
 import ImageUploader from './image-uploader';
-import { FileUploadDirectUploadDemo } from './file-upload-component';
+import { FileUploadDirectUpload } from './file-upload-component';
 
 export default function NewTestimonialForm() {
 	const formRef = useRef<HTMLFormElement>(null);
 	const imgSrcRef: MutableRefObject<string | null> = useRef<string>(null);
+	const [isPending, startTransition] = React.useTransition();
 	return (
 		<motion.section
 			id="NewTestimonialForm"
@@ -37,6 +38,7 @@ export default function NewTestimonialForm() {
 				ref={formRef}
 				className="mt-10 flex flex-col"
 				action={async formData => {
+					//is imagSrcRef.current null  then bock and set imageMissing to ture , change stying acordignly
 					const { data, error } = await addNewTestimonial(
 						formData,
 						imgSrcRef.current
@@ -47,11 +49,11 @@ export default function NewTestimonialForm() {
 						return;
 					}
 					formRef.current?.reset();
-					toast.success('addNewTestimonial submitted successfully!!');
+					toast.success('New Review submitted successfully!!');
 				}}
 			>
 				<input
-					type="name"
+					type="text"
 					name="name"
 					placeholder="Full Name"
 					className="h-14 px-4 bg-white borderBlack rounded-lg"
@@ -59,9 +61,9 @@ export default function NewTestimonialForm() {
 					maxLength={500}
 				></input>
 				<input
-					type="role"
+					type="text"
 					name="role"
-					placeholder="Your role at the time of our collaboration"
+					placeholder="Your role, at the time of our collaboration"
 					className="h-14 mt-3  px-4 bg-white borderBlack rounded-lg"
 					required
 					maxLength={500}
@@ -71,10 +73,15 @@ export default function NewTestimonialForm() {
 					placeholder="Your Testimonial"
 					className="h-36 bg-white borderBlack my-3 rounded-lg p-4"
 					required
-					maxLength={5000}
+					maxLength={300}
 				></textarea>
-				<FileUploadDirectUploadDemo imgSrcRef={imgSrcRef} />
-				<SubmitBtn />
+				<FileUploadDirectUpload
+					imgSrcRef={imgSrcRef}
+					isPending={isPending}
+					startTransition={startTransition}
+				/>
+				{/* if image upload iss till pending then disable the button */}
+				<SubmitBtn isPendingImageUpload={isPending as boolean} />
 			</form>
 			{/* <ImageUploader imgSrcRef={imgSrcRef} /> */}
 		</motion.section>
