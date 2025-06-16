@@ -73,14 +73,14 @@ export default function TestimonialSlider({
 												<p className="text-sm font-semibold text-gray-900">
 													{testimonial.name}
 												</p>
-												<p className="text-sm text-gray-500 0">
+												<p className="text-sm text-gray-500 ">
 													{testimonial.role}
 												</p>
 											</div>
 											<div className=" flex-grow">
 												{!testimonial.hasPassedModeration ? (
-													<div className="w-fit float-right rounded-md p-1 px-2 border border-gray-900  bg-[#fde2e3]">
-														<p className="text-sm text-gray-900 w-48 ">
+													<div className="w-fit float-right rounded-md p-1 px-2 border bg-gray-200 //border-gray-900 border-black/5 //border-gray-500  //bg-[#fde2e3]">
+														<p className="text-sm text-gray-900// text-gray-900 w-48 ">
 															Still pending approval, only you can see this
 															right now.
 														</p>
