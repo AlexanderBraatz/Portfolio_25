@@ -56,15 +56,29 @@ export default function Header() {
 								)}
 								href={link.hash}
 								onClick={() => {
-									link.name == 'Home' && setHeaderSections(links);
-									setActiveSection(link.name);
-									setTimeOfLastCLick(Date.now());
+									if (link.hash === '/testimonials/new') {
+										if (
+											pathname === '/account/create-account' ||
+											pathname === '/login'
+										) {
+											//do nothing
+										} else {
+											link.name == 'Home' && setHeaderSections(links);
+											setActiveSection(link.name);
+											setTimeOfLastCLick(Date.now());
+										}
+									} else {
+										// wait what am is doing hereeeere
+										link.name == 'Home' && setHeaderSections(links);
+										setActiveSection(link.name);
+										setTimeOfLastCLick(Date.now());
+									}
 								}}
 							>
 								{link.name}
 								{activeSection === link.name && (
 									<motion.span
-										className="bg-gray-200 rounded-full absolute inset-0 -z-10"
+										className="bg-gray-100 rounded-full absolute inset-0 -z-10"
 										layoutId="activeSection"
 										transition={{
 											type: 'spring',
