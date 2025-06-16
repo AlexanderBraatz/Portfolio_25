@@ -38,7 +38,6 @@ export default function NewTestimonialForm() {
 				ref={formRef}
 				className="mt-10 flex flex-col"
 				action={async formData => {
-					//is imagSrcRef.current null  then bock and set imageMissing to ture , change stying acordignly
 					const { data, error } = await addNewTestimonial(
 						formData,
 						imgSrcRef.current
