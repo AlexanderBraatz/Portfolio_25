@@ -19,60 +19,66 @@ import * as React from 'react';
 // import { toast } from 'sonner';
 import toast from 'react-hot-toast';
 
-export function FileUploadDirectUploadDemo({
-	imgSrcRef
+export function FileUploadDirectUpload({
+	imgSrcRef,
+	isPending,
+	startTransition
 }: {
 	imgSrcRef: React.MutableRefObject<string | null>;
+	isPending: boolean;
+	startTransition: Function;
 }) {
 	const [files, setFiles] = React.useState<File[]>([]);
 
 	const onUpload: NonNullable<FileUploadProps['onUpload']> = React.useCallback(
 		async (files, { onProgress, onSuccess, onError }) => {
-			try {
-				// Process each file individually
-				let urls = [];
-				const uploadPromises = files.map(async file => {
-					try {
-						const { imageUrl, error } = await uploadImage({
-							file,
-							bucket: 'avatar-pics'
-						});
-						urls.push(imageUrl);
-						// Simulate file upload with progress
-						const totalChunks = 10;
-						let uploadedChunks = 0;
+			startTransition(async () => {
+				try {
+					// Process each file individually
+					let urls = [];
+					const uploadPromises = files.map(async file => {
+						try {
+							const { imageUrl, error } = await uploadImage({
+								file,
+								bucket: 'avatar-pics'
+							});
+							urls.push(imageUrl);
+							// Simulate file upload with progress
+							const totalChunks = 10;
+							let uploadedChunks = 0;
 
-						// Simulate chunk upload with delays
-						for (let i = 0; i < totalChunks; i++) {
-							// Simulate network delay (100-300ms per chunk)
-							await new Promise(resolve =>
-								setTimeout(resolve, Math.random() * 200 + 100)
+							// Simulate chunk upload with delays
+							for (let i = 0; i < totalChunks; i++) {
+								// Simulate network delay (100-300ms per chunk)
+								await new Promise(resolve =>
+									setTimeout(resolve, Math.random() * 200 + 100)
+								);
+
+								// Update progress for this specific file
+								uploadedChunks++;
+								const progress = (uploadedChunks / totalChunks) * 100;
+								onProgress(file, progress);
+							}
+
+							imgSrcRef.current = urls[0];
+							// Simulate server processing delay
+							await new Promise(resolve => setTimeout(resolve, 500));
+							onSuccess(file);
+						} catch (error) {
+							onError(
+								file,
+								error instanceof Error ? error : new Error('Upload failed')
 							);
-
-							// Update progress for this specific file
-							uploadedChunks++;
-							const progress = (uploadedChunks / totalChunks) * 100;
-							onProgress(file, progress);
 						}
+					});
 
-						imgSrcRef.current = urls[0];
-						// Simulate server processing delay
-						await new Promise(resolve => setTimeout(resolve, 500));
-						onSuccess(file);
-					} catch (error) {
-						onError(
-							file,
-							error instanceof Error ? error : new Error('Upload failed')
-						);
-					}
-				});
-
-				// Wait for all uploads to complete
-				await Promise.all(uploadPromises);
-			} catch (error) {
-				// This handles any error that might occur outside the individual upload processes
-				console.error('Unexpected error during upload:', error);
-			}
+					// Wait for all uploads to complete
+					await Promise.all(uploadPromises);
+				} catch (error) {
+					// This handles any error that might occur outside the individual upload processes
+					console.error('Unexpected error during upload:', error);
+				}
+			});
 		},
 		[]
 	);
