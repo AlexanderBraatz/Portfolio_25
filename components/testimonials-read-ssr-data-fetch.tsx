@@ -78,14 +78,11 @@ export default async function TestimonialsWithData() {
 	const fillterdTestimonials = testimonials.filter(testimonial => {
 		// get new types to fix the ts complaint below
 		if (testimonial.createdByUserEmail === user?.email) {
-			console.log(testimonial.createdByUserEmail, user?.email);
 			return true;
 		}
 		if (testimonial.hasPassedModeration) {
-			console.log(testimonial.hasPassedModeration);
 			return true;
 		}
-		console.log('other');
 		return false;
 	});
 	// in here i want to use a reduce method to reorder the testemaoil
