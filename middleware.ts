@@ -1,7 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { Herr_Von_Muellerhoff } from 'next/font/google';
 import { NextResponse, type NextRequest } from 'next/server';
-import { useActiveSectionContext } from './context/active-section-context';
 
 export async function middleware(request: NextRequest) {
 	let response = NextResponse.next({

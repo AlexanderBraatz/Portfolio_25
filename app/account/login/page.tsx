@@ -4,7 +4,6 @@ import { loginAction } from '@/actions/users';
 import LoginButton from '@/components/login-btn';
 import { useActiveSectionContext } from '@/context/active-section-context';
 import { linksTestimonials } from '@/lib/data';
-import { Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
@@ -24,6 +23,7 @@ function LoginPage() {
 			} else {
 				router.push('/testimonials/new');
 				setActiveSection('Review');
+				// @ts-ignore
 				setHeaderSections(linksTestimonials);
 				toast.success('Successfully logged in.');
 			}

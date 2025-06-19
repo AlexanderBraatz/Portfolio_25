@@ -35,7 +35,7 @@ export function FileUploadDirectUpload({
 			startTransition(async () => {
 				try {
 					// Process each file individually
-					let urls = [];
+					let urls = [] as string[];
 					const uploadPromises = files.map(async file => {
 						try {
 							const { imageUrl, error } = await uploadImage({

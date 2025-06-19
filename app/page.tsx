@@ -7,13 +7,6 @@ import SectionDivider from '@/components/section-divider';
 import Skills from '@/components/skills';
 import TestimonialsWithData from '@/components/testimonials-read-ssr-data-fetch';
 
-import SignOutButton from '@/components/SignOutButton';
-import Link from 'next/link';
-import { getUser } from '@/auth/server';
-import AuthStatusPanel from '@/components/authStatusPanel';
-import Header from '@/components/header';
-import { links } from '@/lib/data';
-
 export default function Home() {
 	return (
 		<>

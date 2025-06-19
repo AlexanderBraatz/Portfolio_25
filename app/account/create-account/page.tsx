@@ -5,8 +5,7 @@ import { useState, useTransition } from 'react';
 import toast from 'react-hot-toast';
 
 import { createAccountAction } from '@/actions/users';
-import { Loader2 } from 'lucide-react';
-import SubmitBtn from '@/components/submit-btn';
+
 import CreateAccountButton from '@/components/creat-account-btn';
 import SectionHeading from '@/components/section-heading';
 import { motion } from 'framer-motion';

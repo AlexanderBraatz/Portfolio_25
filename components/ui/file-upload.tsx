@@ -31,7 +31,7 @@ function useLazyRef<T>(fn: () => T) {
 		ref.current = fn();
 	}
 
-	return ref as React.RefObject<T>;
+	return ref as React.MutableRefObject<T>;
 }
 
 type Direction = 'ltr' | 'rtl';
@@ -330,8 +330,11 @@ function FileUploadRoot(props: FileUploadRootProps) {
 	const labelId = React.useId();
 
 	const dir = useDirection(dirProp);
-	const listeners = useLazyRef(() => new Set<() => void>()).current;
-	const files = useLazyRef<Map<File, FileState>>(() => new Map()).current;
+	const listeners = useLazyRef(() => new Set<() => void>()).current as Set<
+		() => void
+	>; // the useLazy ref takes care of the null case
+	const files = useLazyRef<Map<File, FileState>>(() => new Map())
+		.current as Map<File, FileState>;
 	const inputRef = React.useRef<HTMLInputElement>(null);
 	const isControlled = value !== undefined;
 
@@ -1057,10 +1060,10 @@ function FileUploadItemPreview(props: FileUploadItemPreviewProps) {
 			if (render) return render(file);
 
 			if (itemContext.fileState?.file.type.startsWith('image/')) {
-				let url = urlCache.get(file);
+				let url = urlCache?.get(file);
 				if (!url) {
 					url = URL.createObjectURL(file);
-					urlCache.set(file, url);
+					urlCache?.set(file, url);
 				}
 				return (
 					<img
@@ -1073,10 +1076,10 @@ function FileUploadItemPreview(props: FileUploadItemPreviewProps) {
 						width={40}
 						onLoad={event => {
 							if (!(event.target instanceof HTMLImageElement)) return;
-							const cachedUrl = urlCache.get(file);
+							const cachedUrl = urlCache?.get(file);
 							if (cachedUrl) {
 								URL.revokeObjectURL(cachedUrl);
-								urlCache.delete(file);
+								urlCache?.delete(file);
 							}
 						}}
 					/>

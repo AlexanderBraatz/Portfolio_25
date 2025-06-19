@@ -1,14 +1,4 @@
-import { loginAction } from '@/actions/users';
-import LoginButton from '@/components/login-btn';
-import { useActiveSectionContext } from '@/context/active-section-context';
-import { linksTestimonials } from '@/lib/data';
-import { Loader2 } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
-import toast from 'react-hot-toast';
 import UserLogoutText from './user-logout-text';
-import Wrapper from './wrapper';
 import SignOutButton from '@/components/SignOutButton';
 
 function LogoutPage() {
