@@ -2,7 +2,7 @@
 
 import { signOutAction } from '@/actions/users';
 import { useActiveSectionContext } from '@/context/active-section-context';
-import { links } from '@/lib/data';
+import { homePageLinks, links } from '@/lib/data';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
@@ -23,7 +23,7 @@ export default function SignOutButton() {
 			if (errorMessage) {
 				toast.error(errorMessage);
 			} else {
-				setHeaderSections(links);
+				setHeaderSections(homePageLinks);
 				router.push('/');
 				toast.success('Successfully signed out.');
 			}

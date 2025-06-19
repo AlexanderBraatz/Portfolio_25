@@ -1,5 +1,5 @@
-import { allLinks } from '@/lib/data';
+import { allLinks, homePageLinks, testimonialLinks } from '@/lib/data';
 
 export type SectionName =
-	| (typeof allLinks.homepage)[number]['name']
-	| (typeof allLinks.testimonials)[number]['name'];
+	| (typeof homePageLinks)[number]['name']
+	| (typeof testimonialLinks)[number]['name'];

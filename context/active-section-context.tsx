@@ -2,7 +2,14 @@
 
 import React, { useState, createContext, useContext } from 'react';
 import type { SectionName } from '@/lib/types/types';
-import { links, linksTestimonials, type LinksType } from '@/lib/data';
+import {
+	homePageLinks,
+	links,
+	linksTestimonials,
+	testimonialLinks,
+	type LinkType,
+	type LinksType
+} from '@/lib/data';
 import { usePathname } from 'next/navigation';
 
 type ActiveSectionContextProviderProps = { children: React.ReactNode };
@@ -12,10 +19,8 @@ type ActiveSectionContextType = {
 	setActiveSection: React.Dispatch<React.SetStateAction<SectionName>>;
 	timeOfLastClick: number;
 	setTimeOfLastCLick: React.Dispatch<React.SetStateAction<number>>;
-	headerSections: typeof links | typeof linksTestimonials;
-	setHeaderSections:
-		| React.Dispatch<React.SetStateAction<typeof links>>
-		| React.Dispatch<React.SetStateAction<typeof linksTestimonials>>;
+	headerSections: LinkType[];
+	setHeaderSections: React.Dispatch<React.SetStateAction<LinkType[]>>;
 };
 
 const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
@@ -33,7 +38,7 @@ export default function ActiveSectionContextProvider({
 	);
 	const [timeOfLastClick, setTimeOfLastCLick] = useState(0); // we need keep track of this to temporarrily block the observer
 	const [headerSections, setHeaderSections] = useState(
-		onAccount || onTestimonials ? linksTestimonials : links
+		onAccount || onTestimonials ? testimonialLinks : homePageLinks
 	);
 
 	return (

@@ -7,6 +7,81 @@ import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
 import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
 import protfolioScreenshot1 from '@/public/protfolio-screenshot-1.png';
 
+// fixing the structure by using enums and genric types rather than as const
+
+export type LinkName =
+	| 'Home'
+	| 'Reviews'
+	| 'Work'
+	| 'About'
+	| 'Skills'
+	| 'Experience'
+	| 'Contact'
+	| 'Review'
+	| 'Account';
+
+export type LinkHash =
+	| '/#home'
+	| '#reviews'
+	| '#projects'
+	| '#about'
+	| '#skills'
+	| '#experience'
+	| '#contact'
+	| '/'
+	| '/testimonials/new'
+	| '/account/logout';
+
+export interface LinkType {
+	readonly name: LinkName;
+	readonly hash: LinkHash;
+}
+
+export const homePageLinks: LinkType[] = [
+	{
+		name: 'Home',
+		hash: '/#home'
+	},
+	{
+		name: 'Reviews',
+		hash: '#reviews'
+	},
+	{
+		name: 'Work',
+		hash: '#projects'
+	},
+	{
+		name: 'About',
+		hash: '#about'
+	},
+	{
+		name: 'Skills',
+		hash: '#skills'
+	},
+	{
+		name: 'Experience',
+		hash: '#experience'
+	},
+	{
+		name: 'Contact',
+		hash: '#contact'
+	}
+];
+
+export const testimonialLinks: LinkType[] = [
+	{
+		name: 'Home',
+		hash: '/'
+	},
+	{
+		name: 'Review',
+		hash: '/testimonials/new'
+	},
+	{
+		name: 'Account',
+		hash: '/account/logout'
+	}
+];
 // keeping it generic
 
 export interface LinksTypeGeneric {

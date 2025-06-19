@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { animate, motion } from 'framer-motion';
-import { links } from '@/lib/data';
+import { homePageLinks, links } from '@/lib/data';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { useActiveSectionContext } from '@/context/active-section-context';
@@ -25,7 +25,7 @@ export default function Header() {
 	console.log('header ', pathname);
 
 	const headerWidth =
-		headerSections === links ? 'sm:w-[41rem]' : 'sm:w-[18rem]';
+		headerSections === homePageLinks ? 'sm:w-[41rem]' : 'sm:w-[18rem]';
 	return (
 		<header className="z-[999] relative">
 			<motion.div
@@ -63,13 +63,13 @@ export default function Header() {
 										) {
 											//do nothing
 										} else {
-											link.name == 'Home' && setHeaderSections(links);
+											link.name == 'Home' && setHeaderSections(homePageLinks);
 											setActiveSection(link.name);
 											setTimeOfLastCLick(Date.now());
 										}
 									} else {
 										// wait what am is doing hereeeere
-										link.name == 'Home' && setHeaderSections(links);
+										link.name == 'Home' && setHeaderSections(homePageLinks);
 										setActiveSection(link.name);
 										setTimeOfLastCLick(Date.now());
 									}
