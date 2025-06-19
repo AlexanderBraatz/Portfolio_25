@@ -2,8 +2,7 @@
 
 import { signOutAction } from '@/actions/users';
 import { useActiveSectionContext } from '@/context/active-section-context';
-import { homePageLinks, links } from '@/lib/data';
-import { Loader2 } from 'lucide-react';
+import { homePageLinks } from '@/lib/data';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import toast from 'react-hot-toast';

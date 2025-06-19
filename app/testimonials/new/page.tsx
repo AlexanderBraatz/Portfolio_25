@@ -2,16 +2,10 @@
 
 import React from 'react';
 import NewTestimonialForm from '@/components/newTestimonialForm';
-import Testimonials from '@/components/testimonials-read';
-import AuthStatusPanel from '@/components/authStatusPanel';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import headshot from '@/public/headshot.jpeg';
-import TestimonialSlider from '@/components/testimonials-slider';
-import { supabase } from '@/lib/supabaseClient';
-import SectionDivider from '@/components/section-divider';
-import Header from '@/components/header';
-import { links, linksTestimonials } from '@/lib/data';
+
 export default async function NewTestimonial() {
 	// let { data: testimonials, error } = await supabase
 	// 	.from('Testimonials')
@@ -29,7 +23,6 @@ export default async function NewTestimonial() {
 	return (
 		<>
 			{/* <Header
-				// @ts-ignore: readonly array cannot be assigned to mutable LinksTypeGeneric[]
 				links={linksTestimonials}
 				headerWidth={'sm:w-[18rem]'}
 			/> */}

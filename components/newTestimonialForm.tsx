@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 import ImageUploader from './image-uploader';
 import { FileUploadDirectUpload } from './file-upload-component';
 import { useRouter } from 'next/navigation';
-import { links } from '@/lib/data';
+import { homePageLinks } from '@/lib/data';
 import { useActiveSectionContext } from '@/context/active-section-context';
 
 export default function NewTestimonialForm() {
@@ -66,11 +66,10 @@ export default function NewTestimonialForm() {
 							formRef.current?.reset();
 							toast.success('New Review submitted successfully!!');
 							setSubmitSuccess(true);
-							await new Promise(resolve => setTimeout(resolve, 3000));
+							await new Promise(resolve => setTimeout(resolve, 2000));
 							router.push('/#reviews');
 							setActiveSection('Reviews');
-							// @ts-ignore: Argument of type 'string' is not assignable to union type
-							setHeaderSections(links);
+							setHeaderSections(homePageLinks);
 						}}
 					>
 						<input

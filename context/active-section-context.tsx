@@ -2,14 +2,7 @@
 
 import React, { useState, createContext, useContext } from 'react';
 import type { SectionName } from '@/lib/types/types';
-import {
-	homePageLinks,
-	links,
-	linksTestimonials,
-	testimonialLinks,
-	type LinkType,
-	type LinksType
-} from '@/lib/data';
+import { homePageLinks, testimonialLinks, type LinkType } from '@/lib/data';
 import { usePathname } from 'next/navigation';
 
 type ActiveSectionContextProviderProps = { children: React.ReactNode };

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import SectionHeading from './section-heading';
-import { supabase } from '@/lib/supabaseClient';
+
 import { motion } from 'framer-motion';
 
 import TestimonialSlider from '@/components/testimonials-slider';
@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import { Testimonial } from '@/lib/types/testimonial';
 import { useActiveSectionContext } from '@/context/active-section-context';
-import { linksTestimonials } from '@/lib/data';
+import { testimonialLinks } from '@/lib/data';
 import { useSectionInView } from '@/lib/hooks';
 const ArrowRightIcon = BsArrowRight as React.ComponentType<
 	React.HTMLAttributes<HTMLElement>
@@ -114,8 +114,7 @@ export default function Testimonials({
 						} else {
 							setActiveSection('Account');
 						}
-						// @ts-ignore: Argument of type 'string' is not assignable to union type
-						setHeaderSections(linksTestimonials);
+						setHeaderSections(testimonialLinks);
 					}}
 				>
 					Share Your Experience

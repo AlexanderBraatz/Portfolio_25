@@ -82,65 +82,6 @@ export const testimonialLinks: LinkType[] = [
 		hash: '/account/logout'
 	}
 ];
-// keeping it generic
-
-export interface LinksTypeGeneric {
-	readonly name: string;
-	readonly hash: string;
-}
-export type LinksTypeTestimonials = (typeof links)[number];
-export const linksTestimonials = [
-	{
-		name: 'Home',
-		hash: '/'
-	},
-	{
-		name: 'Review',
-		hash: '/testimonials/new'
-	},
-	{
-		name: 'Account',
-		hash: '/account/logout'
-	}
-] as const;
-
-export type LinksType = (typeof links)[number];
-export const links = [
-	{
-		name: 'Home',
-		hash: '/#home'
-	},
-	{
-		name: 'Reviews',
-		hash: '#reviews'
-	},
-	{
-		name: 'Work',
-		hash: '#projects'
-	},
-	{
-		name: 'About',
-		hash: '#about'
-	},
-	{
-		name: 'Skills',
-		hash: '#skills'
-	},
-	{
-		name: 'Experience',
-		hash: '#experience'
-	},
-	{
-		name: 'Contact',
-		hash: '#contact'
-	}
-] as const; //makes the object read only and gives typescript intelesense
-
-export const allLinks = {
-	homepage: links,
-	testimonials: linksTestimonials
-} as const;
-
 export const experiencesData = [
 	{
 		title: 'DevelopMe bootcamp',
