@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 
 import SubmitBtn from './submit-btn';
 import toast from 'react-hot-toast';
-import ImageUploader from './image-uploader';
 import { FileUploadDirectUpload } from './file-upload-component';
 import { useRouter } from 'next/navigation';
 import { homePageLinks } from '@/lib/data';
@@ -105,7 +104,6 @@ export default function NewTestimonialForm() {
 					</form>
 				</>
 			)}
-			{/* <ImageUploader imgSrcRef={imgSrcRef} /> */}
 		</motion.section>
 	);
 }
