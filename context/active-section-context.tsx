@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState, createContext, useContext } from 'react';
-import type { SectionName } from '@/lib/types';
+import type { SectionName } from '@/lib/types/types';
+import { homePageLinks, testimonialLinks, type LinkType } from '@/lib/data';
+import { usePathname } from 'next/navigation';
 
 type ActiveSectionContextProviderProps = { children: React.ReactNode };
 
@@ -10,6 +12,8 @@ type ActiveSectionContextType = {
 	setActiveSection: React.Dispatch<React.SetStateAction<SectionName>>;
 	timeOfLastClick: number;
 	setTimeOfLastCLick: React.Dispatch<React.SetStateAction<number>>;
+	headerSections: LinkType[];
+	setHeaderSections: React.Dispatch<React.SetStateAction<LinkType[]>>;
 };
 
 const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
@@ -19,8 +23,16 @@ const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
 export default function ActiveSectionContextProvider({
 	children
 }: ActiveSectionContextProviderProps) {
-	const [activeSection, setActiveSection] = useState<SectionName>('Home');
+	const pathname = usePathname();
+	const onTestimonials = pathname.startsWith('/testimonials');
+	const onAccount = pathname.startsWith('/account');
+	const [activeSection, setActiveSection] = useState<SectionName>(
+		onAccount ? 'Account' : onTestimonials ? 'Review' : 'Home'
+	);
 	const [timeOfLastClick, setTimeOfLastCLick] = useState(0); // we need keep track of this to temporarrily block the observer
+	const [headerSections, setHeaderSections] = useState(
+		onAccount || onTestimonials ? testimonialLinks : homePageLinks
+	);
 
 	return (
 		<ActiveSectionContext.Provider
@@ -28,7 +40,9 @@ export default function ActiveSectionContextProvider({
 				activeSection,
 				setActiveSection,
 				timeOfLastClick,
-				setTimeOfLastCLick
+				setTimeOfLastCLick,
+				headerSections,
+				setHeaderSections
 			}}
 		>
 			{children}
