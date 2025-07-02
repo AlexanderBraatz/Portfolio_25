@@ -6,7 +6,6 @@ import SectionHeading from './section-heading';
 import { motion } from 'framer-motion';
 
 import TestimonialSlider from '@/components/testimonials-slider';
-import TestimonialSliderCard from '@/components/testimonials-slider-card';
 import Link from 'next/link';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import { Testimonial } from '@/lib/types/testimonial';
