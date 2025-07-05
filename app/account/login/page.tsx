@@ -30,7 +30,7 @@ function LoginPage() {
 	};
 
 	return (
-		<div className="bg-gray-100 border border-black/5 w-96 rounded-lg p-8">
+		<div className="bg-gray-100 border border-black/5 w-full max-w-sm rounded-lg p-8">
 			<h1 className="text-2xl text-center mb-2">Login</h1>
 			<p className="text-center text-sm mt-2 mb-6 px-4">
 				Knock knock. who’s there? You! Log in to update your Review.
