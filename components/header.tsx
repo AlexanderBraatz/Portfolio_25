@@ -22,7 +22,6 @@ export default function Header() {
 		isPastFirstLoadRef.current = true;
 	}, []);
 	const pathname = usePathname();
-	console.log('header ', pathname);
 
 	const headerWidth =
 		headerSections === homePageLinks ? 'sm:w-[41rem]' : 'sm:w-[18rem]';

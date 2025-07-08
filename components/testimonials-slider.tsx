@@ -47,7 +47,7 @@ export default function TestimonialSlider({
 										<q className="flex-1">{testimonial.quote}</q>
 										<div className="flex flex-col gap-4 sm:flex-row">
 											<div className="mt-6 flex gap-3 ">
-												<span className="inline-flex rounded-full">
+												<div className="block rounded-full h-10 w-10 min-w-min">
 													{testimonial.imgSrc != null ? (
 														<Image
 															loader={imageLoader}
@@ -69,8 +69,8 @@ export default function TestimonialSlider({
 															loading="lazy"
 														/>
 													)}
-												</span>
-												<div className="">
+												</div>
+												<div className="max-w-[80%]">
 													<p className="text-sm font-semibold text-gray-900">
 														{testimonial.name}
 													</p>

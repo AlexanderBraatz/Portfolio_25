@@ -91,21 +91,22 @@ export default function Testimonials({
 			id="reviews"
 			className=" scroll-mt-28 mb-28 sm:mb-40 "
 		>
-			<SectionHeading>My Reviews</SectionHeading>
-			<div className="container relative bg-gray-100 rounded-lg max-w-[42rem] border border-black/5">
-				<TestimonialSlider testimonials={testimonials} />
-			</div>
 			<motion.div
-				className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-sm sm:text-lg font-medium"
+				className="flex flex-col items-center justify-center "
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ delay: 0.1 }}
 			>
+				<SectionHeading>My Reviews</SectionHeading>
+				<div className="container relative bg-gray-100 rounded-lg max-w-[42rem] border border-black/5">
+					<TestimonialSlider testimonials={testimonials} />
+				</div>
 				<Link
 					href={
 						userIsLoggedIn ? '/testimonials/new' : '/account/create-account'
 					}
-					className="group bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
+					// className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-sm sm:text-lg font-medium"
+					className="group text-sm sm:text-lg font-medium bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
 					onClick={() => {
 						setTimeOfLastCLick(Date.now());
 						if (userIsLoggedIn) {
