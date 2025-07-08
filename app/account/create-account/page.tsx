@@ -30,13 +30,13 @@ function CreateAccount() {
 			{submitSuccess ? (
 				<>
 					<motion.div
-						className=" hidden sm:block"
+						className=""
 						initial={{ opacity: 0, y: 100 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.125 }}
 					>
 						<SectionHeading>Almost there!</SectionHeading>
-						<div className="flex flex-col justify-center items-center h-5 ">
+						<div className="flex flex-col justify-center items-center gap-2 sm:gap-0  min-h-5 text-center">
 							<p className="text-gray-700 ">
 								Follow the verification link we sent to your email.
 							</p>
