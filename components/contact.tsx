@@ -70,7 +70,7 @@ export default function Contact() {
 					required
 					maxLength={5000}
 				></textarea>
-				<SubmitBtn isPendingImageUpload={false} />
+				<SubmitBtn />
 			</form>
 		</motion.section>
 	);

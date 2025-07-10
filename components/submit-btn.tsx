@@ -7,11 +7,11 @@ const FaPaperPlaneIcon = FaPaperPlane as React.ComponentType<
 >;
 
 export default function SubmitBtn({
-	isPendingImageUpload,
-	formIsValid
+	isPendingImageUpload = false,
+	formIsValid = true
 }: {
-	isPendingImageUpload: boolean;
-	formIsValid: boolean;
+	isPendingImageUpload?: boolean;
+	formIsValid?: boolean;
 }) {
 	const { pending } = useFormStatus();
 	return (
