@@ -16,9 +16,14 @@ export default function NewTestimonialForm() {
 	const formRef = useRef<HTMLFormElement>(null);
 	const imgSrcRef: MutableRefObject<string | null> = useRef<string>(null);
 	const [isPending, startTransition] = React.useTransition();
+	const [formIsValid, setFormIsValid] = useState(false);
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 	const router = useRouter();
 	const { setActiveSection, setHeaderSections } = useActiveSectionContext();
+
+	const handleInput = () => {
+		if (formRef.current) setFormIsValid(formRef.current.checkValidity());
+	};
 	return (
 		<motion.section
 			id="NewTestimonialForm"
@@ -49,8 +54,12 @@ export default function NewTestimonialForm() {
 					<p className="text-gray-700 -mt-6">
 						Just a couple of sentences about working together go a long way.
 					</p>
+					<p className="text-gray-700 ">
+						Your testimonial will go live following a swift vetting process.
+					</p>
 					<form
 						ref={formRef}
+						onInput={handleInput}
 						className="mt-10 flex flex-col"
 						action={async formData => {
 							const { data, error } = await addNewTestimonial(
@@ -82,14 +91,14 @@ export default function NewTestimonialForm() {
 						<input
 							type="text"
 							name="role"
-							placeholder="Your role, at the time of our collaboration"
+							placeholder="Your role at the time of our collaboration"
 							className="h-14 mt-3  px-4 bg-white borderBlack rounded-lg"
 							required
 							maxLength={500}
 						></input>
 						<textarea
 							name="quote"
-							placeholder="Your Testimonial"
+							placeholder="Your testimonial ..."
 							className="h-36 bg-white borderBlack my-3 rounded-lg p-4"
 							required
 							maxLength={300}
@@ -100,7 +109,10 @@ export default function NewTestimonialForm() {
 							startTransition={startTransition}
 						/>
 						{/* if image upload iss till pending then disable the button */}
-						<SubmitBtn isPendingImageUpload={isPending as boolean} />
+						<SubmitBtn
+							isPendingImageUpload={isPending as boolean}
+							formIsValid={formIsValid}
+						/>
 					</form>
 				</>
 			)}
