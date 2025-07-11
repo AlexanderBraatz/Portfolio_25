@@ -67,7 +67,6 @@ export default function Header() {
 											setTimeOfLastCLick(Date.now());
 										}
 									} else {
-										// wait what am is doing hereeeere
 										link.name == 'Home' && setHeaderSections(homePageLinks);
 										setActiveSection(link.name);
 										setTimeOfLastCLick(Date.now());

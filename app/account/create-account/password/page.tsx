@@ -49,18 +49,29 @@ function CreateAccount() {
 				</>
 			) : (
 				<div className="bg-gray-100 border border-black/5 w-full max-w-sm rounded-lg p-8">
-					<h1 className="text-2xl text-center mb-2">Create Account </h1>
-					<p className="text-center text-sm mt-2 mb-6 px-4">
+					<h1 className="text-2xl text-center mb-2 font-semibold">
+						Sign up to continue
+					</h1>
+					{/* <p className="text-center text-sm mt-2 mb-6 px-4">
 						Please create an account or{' '}
 						<Link
-							href="/account/login"
+							href="/account/login/password"
 							className="underline"
 						>
 							Login
 						</Link>{' '}
 						to leave your Review.
+					</p> */}
+					{/* <p className="text-center text-sm mt-4 mb-6"> */}
+					<p className="text-center text-sm mt-2 mb-6 px-4">
+						Already have an account?{' '}
+						<Link
+							href="/account/login/password"
+							className="underline"
+						>
+							Sign in
+						</Link>
 					</p>
-
 					<form
 						className="flex flex-col bg-gray-100 gap-4"
 						action={handleClickCreateAccountButton}
@@ -83,14 +94,18 @@ function CreateAccount() {
 							<CreateAccountButton />
 						</div>
 					</form>
-
-					<p className="text-center text-sm mt-4">
+					{/* <p className="text-center text-sm mt-4">
 						Already have an account?{' '}
 						<Link
-							href="/account/login"
+							href="/account/login/password"
 							className="underline"
 						>
 							Login
+						</Link>
+					</p> */}
+					<p className="text-center text-sm mt-4">
+						<Link href="/account/create-account/magic-link">
+							<span className="underline">Sign up using email only</span>
 						</Link>
 					</p>
 				</div>

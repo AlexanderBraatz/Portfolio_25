@@ -103,7 +103,9 @@ export default function Testimonials({
 				</div>
 				<Link
 					href={
-						userIsLoggedIn ? '/testimonials/new' : '/account/create-account'
+						userIsLoggedIn
+							? '/testimonials/new'
+							: '/account/create-account/magic-link'
 					}
 					// className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-sm sm:text-lg font-medium"
 					className="group text-sm sm:text-lg font-medium bg-white mt-8  px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
