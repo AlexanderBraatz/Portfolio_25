@@ -34,13 +34,14 @@ export async function middleware(request: NextRequest) {
 	// }
 	if (isProtectedRoute || isAuthRoute) {
 		const user = await getUser(response, request);
-
+		console.log('isProtectedRoute', isProtectedRoute);
+		console.log('user', user);
 		// comented fo now to see testimonial form while i am signed out
 		if (isProtectedRoute && !user) {
 			// revalidatePath('/blog/post-1')
 
 			return NextResponse.redirect(
-				new URL('/account/create-account', request.url)
+				new URL('/account/create-account/magic-link', request.url)
 			);
 		}
 
