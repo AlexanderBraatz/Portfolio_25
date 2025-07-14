@@ -13,7 +13,7 @@ export async function magicSigninAction(formData: FormData) {
 			options: {
 				shouldCreateUser: true,
 				// emailRedirectTo: 'https://www.alexanderbraatz.com/testimonials/new'
-				emailRedirectTo: 'http://locallhost:3000/testimonials/new'
+				emailRedirectTo: 'http://localhost:3000/testimonials/new'
 			}
 		});
 		const error = (await response).error;
