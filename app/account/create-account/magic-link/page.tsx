@@ -1,25 +1,40 @@
 'use client';
-import React, { useState } from 'react';
+import React, { startTransition, useState, useTransition } from 'react';
 import Link from 'next/link';
 import MagicLinkButton from '@/components/magic-link-btn';
+import { magicSigninAction } from '@/actions/users';
+import toast from 'react-hot-toast';
 
 export default function MagicLinkLogin() {
 	const [email, setEmail] = useState('');
 	const [submitted, setSubmitted] = useState(false);
-	const [isPending, setIsPending] = useState(false);
 
-	const handleSubmit = async (e: React.SyntheticEvent) => {
-		e.preventDefault();
-		setIsPending(true);
-		// TODO: integrate with your magic-link API
-		console.log('Requesting magic link for', email);
-		// simulate API call delay
-		setTimeout(() => {
-			setSubmitted(true);
-			setIsPending(false);
-		}, 1000);
+	const [isPending, startTransition] = useTransition();
+
+	// const handleSubmit = async (e: React.SyntheticEvent) => {
+	// 	e.preventDefault();
+	// 	setIsPending(true);
+	// 	// TODO: integrate with your magic-link API
+	// 	console.log('Requesting magic link for', email);
+	// 	// simulate API call delay
+	// 	setTimeout(() => {
+	// 		setSubmitted(true);
+	// 		setIsPending(false);
+	// 	}, 1000);
+	// };
+
+	const handleMagicSubmit = (formData: FormData) => {
+		startTransition(async () => {
+			const { errorMessage } = await magicSigninAction(formData);
+			if (errorMessage) {
+				toast.error(errorMessage);
+				console.log(errorMessage);
+			} else {
+				toast.success('A verification link has been sent to your email.');
+				setSubmitted(true);
+			}
+		});
 	};
-
 	return (
 		<div className="bg-gray-100 border border-black/5 w-full max-w-sm rounded-lg p-8">
 			<h1 className="text-2xl text-center mb-2 font-semibold">
@@ -34,7 +49,7 @@ export default function MagicLinkLogin() {
 
 			{!submitted ? (
 				<form
-					onSubmit={handleSubmit}
+					action={handleMagicSubmit}
 					className="flex flex-col bg-gray-100 gap-4"
 				>
 					<input
