@@ -12,11 +12,15 @@ export async function magicSigninAction(formData: FormData) {
 			email,
 			options: {
 				shouldCreateUser: true,
-				emailRedirectTo: 'https://www.alexanderbraatz.com/testimonials/new'
+				// emailRedirectTo: 'https://www.alexanderbraatz.com/testimonials/new'
+				emailRedirectTo: 'http://locallhost:3000/testimonials/new'
 			}
 		});
 		const error = (await response).error;
+		const data = (await response).data;
+
 		console.log(error);
+		console.log(data); //<- delete dont thnk there is any point in reading data as this is before the user clicks the link
 		if (error) throw error;
 		return { errorMessage: null };
 	} catch (error) {
