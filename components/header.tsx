@@ -57,8 +57,10 @@ export default function Header() {
 								onClick={() => {
 									if (link.hash === '/testimonials/new') {
 										if (
-											pathname === '/account/create-account' ||
-											pathname === '/login'
+											pathname === '/account/create-account/password' ||
+											pathname === '/account/create-account/magic-link' ||
+											pathname === '/account/login/password' ||
+											pathname === '/account/login/magic-link'
 										) {
 											//do nothing
 										} else {
