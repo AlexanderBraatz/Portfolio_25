@@ -12,8 +12,9 @@ export async function magicSigninAction(formData: FormData) {
 			email,
 			options: {
 				shouldCreateUser: true,
-				// emailRedirectTo: 'https://www.alexanderbraatz.com/testimonials/new'
-				emailRedirectTo: 'http://localhost:3000/account/confirmed'
+				emailRedirectTo: 'https://www.alexanderbraatz.com/account/confirmed'
+				// emailRedirectTo: 'http://localhost:3000/account/confirmed'
+				// remeber to change the SITE url in supabase aswell
 			}
 		});
 		const error = (await response).error;

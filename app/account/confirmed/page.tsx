@@ -9,8 +9,6 @@ import { useActiveSectionContext } from '@/context/active-section-context';
 import { testimonialLinks } from '@/lib/data';
 import { getUserEmailFormLocalStorage } from '@/auth/client';
 
-// http://localhost:3000/account/confirmed
-
 export default function AlmostTherePopUp() {
 	const FaUserCheckIcon = FaUserCheck as React.ComponentType<
 		React.HTMLAttributes<HTMLElement>
