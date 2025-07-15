@@ -113,7 +113,9 @@ export function FileUploadDirectUpload({
 								<FileUploadItemPreview />
 								{/* <FileUploadItemMetadata /> */}
 								<div className="flex min-w-0 flex-1 flex-col">
-									<span className="font-medium text-sm">Looks Great!</span>
+									<span className="font-medium text-sm">
+										{isPending ? 'fetching file...' : 'Looks Great!'}
+									</span>
 								</div>
 								<FileUploadItemDelete asChild>
 									<Button
