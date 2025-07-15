@@ -25,7 +25,7 @@ export default function MagicLinkLogin() {
 
 	return (
 		<>
-			{!submitted ? (
+			{submitted ? (
 				<>
 					<AlmostTherePopUp />
 				</>
