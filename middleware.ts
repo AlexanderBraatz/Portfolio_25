@@ -25,15 +25,15 @@ export async function middleware(request: NextRequest) {
 	// if (isEmailValidationURL) {
 	// 	return NextResponse.redirect(new URL('/account/login', request.url));
 	// }
-	if (searchParams.has('code')) {
-		// redirect everyone who hits ?code=... to login
-		console.log('-quick fix work around');
-		console.log('-quick fix work around');
-		console.log('-quick fix work around');
-		return NextResponse.redirect(
-			new URL('/account/login/password', request.url)
-		);
-	}
+	// if (searchParams.has('code')) {
+	// 	// redirect everyone who hits ?code=... to login
+	// 	console.log('-quick fix work around');
+	// 	console.log('-quick fix work around');
+	// 	console.log('-quick fix work around');
+	// 	return NextResponse.redirect(
+	// 		new URL('/account/login/password', request.url)
+	// 	);
+	// }
 	if (isProtectedRoute || isAuthRoute) {
 		const user = await getUser(response, request);
 		console.log('isProtectedRoute', isProtectedRoute);

@@ -60,7 +60,7 @@ const translationsJa = {
 
 export const SignUpEmail = ({
 	username,
-	lang,
+	lang = 'en',
 	token,
 	supabase_url,
 	email_action_type,
@@ -165,6 +165,7 @@ export const SignUpEmail = ({
 
 SignUpEmail.PreviewProps = {
 	username: 'dshukertjr',
+	lang: 'en',
 	token: '123456',
 	supabase_url: 'https://123.supabase.co',
 	email_action_type: 'confirm',
