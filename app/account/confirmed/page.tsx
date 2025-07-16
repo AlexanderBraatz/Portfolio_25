@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useActiveSectionContext } from '@/context/active-section-context';
 import { testimonialLinks } from '@/lib/data';
 import { getUserEmailFormLocalStorage } from '@/auth/client';
+import toast from 'react-hot-toast';
 
 export default function AlmostTherePopUp() {
 	const FaUserCheckIcon = FaUserCheck as React.ComponentType<
@@ -41,6 +42,9 @@ export default function AlmostTherePopUp() {
 				if (error) throw error;
 			} catch (err) {
 				setErrorMessage((err as Error).message || 'Unknown error'); // type assertion is safe as nothing but an Error will bet thrown here and AuthError extends Error
+				if (errorMessage) {
+					toast.error(errorMessage);
+				}
 			} finally {
 				setLoading(false);
 			}
@@ -64,7 +68,7 @@ export default function AlmostTherePopUp() {
 			<div className="flex gap-2 flex-row justify-center items-center h-5 -mt-6 mb-6">
 				<p className="text-gray-700 ">
 					Signed in as:{' '}
-					{loading ? 'loading…' : errorMessage ? '--' : userEmail ?? '—'}
+					{loading ? 'loading…' : errorMessage ? '--' : userEmail ?? 'x'}
 				</p>
 			</div>
 			<div className="flex gap-2 flex-row justify-center items-center h-5 ">

@@ -53,7 +53,7 @@ Deno.serve(async (req) => {
           email_action_type,
         })
       )
-    } else if (email_action_type == 'login') {
+    } else if (email_action_type == 'magiclink') {
       html = await renderAsync(
         React.createElement(MagicLinkEmail, {
           supabase_url: Deno.env.get('SUPABASE_URL') ?? '',
@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
       )
     } else {
       // TODO implement reset_password
-      throw new Error('Reset Password not implemented')
+      throw new Error(`${email_action_type},Reset Password not implemented`)
     }
 
     const { error } = await resend.emails.send({
