@@ -32,8 +32,48 @@ export const MagicLinkEmail = ({
 			<Container style={container}>
 				<Heading style={h1}>Login</Heading>
 				<Link
-					href={`${supabase_url}/auth/v1/verify?token=${token_hash}&type=${email_action_type}&redirect_to=${redirect_to}`}
-					target="_blank"
+					// the origional form github
+					// href={`${supabase_url}/auth/v1/verify?token=${token_hash}&type=${email_action_type}&redirect_to=${redirect_to}`}
+					//
+					// href={`${supabase_url}/auth/v1/verify?token=${token_hash}&type=${email_action_type}&redirect_to=${redirect_to}`} the origional
+					// href={`${supabase_url}/auth/v1/verify?token=${token_hash}&type=email&redirect_to=${redirect_to}`}
+					// trying to route it to my own route handler
+
+					// href={`https://alexanderbraatz.com/auth/confirm?token_hash=${token_hash}&type=email&next=&next={${redirect_to}`} double  &next
+					// href={`https://alexanderbraatz.com/auth/confirm?token_hash=${token_hash}&type=email&next={${redirect_to}`}
+					// also had a   double  &next !!! href={`${supabase_url}/auth/v1/confirm?token_hash=${token_hash}&type=email&next=&next={${redirect_to}`} this was me copying the link that supaabse uses on the implicit flow magic link email template
+
+					// implicit folw got to complicated with updating the sesion form the tokes in the url , so im teyng PKCE
+					// i was using this for implicit 					href={`${supabase_url}/auth/v1/verify?token=${token_hash}&type=${email_action_type}&redirect_to=${redirect_to}`}
+
+					// gpt sugestion for implicit flow , where the link goes to supabase whre:
+					//  1. Reads the token and type from the query string
+					//	2.	Validates the token, issues a session (sets the access/refresh tokens in the browser)
+					//	3.	Redirects the user back to your client via the redirect_to URL you provided
+					// href={
+					// 	`${supabase_url}/auth/v1/verify` +
+					// 	`?token=${encodeURIComponent(token)}` +
+					// 	`&type=${encodeURIComponent(email_action_type)}` +
+					// 	`&redirect_to=${encodeURIComponent(redirect_to)}`
+					// }
+
+					//
+					// PCKE flow
+					// href={
+					// 	`https://alexanderbraatz.com/auth/confirm?` +
+					// 	`token_hash=${encodeURIComponent(token_hash)}` +
+					// 	`&type=${encodeURIComponent(email_action_type)}` +
+					// 	`&redirect_to=${encodeURIComponent(redirect_to)}`
+					// }
+					// href={`https://alexanderbraatz.com/auth/confirm?token_hash=${token_hash}&type=email&next={${redirect_to}`}
+					//
+					// aperantly the {} are getting in the way
+					href={
+						`https://alexanderbraatz.com/auth/confirm?` +
+						`token_hash=${encodeURIComponent(token_hash)}` +
+						`&type=${encodeURIComponent(email_action_type)}` +
+						`&redirect_to=${encodeURIComponent(redirect_to)}`
+					}
 					style={{
 						...link,
 						display: 'block',

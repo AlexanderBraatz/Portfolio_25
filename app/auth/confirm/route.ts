@@ -6,7 +6,8 @@ export async function GET(req: NextRequest) {
 	const { searchParams } = new URL(req.url);
 	const token_hash = searchParams.get('token_hash');
 	const type = searchParams.get('type') as EmailOtpType;
-	const next = searchParams.get('next') ?? '/';
+	const redirect_to = searchParams.get('redirect_to') ?? '/';
+
 
 	if (token_hash && type) {
 		const supabaseServerClient = await createSupabaseClient();
@@ -19,7 +20,9 @@ export async function GET(req: NextRequest) {
 		}
 		//handle error , probably rout conditionaly
 	}
-	return NextResponse.redirect(new URL(next, req.url));
+	// return NextResponse.redirect(new URL(next, req.url));
+	return NextResponse.redirect(redirect_to);
+
 }
 
 // I think
