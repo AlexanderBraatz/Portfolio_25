@@ -57,6 +57,7 @@ Deno.serve(async (req) => {
       html = await renderAsync(
         React.createElement(MagicLinkEmail, {
           supabase_url: Deno.env.get('SUPABASE_URL') ?? '',
+          site_url: Deno.env.get('SITE_URL') ?? '',
           token,
           token_hash,
           redirect_to,

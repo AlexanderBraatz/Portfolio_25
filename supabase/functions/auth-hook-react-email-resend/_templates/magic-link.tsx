@@ -12,6 +12,7 @@ import * as React from 'npm:react@18.3.1';
 
 interface MagicLinkEmailProps {
 	supabase_url: string;
+	site_url: string;
 	email_action_type: string;
 	redirect_to: string;
 	token_hash: string;
@@ -21,6 +22,7 @@ interface MagicLinkEmailProps {
 export const MagicLinkEmail = ({
 	token,
 	supabase_url,
+	site_url,
 	email_action_type,
 	redirect_to,
 	token_hash
@@ -70,7 +72,8 @@ export const MagicLinkEmail = ({
 					// aperantly the {} are getting in the way
 					href={
 						// `https://alexanderbraatz.com/api/auth/confirm?` +
-						`http://localhost:3000/api/auth/confirm?` +
+						// `http://localhost:3000/api/auth/confirm?` +
+						`${site_url}/api/auth/confirm?` +
 						`token_hash=${encodeURIComponent(token_hash)}` +
 						`&type=${encodeURIComponent(email_action_type)}` +
 						`&redirect_to=${encodeURIComponent(redirect_to)}`
