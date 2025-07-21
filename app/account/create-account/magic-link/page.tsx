@@ -43,42 +43,31 @@ export default function MagicLinkLogin() {
 						</Link>
 					</p>
 
-					{!submitted ? (
-						<form
-							action={handleMagicSubmit}
-							className="flex flex-col bg-gray-100 gap-4"
-						>
-							<input
-								type="email"
-								name="email"
-								className="h-14 px-4 bg-white borderBlack rounded-lg"
-								placeholder="your-email@example.com"
-								value={email}
-								onChange={e => setEmail(e.target.value)}
-								disabled={isPending}
-								required
-							/>
+					<form
+						action={handleMagicSubmit}
+						className="flex flex-col bg-gray-100 gap-4"
+					>
+						<input
+							type="email"
+							name="email"
+							className="h-14 px-4 bg-white borderBlack rounded-lg"
+							placeholder="your-email@example.com"
+							value={email}
+							onChange={e => setEmail(e.target.value)}
+							disabled={isPending}
+							required
+						/>
 
-							<div className="mx-auto">
-								<MagicLinkButton />
-							</div>
+						<div className="mx-auto">
+							<MagicLinkButton />
+						</div>
 
-							<p className="text-center text-sm mt-4">
+						{/* <p className="text-center text-sm mt-4">
 								<Link href="/account/create-account/password">
 									<span className="underline">Sign up using password</span>
 								</Link>
-							</p>
-						</form>
-					) : (
-						<div className="text-center">
-							<h2 className="text-xl font-semibold mb-2">Check your inbox</h2>
-							<p className="text-sm text-gray-600">
-								We’ve sent a magic link to{' '}
-								<span className="font-medium">{email}</span>. Click it to log
-								in.
-							</p>
-						</div>
-					)}
+							</p> */}
+					</form>
 				</div>
 			)}
 		</>

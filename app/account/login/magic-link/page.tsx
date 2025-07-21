@@ -60,11 +60,11 @@ export default function MagicLinkLogin() {
 							<MagicLinkButton />
 						</div>
 
-						<p className="text-center text-sm mt-4">
+						{/* <p className="text-center text-sm mt-4">
 							<Link href="/account/create-account/password">
 								<span className="underline">Sign in using password</span>
 							</Link>
-						</p>
+						</p> */}
 					</form>
 				</div>
 			)}
