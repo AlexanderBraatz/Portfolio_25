@@ -69,7 +69,8 @@ export const MagicLinkEmail = ({
 					//
 					// aperantly the {} are getting in the way
 					href={
-						`https://alexanderbraatz.com/auth/confirm?` +
+						// `https://alexanderbraatz.com/api/auth/confirm?` +
+						`http://localhost:3000/api/auth/confirm?` +
 						`token_hash=${encodeURIComponent(token_hash)}` +
 						`&type=${encodeURIComponent(email_action_type)}` +
 						`&redirect_to=${encodeURIComponent(redirect_to)}`

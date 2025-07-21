@@ -6,13 +6,15 @@ import { getErrorMessageWithDefaultMessage } from '@/lib/utils';
 export async function magicSigninAction(formData: FormData) {
 	try {
 		const email = formData.get('email') as string;
+		const siteURL = process.env.SITE_URL
 
 		const supabaseServerClient = createSupabaseClient();
 		const response = (await supabaseServerClient).auth.signInWithOtp({
 			email,
 			options: {
 				shouldCreateUser: true,
-				emailRedirectTo: 'https://www.alexanderbraatz.com/account/confirmed'
+				emailRedirectTo: `${siteURL}/account/confirmed`
+				// emailRedirectTo: 'https://www.alexanderbraatz.com/account/confirmed'
 				// emailRedirectTo: 'http://localhost:3000/account/confirmed'
 				// remeber to change the SITE url in supabase aswell
 			}
@@ -20,8 +22,8 @@ export async function magicSigninAction(formData: FormData) {
 		const error = (await response).error;
 		const data = (await response).data;
 
-		console.log(error);
-		console.log(data); //<- delete dont thnk there is any point in reading data as this is before the user clicks the link
+		// console.log(" erro from magicSigninAction", error);
+		// console.log("data", data); //<- delete dont thnk there is any point in reading data as this is before the user clicks the link
 		if (error) throw error;
 		return { errorMessage: null };
 	} catch (error) {

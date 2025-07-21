@@ -12,6 +12,7 @@ export function createSupabaseClient() {
 export async function getUserEmailFormLocalStorage() {
 	const supabase = createSupabaseClient();
 	const { data, error } = await supabase.auth.getSession();
+	// console.log(data)
 	if (data?.session?.user?.email) {
 		return { userEmail: data?.session?.user?.email, error };
 	}
