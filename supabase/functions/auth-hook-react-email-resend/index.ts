@@ -42,17 +42,33 @@ Deno.serve(async (req) => {
     let html: string
 
     if (email_action_type === 'signup') {
-      html = await renderAsync(
-        React.createElement(SignUpEmail, {
-          username: user['user_metadata'].username,
-          lang: user['user_metadata'].lang,
-          supabase_url: Deno.env.get('SUPABASE_URL') ?? '',
-          token,
-          token_hash,
-          redirect_to,
-          email_action_type,
-        })
-      )
+      // the blow is a work around for me wanting to allow the user to sign up just with magic link, supabase lets you allow this but the sets the emailaction type to signup
+      // workaround uses the fact that if the user comes thrght the magic link flow there will be a redirect_to , but if they comee trough password there isll not the ends with is just exra check
+      if(redirect_to.endsWith('/account/confirmed')){
+        html = await renderAsync(
+          React.createElement(MagicLinkEmail, {
+            supabase_url: Deno.env.get('SUPABASE_URL') ?? '',
+            site_url: Deno.env.get('SITE_URL') ?? '',
+            token,
+            token_hash,
+            redirect_to,
+            email_action_type : "magiclink",
+          })
+        )
+      }else {
+        html = await renderAsync(
+          React.createElement(SignUpEmail, {
+            username: user['user_metadata'].username,
+            lang: user['user_metadata'].lang,
+            supabase_url: Deno.env.get('SUPABASE_URL') ?? '',
+            token,
+            token_hash,
+            redirect_to,
+            email_action_type,
+          })
+        )
+      }
+      
     } else if (email_action_type == 'magiclink') {
       html = await renderAsync(
         React.createElement(MagicLinkEmail, {

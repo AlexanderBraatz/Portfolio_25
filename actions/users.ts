@@ -12,7 +12,7 @@ export async function magicSigninAction(formData: FormData) {
 		const response = (await supabaseServerClient).auth.signInWithOtp({
 			email,
 			options: {
-				shouldCreateUser: true,
+				shouldCreateUser: true, // <-- i think this is a securty risk , attacker can make unlimited user accounts, but its fine for my free to run
 				emailRedirectTo: `${siteURL}/account/confirmed`
 				// emailRedirectTo: 'https://www.alexanderbraatz.com/account/confirmed'
 				// emailRedirectTo: 'http://localhost:3000/account/confirmed'
