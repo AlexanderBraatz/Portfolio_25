@@ -86,9 +86,9 @@ Deno.serve(async (req) => {
     }
 
     const { error } = await resend.emails.send({
-      from: 'welcome <no-reply@alexanderbraatz.com>',
+      from: `Alexander's Portfolio <no-reply@alexanderbraatz.com>`,
       to: [user.email],
-      subject: 'Supa Custom MagicLink!',
+      subject: 'Sign in to leave your Review!',
       html,
     })
     if (error) {

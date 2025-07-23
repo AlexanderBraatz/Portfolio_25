@@ -29,10 +29,10 @@ export const MagicLinkEmail = ({
 }: MagicLinkEmailProps) => (
 	<Html>
 		<Head />
-		<Preview>Log in with this magic link</Preview>
+		<Preview>Click here to sign in with this magic link</Preview>
 		<Body style={main}>
 			<Container style={container}>
-				<Heading style={h1}>Login</Heading>
+				<Heading style={h1}>Sign in to leave your Review!</Heading>
 				<Link
 					// the origional form github
 					// href={`${supabase_url}/auth/v1/verify?token=${token_hash}&type=${email_action_type}&redirect_to=${redirect_to}`}
@@ -84,12 +84,12 @@ export const MagicLinkEmail = ({
 						marginBottom: '16px'
 					}}
 				>
-					Click here to log in with this magic link
+					Click here to sign in with this magic link
 				</Link>
-				<Text style={{ ...text, marginBottom: '14px' }}>
+				{/* <Text style={{ ...text, marginBottom: '14px' }}>
 					Or, copy and paste this temporary login code:
 				</Text>
-				<code style={code}>{token}</code>
+				<code style={code}>{token}</code> */}
 				<Text
 					style={{
 						...text,
@@ -102,13 +102,13 @@ export const MagicLinkEmail = ({
 				</Text>
 				<Text style={footer}>
 					<Link
-						href="https://demo.vercel.store/"
+						href={`${site_url}`}
 						target="_blank"
 						style={{ ...link, color: '#898989' }}
 					>
-						ACME Corp
+						ALEXANDER BRAATZ
 					</Link>
-					, the famouse demo corp.
+					, your friendly neighbourhood web developer.
 				</Text>
 			</Container>
 		</Body>
