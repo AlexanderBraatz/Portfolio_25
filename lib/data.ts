@@ -113,7 +113,7 @@ export const experiencesData = [
 		description:
 			'Brought in to accelerate a B2B marketplace platform launch, achieving a two-month early rollout through critical UI contributions and swift collaboration.',
 		icon: React.createElement(CgWorkAlt),
-		date: '2025 - Present'
+		date: '2025'
 	}
 ] as const;
 
