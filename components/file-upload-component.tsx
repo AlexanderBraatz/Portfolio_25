@@ -141,7 +141,8 @@ export function FileUploadDirectUpload({
 							Drag & drop your Avatar Picture here
 						</p>
 						<p className="text-muted-foreground text-xs">
-							Or leave this empty and I’ll use your LinkedIn profile picture.
+							Or leave this empty and Alex will take care of finding a nice
+							picture for you during the vetting process.
 						</p>
 					</div>
 					<FileUploadTrigger asChild>
