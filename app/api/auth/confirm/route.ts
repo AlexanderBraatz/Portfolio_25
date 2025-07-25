@@ -7,24 +7,41 @@ export async function GET(req: NextRequest) {
 	const token_hash = searchParams.get('token_hash');
 	const type = searchParams.get('type') as EmailOtpType;
 	const redirect_to = searchParams.get('redirect_to') ?? '/';
-
+	const siteURL = process.env.SITE_URL
+	let userEmail : string | undefined = ""
 
 	if (token_hash && type) {
-		const supabaseServerClient = await createSupabaseClient();
-		const { error } = await supabaseServerClient.auth.verifyOtp({
-			type,
-			token_hash
-		});
-		if (error) {
-			console.log(error);
+		try {
+			if (!siteURL) {
+			throw new Error('Missing SITE_URL env var');
+		  }
+			const supabaseServerClient = await createSupabaseClient();
+			const { data ,error } = await supabaseServerClient.auth.verifyOtp({
+				type,
+				token_hash
+			});
+			 userEmail = data.session?.user.email || "missing email error"
+			if (error) throw error;
+		} catch(err){
+			const msg = (err as Error).message || 'an unknown error has occurred'; // type assertion is safe as nothing but an Error will bet thrown here and AuthError extends Error
+			console.log(msg);
+			const errorURL = new URL('/account/error', siteURL )
+			errorURL.searchParams.set("getErrorMessage",msg)
+			return NextResponse.redirect(errorURL);
 		}
-		//handle error , probably rout conditionaly
-	}
-	// return NextResponse.redirect(new URL(next, req.url));
-	return NextResponse.redirect(redirect_to);
+		const successURL = new URL(redirect_to)
+			successURL.searchParams.set("userEmail",userEmail)
+		return NextResponse.redirect(redirect_to);
 
+	} else {
+		const errorURL = new URL('/account/error', siteURL )
+			errorURL.searchParams.set("getErrorMessage","no Token_hash or type")
+		return NextResponse.redirect(new URL('/account/error', siteURL ));
+	}
 }
 
+
+// old comments form before i added the error handeling to figureo out why Ric wasnt able to log in
 // I think
 
 // i am getting the token and rerrouting path

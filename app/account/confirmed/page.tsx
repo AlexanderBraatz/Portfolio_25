@@ -41,10 +41,11 @@ export default function AlmostTherePopUp() {
 				setUserEmail(userEmail);
 				if (error) throw error;
 			} catch (err) {
-				setErrorMessage((err as Error).message || 'Unknown error'); // type assertion is safe as nothing but an Error will bet thrown here and AuthError extends Error
-				if (errorMessage) {
-					toast.error(errorMessage);
-				}
+				const msg = (err as Error).message || 'an unknown error has occurred'; // type assertion is safe as nothing but an Error will bet thrown here and AuthError extends Error
+				setErrorMessage(msg);
+				console.log(msg);
+				toast.error(msg);
+				router.push('/account/error');
 			} finally {
 				setLoading(false);
 			}
