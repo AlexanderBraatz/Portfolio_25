@@ -7,6 +7,7 @@ export function createSupabaseClient() {
 	);
 }
 // this function uses .getSession() which reads the user information form the token in local storage
+	// whiel the docs say local sotorage i have found it to actually be using  a cookie
 // this is fine as i amcurrently ony using it to display the  user email after a magic login
 // but if i was to use it to identefy the user i would have to use .getUser
 export async function getUserEmailFormLocalStorage() {

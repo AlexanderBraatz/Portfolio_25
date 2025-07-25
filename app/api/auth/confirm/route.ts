@@ -10,23 +10,32 @@ export async function GET(req: NextRequest) {
 	const siteURL = process.env.SITE_URL
 	let userEmail : string | undefined = ""
 
+	//TODO: handle config error of missing site_url speratly to email link invlaid logic
+	// if (!siteURL) {
+	// 	throw new Error('Missing SITE_URL env var');
+	//   }
+
 	if (token_hash && type) {
 		try {
-			if (!siteURL) {
-			throw new Error('Missing SITE_URL env var');
-		  }
 			const supabaseServerClient = await createSupabaseClient();
 			const { data ,error } = await supabaseServerClient.auth.verifyOtp({
 				type,
 				token_hash
 			});
 			 userEmail = data.session?.user.email || "missing email error"
-			if (error) throw error;
+			if (error){
+				// if there was a verification error then the sign in failed and if the error.message  is Email+link+is+invalid+or+has+expired i need to prompt the user to follow the correct link
+				throw error;
+			} 
 		} catch(err){
 			const msg = (err as Error).message || 'an unknown error has occurred'; // type assertion is safe as nothing but an Error will bet thrown here and AuthError extends Error
 			console.log(msg);
+			if(msg == "Email link is invalid or has expired"){
+				const invalidOrExpiredLinkURL = new URL('/account/invalid-or-expired-magic-link')
+				return NextResponse.redirect(invalidOrExpiredLinkURL);
+			}
 			const errorURL = new URL('/account/error', siteURL )
-			errorURL.searchParams.set("getErrorMessage",msg)
+			errorURL.searchParams.set("errorMessage",msg)
 			return NextResponse.redirect(errorURL);
 		}
 		const successURL = new URL(redirect_to)
@@ -35,7 +44,7 @@ export async function GET(req: NextRequest) {
 
 	} else {
 		const errorURL = new URL('/account/error', siteURL )
-			errorURL.searchParams.set("getErrorMessage","no Token_hash or type")
+			errorURL.searchParams.set("errorMessage","no Token_hash or type")
 		return NextResponse.redirect(new URL('/account/error', siteURL ));
 	}
 }
