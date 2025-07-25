@@ -14,7 +14,7 @@ export async function GET(req: NextRequest) {
 	// if (!siteURL) {
 	// 	throw new Error('Missing SITE_URL env var');
 	//   }
-
+	//https://alexanderbraatz.com/api/auth/confirm?token_hash=pkce_88d5ea86735bc7c7ed5061148d5cdf7b5c09946aad9ba0e43116d5a8&type=magiclink&redirect_to=https%3A%2F%2Falexanderbraatz.com%2Faccount%2Fconfirmed	
 	if (token_hash && type) {
 		try {
 			const supabaseServerClient = await createSupabaseClient();
@@ -22,30 +22,34 @@ export async function GET(req: NextRequest) {
 				type,
 				token_hash
 			});
-			 userEmail = data.session?.user.email || "missing email error"
-			if (error){
+
+			userEmail = data.session?.user.email || "missing email error"
+			
+			if (error) {
 				// if there was a verification error then the sign in failed and if the error.message  is Email+link+is+invalid+or+has+expired i need to prompt the user to follow the correct link
 				throw error;
 			} 
-		} catch(err){
+		} catch (err) {
 			const msg = (err as Error).message || 'an unknown error has occurred'; // type assertion is safe as nothing but an Error will bet thrown here and AuthError extends Error
 			console.log(msg);
-			if(msg == "Email link is invalid or has expired"){
-				const invalidOrExpiredLinkURL = new URL('/account/invalid-or-expired-magic-link')
+
+			if (msg == "Email link is invalid or has expired") {
+				const invalidOrExpiredLinkURL = new URL('/account/invalid-or-expired-magic-link', siteURL)
 				return NextResponse.redirect(invalidOrExpiredLinkURL);
 			}
+
 			const errorURL = new URL('/account/error', siteURL )
 			errorURL.searchParams.set("errorMessage",msg)
 			return NextResponse.redirect(errorURL);
 		}
-		const successURL = new URL(redirect_to)
-			successURL.searchParams.set("userEmail",userEmail)
-		return NextResponse.redirect(redirect_to);
 
+		const successURL = new URL(redirect_to)
+		successURL.searchParams.set("userEmail",userEmail)
+		return NextResponse.redirect(redirect_to);
 	} else {
 		const errorURL = new URL('/account/error', siteURL )
-			errorURL.searchParams.set("errorMessage","no Token_hash or type")
-		return NextResponse.redirect(new URL('/account/error', siteURL ));
+		errorURL.searchParams.set("errorMessage","no Token_hash or type")
+		return NextResponse.redirect(new URL(errorURL ));
 	}
 }
 
