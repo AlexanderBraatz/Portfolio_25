@@ -119,7 +119,7 @@ export const experiencesData = [
 
 export const projectsData = [
 	{
-		title: 'Contractor at Start-up',
+		title: 'Contractor at Scale-up',
 		description:
 			'Delivered key UI components and translation pipelines for a B2B trading platform, enabling launch 2 months earlier.',
 		tags: ['Typescript', 'React', 'Node.js', 'GraphQL', 'CircleCI', 'MUI'],
