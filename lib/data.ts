@@ -128,7 +128,7 @@ export const projectsData = [
 		linkText: 'open live site'
 	},
 	{
-		title: 'Contractor at Scale-up',
+		title: 'Scale-up Contractor',
 		description:
 			'Delivered key UI components and translation pipelines for a B2B trading platform, enabling launch 2 months earlier.',
 		tags: ['Typescript', 'React', 'Node.js', 'GraphQL', 'CircleCI', 'MUI'],
