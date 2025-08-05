@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
 
 		const successURL = new URL(redirect_to)
 		successURL.searchParams.set("userEmail",userEmail)
-		return NextResponse.redirect(redirect_to);
+		return NextResponse.redirect(successURL);
 	} else {
 		const errorURL = new URL('/account/error', siteURL )
 		errorURL.searchParams.set("errorMessage","no Token_hash or type")
