@@ -64,7 +64,9 @@ export default async function TestimonialsWithData() {
 	const user = await getUser();
 	let { data: testimonials, error } = await supabase
 		.from('Testimonials')
-		.select('name,quote,role,imgSrc,hasPassedModeration,createdByUserEmail');
+		.select(
+			'name,quote,role,imgSrc,hasPassedModeration,createdByUserEmail,createdByUserID'
+		);
 
 	//remove these early return statments , they are only hee to make typescript happy, probably form gpt origionally
 	if (error) {
@@ -77,7 +79,7 @@ export default async function TestimonialsWithData() {
 	}
 	const fillterdTestimonials = testimonials.filter(testimonial => {
 		// get new types to fix the ts complaint below
-		if (testimonial.createdByUserEmail === user?.email) {
+		if (testimonial.createdByUserID === user?.id) {
 			return true;
 		}
 		if (testimonial.hasPassedModeration) {
@@ -88,7 +90,7 @@ export default async function TestimonialsWithData() {
 	// in here i want to use a reduce method to reorder the testemaoil
 	const reorderedTestimonials = fillterdTestimonials.reduce(
 		(acc, testimonial) => {
-			if (testimonial.createdByUserEmail === user?.email) {
+			if (testimonial.createdByUserID === user?.id) {
 				acc.unshift(testimonial);
 			} else {
 				acc.push(testimonial);
