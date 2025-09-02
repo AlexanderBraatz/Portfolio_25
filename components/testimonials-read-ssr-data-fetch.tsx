@@ -65,7 +65,7 @@ export default async function TestimonialsWithData() {
 	let { data: testimonials, error } = await supabase
 		.from('Testimonials')
 		.select(
-			'name,quote,role,imgSrc,hasPassedModeration,createdByUserEmail,createdByUserID'
+			'name,quote,role,imgSrc,hasPassedModeration,createdByUserEmail,createdByUserID,LinkedInUrl'
 		);
 
 	//remove these early return statments , they are only hee to make typescript happy, probably form gpt origionally

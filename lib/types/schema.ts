@@ -48,6 +48,7 @@ export type Database = {
           hasPassedModeration: boolean | null
           id: number
           imgSrc: string | null
+          LinkedInUrl: string | null
           name: string | null
           quote: string | null
           role: string | null
@@ -61,6 +62,7 @@ export type Database = {
           hasPassedModeration?: boolean | null
           id?: number
           imgSrc?: string | null
+          LinkedInUrl?: string | null
           name?: string | null
           quote?: string | null
           role?: string | null
@@ -74,6 +76,7 @@ export type Database = {
           hasPassedModeration?: boolean | null
           id?: number
           imgSrc?: string | null
+          LinkedInUrl?: string | null
           name?: string | null
           quote?: string | null
           role?: string | null

@@ -48,15 +48,23 @@ export default function TestimonialSlider({
 											<div className="mt-6 flex gap-3 ">
 												<div className="block rounded-full h-10 w-10 min-w-min">
 													{testimonial.imgSrc != null ? (
-														<Image
-															loader={imageLoader}
-															className="h-10 w-10 min-w-min rounded-full   border-[0.05rem] border-black/50 "
-															height={40}
-															width={40}
-															alt={testimonial.name as string}
-															src={testimonial.imgSrc}
-															loading="lazy"
-														/>
+														<a
+															href={
+																testimonial.LinkedInUrl ||
+																'https://linkedin.com/in/alexander-braatz-90436a109'
+															}
+															target="_blank"
+														>
+															<Image
+																loader={imageLoader}
+																className="h-10 w-10 min-w-min rounded-full   border-[0.05rem] border-black/50 "
+																height={40}
+																width={40}
+																alt={testimonial.name as string}
+																src={testimonial.imgSrc}
+																loading="lazy"
+															/>
+														</a>
 													) : (
 														<Image
 															loader={imageLoader}

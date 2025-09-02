@@ -6,4 +6,5 @@ export type Testimonial = {
 	hasPassedModeration: boolean | null;
 	createdByUserEmail: string | null;
 	createdByUserID: string | null;
+	LinkedInUrl: string | null;
 };
