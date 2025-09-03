@@ -7,8 +7,14 @@ function LogoutPage() {
 			<h1 className="text-2xl text-center mb-2">Account</h1>
 			<UserLogoutText />
 			<p className="text-center text-sm mt-2 mb-3">
-				I’ve kept my portfolio streamlined for now. If you have any questions
-				regarding your account or any ideas, feel free to reach out!
+				If you have any questions regarding your testimonial or any feedback,
+				feel free to{' '}
+				<a
+					className="underline"
+					href="mailto:alex_braatz@icloud.com"
+				>
+					reach out!
+				</a>
 			</p>
 			<div className="mx-auto max-w-fit">
 				<SignOutButton />

@@ -27,10 +27,9 @@ export default function About() {
 				loves bringing ideas to life on the web. I’ve{' '}
 				<span className="font-bold">collaborated</span> with designers, clients,
 				users, and fellow developers to tackle tough challenges, and I’m always{' '}
-				<span className="font-bold">eager to learn </span> from mistakes and
-				successes alike. If you’re looking for someone who can{' '}
-				<span className="font-bold ">dive in</span>, adapt and help drive
-				projects forward,{' '}
+				<span className="font-bold">eager to learn. </span> If you’re looking
+				for someone who can <span className="font-bold ">dive in</span>, adapt
+				and help drive projects forward,{' '}
 				<Link
 					href="#contact"
 					onClick={() => {

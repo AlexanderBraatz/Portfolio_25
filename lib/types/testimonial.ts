@@ -5,4 +5,6 @@ export type Testimonial = {
 	imgSrc: string | null;
 	hasPassedModeration: boolean | null;
 	createdByUserEmail: string | null;
+	createdByUserID: string | null;
+	LinkedInUrl: string | null;
 };

@@ -37,7 +37,8 @@ export const addNewTestimonial = async (
 				role,
 				imgSrc,
 				hasPassedModeration,
-				createdByUserEmail: user?.email || null
+				createdByUserEmail:  null, // this can be removed but it has to be removed from the data base as well
+				createdByUserID: user?.id || null
 			}
 		])
 		.select();

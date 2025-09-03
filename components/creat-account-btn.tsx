@@ -19,7 +19,7 @@ export default function CreateAccountButton() {
 				<div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
 			) : (
 				<>
-					Create Account
+					Sign up
 					<FaUserPlusIcon className="transform-gpu opacity-70  transition-all" />
 				</>
 			)}

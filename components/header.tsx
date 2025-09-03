@@ -22,7 +22,6 @@ export default function Header() {
 		isPastFirstLoadRef.current = true;
 	}, []);
 	const pathname = usePathname();
-	console.log('header ', pathname);
 
 	const headerWidth =
 		headerSections === homePageLinks ? 'sm:w-[41rem]' : 'sm:w-[18rem]';
@@ -58,8 +57,10 @@ export default function Header() {
 								onClick={() => {
 									if (link.hash === '/testimonials/new') {
 										if (
-											pathname === '/account/create-account' ||
-											pathname === '/login'
+											pathname === '/account/create-account/password' ||
+											pathname === '/account/create-account/magic-link' ||
+											pathname === '/account/login/password' ||
+											pathname === '/account/login/magic-link'
 										) {
 											//do nothing
 										} else {
@@ -68,7 +69,6 @@ export default function Header() {
 											setTimeOfLastCLick(Date.now());
 										}
 									} else {
-										// wait what am is doing hereeeere
 										link.name == 'Home' && setHeaderSections(homePageLinks);
 										setActiveSection(link.name);
 										setTimeOfLastCLick(Date.now());

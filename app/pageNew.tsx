@@ -17,7 +17,7 @@ async function HomePage() {
 					<p>Not logged in</p>
 
 					<Link
-						href={'/account/login'}
+						href={'/account/login/magic-link'}
 						className="bg-emerald-700 p-2 w-40 text-white rounded-lg text-center"
 					>
 						Login

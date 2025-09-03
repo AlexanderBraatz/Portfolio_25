@@ -5,7 +5,7 @@ import { LuGraduationCap } from 'react-icons/lu';
 import renewableExchangeTeam from '@/public/renewable-Exchange-team.jpeg';
 import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
 import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
-import protfolioScreenshot1 from '@/public/protfolio-screenshot-1.png';
+import protfolioScreenshot1 from '@/public/protfolio-review-screenshot.png';
 
 // fixing the structure by using enums and genric types rather than as const
 
@@ -113,13 +113,22 @@ export const experiencesData = [
 		description:
 			'Brought in to accelerate a B2B marketplace platform launch, achieving a two-month early rollout through critical UI contributions and swift collaboration.',
 		icon: React.createElement(CgWorkAlt),
-		date: '2025 - Present'
+		date: '2025'
 	}
 ] as const;
 
 export const projectsData = [
 	{
-		title: 'Contractor at Start-up',
+		title: 'Portfolio Reviews',
+		description:
+			'Built out full-stack Review CMS with magic-link user auth flow, image storage and mobile-responsive carousel.',
+		tags: ['SMTP server', 'PostgreSQL', 'TypeScript','Shadcn'],
+		imageUrl: protfolioScreenshot1,
+		link: 'https://alexanderbraatz.com/#reviews',
+		linkText: 'open live site'
+	},
+	{
+		title: 'Scale-up Contractor',
 		description:
 			'Delivered key UI components and translation pipelines for a B2B trading platform, enabling launch 2 months earlier.',
 		tags: ['Typescript', 'React', 'Node.js', 'GraphQL', 'CircleCI', 'MUI'],
@@ -144,16 +153,8 @@ export const projectsData = [
 		imageUrl: winsorScreenshot1,
 		link: 'https://www.winsorleaman.com',
 		linkText: 'open live site'
-	}
-	// {
-	// 	title: 'This Portfolio',
-	// 	description:
-	// 		'Built my personal Portfolio site while Learning new technologies, by following a Tutorial and then expanding on what i learned.',
-	// 	tags: ['TypeScript', 'Tailwind', 'Next.js', 'Framer'],
-	// 	imageUrl: protfolioScreenshot1,
-	// 	link: 'https://alexander-braatz-portfolio-2025.vercel.app',
-	// 	linkText: 'open live site'
-	// }
+	},
+
 ] as const;
 
 export const skillsData = [

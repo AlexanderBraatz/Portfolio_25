@@ -77,9 +77,10 @@ export default function Intro() {
 			>
 				<span className="font-bold">Hello, I'm Alexander.</span> I'm a{' '}
 				<span className="font-bold">full-stack developer</span> with{' '}
-				<span className="font-bold">2 years</span> of experience. I enjoy
-				building <span className="italic">AI-powered web apps</span>. My focus
-				is <span className="underline">React (Next.js)</span>.
+				<span className="font-bold">over 2 years</span> of experience. I enjoy
+				building <span className="font-bold">user centric </span>
+				<span className="italic">web apps</span>. My focus is{' '}
+				<span className="font-bold">React (Next.js)</span>.
 				{/* <span className="font-bold">Hello, I'm Alexander.</span> I'm a{' '}
 				<span className="font-bold">full-stack developer</span> with{' '}
 				<span className="font-bold">2 years</span> of experience. I enjoy
@@ -112,20 +113,22 @@ export default function Intro() {
 					Download CV{' '}
 					<HiDownloadIcon className="opacity-60 group-hover:translate-y-1 transition" />
 				</a>
-				<a
-					className="transform-gpu bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-					href="https://linkedin.com/in/alexander-braatz-90436a109"
-					target="_blank"
-				>
-					<BsLinkedinIcon />
-				</a>
-				{/* <a
-					className="transform-gpu bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem]  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-					href="https://github.com/AlexanderBraatz"
-					target="_blank"
-				>
-					<FaGithubSquareIcon />
-				</a> */}
+				<div className="flex flex-row gap-2">
+					<a
+						className="transform-gpu bg-white w-[56px] p-4 text-gray-700 flex items-center justify-center gap-2 rounded-full  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
+						href="https://linkedin.com/in/alexander-braatz-90436a109"
+						target="_blank"
+					>
+						<BsLinkedinIcon />
+					</a>
+					<a
+						className="transform-gpu bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem]  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
+						href="https://github.com/AlexanderBraatz"
+						target="_blank"
+					>
+						<FaGithubSquareIcon />
+					</a>
+				</div>
 			</motion.div>
 		</section>
 	);
