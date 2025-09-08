@@ -1,6 +1,6 @@
 # My Modern Portfolio
 
-<a href="https://alexanderbraatz.com" target="_blank">alexanderbraatz.com</a> is built using Next.js and supabase. It serves as my digital fornt page, showcasing my projects and reviews form my colegues and clents.
+<a href="https://alexanderbraatz.com" target="_blank">alexanderbraatz.com</a> is built using Next.js and supabase. It serves as my digital front page, showcasing my projects and reviews from my colleagues and clients.
 
 ![app preview](./public/portfolio-landing-screenshot.png)
 
@@ -8,11 +8,12 @@
 
 I began this project out of a need to display my work for potential clients and employers. It soon grew into an exploration of serverless architecture simply because I was trying to make the magic link Supabase auth feature work. After testing the testimonial feature with a few people, I identified the password creation step as a key point of friction, and I wanted to address it by switching to a magic link–based auth system.
 
-This repo also includes the use of shadcn/ui components, which I also enjoyed working with. While they were a time-saver when taking into account accessibility and cross-browser compatibility, the fine-tuning of styles to match the rest of my app (which wasn’t using shadcn) took a long time.
+This repo also includes the use of shadcn/ui components, which I also enjoyed working with. While they were a time-saver when taking into account accessibility and cross-browser compatibility, the fine-tuning of styles to match the rest of my app (which wasbuilt without using shadcn) took a long time.
+
 The project was driven by three primary goals:
 
 - **Developing a Modern, User-Friendly Showcase of my work** <br/>The aim was to create an engaging online platform to exhibit my projects.
-- **Display my Peers reviews while also demonstrating my full stack skills** <br/>A key requirement was to build out the features of a CRUD app for my testimonials
+- **Displaying my endorsments fom Peers and creating a seamless review submission process** <br/>A key requirement was to build out the features of a CRUD app for my testimonials
 
 The greatest challenge of the project was that I didn’t know what I didn’t know when I set out to enable magic links for user authentication, or how many other steps making this production-grade would involve.
 
