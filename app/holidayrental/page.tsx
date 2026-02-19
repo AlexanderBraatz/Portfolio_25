@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/section-heading';
+import HeadingSection from './heading-section';
 
 const sectionMotion = {
 	initial: { opacity: 0, y: 50 },
@@ -40,20 +41,25 @@ export default function HolidayRentalPage() {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ delay: 0.1 }}
 			>
-				<SectionHeading>
+				{/* <SectionHeading>
 					Replacing Airbnb with a custom booking site increased my client’s
 					revenue by 16%.
 				</SectionHeading>
 				<p className="text-gray-500 text-center text-sm mt-2">
 					(4 minute read)
-				</p>
-
+				</p> */}
+				<HeadingSection />
 				<nav
-					className="mt-8 text-left"
+					className="mb-20 mt-20 text-left bg-gray-100 p-4 px-6 rounded-lg border border-black/5 "
 					aria-label="Article outline"
 				>
-					<p className="text-sm font-medium text-gray-500 mb-3">Outline</p>
-					<ol className="list-decimal list-inside space-y-2 text-gray-700">
+					<h2
+						id="introduction"
+						className="text-2xl font-medium mb-4 text-left scroll-mt-6"
+					>
+						Outline
+					</h2>
+					<ol className="list-decimal list-inside space-y-1 text-gray-700">
 						<li>
 							<a
 								href="#introduction"
@@ -122,10 +128,10 @@ export default function HolidayRentalPage() {
 				</nav>
 			</motion.div>
 
-			<BlogImage
+			{/* <BlogImage
 				src="/picture-of-me-and-the-client.jpeg"
 				alt="Picture of me and the client"
-			/>
+			/> */}
 
 			{/* 1. Introduction */}
 			<motion.section
@@ -136,7 +142,8 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="introduction"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					// text-3xl font-medium  text-center
 				>
 					Introduction
 				</h2>
@@ -172,7 +179,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="the-business-problem"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					The business problem
 				</h2>
@@ -185,12 +192,12 @@ export default function HolidayRentalPage() {
 						days the host blocked off for personal use.
 					</p>
 
-					<BlogImage
+					{/* <BlogImage
 						src="/airbnb-check-availability-button.png"
 						alt="Airbnb check availability button"
-					/>
+					/> */}
 					<BlogImage
-						src="/airbnb-availability-calendar.png"
+						src="/airbnb-availability-calendar-2.png"
 						alt="Airbnb availability calendar"
 					/>
 
@@ -230,7 +237,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="the-solution"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					The solution
 				</h2>
@@ -362,7 +369,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="the-hardest-technical-challenge"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					The hardest technical challenge
 				</h2>
@@ -398,7 +405,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="architecture"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					Architecture
 				</h2>
@@ -466,7 +473,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="impact"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					Impact
 				</h2>
@@ -509,7 +516,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="what-i-learned"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					What I learned
 				</h2>
@@ -552,7 +559,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="what-id-do-differently"
-					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
 				>
 					What I’d do differently
 				</h2>
