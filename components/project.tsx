@@ -39,6 +39,8 @@ export default function Project({
 	const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 	const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
+	const isExternalLink = link.startsWith('http');
+
 	return (
 		<motion.div
 			className=" group mb-3 sm:mb-8 last:mb-0"
@@ -51,7 +53,7 @@ export default function Project({
 			<Link
 				href={link}
 				className=""
-				target="_blank"
+				target={isExternalLink ? '_blank' : undefined}
 			>
 				<section className="rounded-lg  sm:group-even:pl-8 flex relative bg-gray-100 max-w-[42rem] border border-black/5 overflow-hidden sm:pr-8 sm:h-[20rem]  hover:bg-gray-200 transition">
 					<div className="sm:group-even:ml-[18rem] flex flex-col h-full pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%]">

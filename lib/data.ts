@@ -6,6 +6,7 @@ import renewableExchangeTeam from '@/public/renewable-Exchange-team.jpeg';
 import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
 import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
 import protfolioScreenshot1 from '@/public/protfolio-review-screenshot.png';
+import holidayRentalPlaceholder from '@/public/holiday-rental-placeholder.png';
 
 // fixing the structure by using enums and genric types rather than as const
 
@@ -118,6 +119,15 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+	{
+		title: 'Holiday Rental Booking Platform',
+		description:
+			'Architected and built a full-stack booking platform to replace Airbnb, eliminating platform fees and automating the entire booking workflow.',
+		tags: ['Next.js', 'TypeScript', 'Supabase', 'Stripe', 'PostgreSQL', 'Framer Motion'],
+		imageUrl: holidayRentalPlaceholder,
+		link: '/holidayrental',
+		linkText: 'Read case study'
+	},
 	{
 		title: 'Portfolio Reviews',
 		description:
