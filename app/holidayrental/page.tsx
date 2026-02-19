@@ -26,7 +26,7 @@ function BlogImage({
 				alt={alt}
 				width={800}
 				height={500}
-				className="rounded-lg w-full object-cover"
+				className="rounded-lg my-20 w-full object-cover"
 			/>
 		</figure>
 	);
@@ -47,14 +47,85 @@ export default function HolidayRentalPage() {
 				<p className="text-gray-500 text-center text-sm mt-2">
 					(4 minute read)
 				</p>
+
+				<nav
+					className="mt-8 text-left"
+					aria-label="Article outline"
+				>
+					<p className="text-sm font-medium text-gray-500 mb-3">Outline</p>
+					<ol className="list-decimal list-inside space-y-2 text-gray-700">
+						<li>
+							<a
+								href="#introduction"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								Introduction
+							</a>
+						</li>
+						<li>
+							<a
+								href="#the-business-problem"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								The business problem
+							</a>
+						</li>
+						<li>
+							<a
+								href="#the-solution"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								The solution
+							</a>
+						</li>
+						<li>
+							<a
+								href="#the-hardest-technical-challenge"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								The hardest technical challenge
+							</a>
+						</li>
+						<li>
+							<a
+								href="#architecture"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								Architecture
+							</a>
+						</li>
+						<li>
+							<a
+								href="#impact"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								Impact
+							</a>
+						</li>
+						<li>
+							<a
+								href="#what-i-learned"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								What I learned
+							</a>
+						</li>
+						<li>
+							<a
+								href="#what-id-do-differently"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								What I'd do differently
+							</a>
+						</li>
+					</ol>
+				</nav>
 			</motion.div>
 
 			<BlogImage
 				src="/picture-of-me-and-the-client.jpeg"
 				alt="Picture of me and the client"
 			/>
-
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
 
 			{/* 1. Introduction */}
 			<motion.section
@@ -63,8 +134,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.2 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					1. Introduction
+				<h2
+					id="introduction"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					Introduction
 				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
 					<p>My client approached me with a tricky situation.</p>
@@ -89,8 +163,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 2. The business problem */}
 			<motion.section
 				className="mb-12"
@@ -98,8 +170,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.3 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					2. The business problem
+				<h2
+					id="the-business-problem"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					The business problem
 				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
 					<p>The issue was how the council decided to measure “letting”.</p>
@@ -146,8 +221,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 3. The solution */}
 			<motion.section
 				className="mb-12"
@@ -155,8 +228,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.4 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					3. The solution
+				<h2
+					id="the-solution"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					The solution
 				</h2>
 
 				<BlogImage
@@ -277,8 +353,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 4. The hardest technical challenge */}
 			<motion.section
 				className="mb-12"
@@ -286,8 +360,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.5 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					4. The hardest technical challenge
+				<h2
+					id="the-hardest-technical-challenge"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					The hardest technical challenge
 				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
 					<p>
@@ -312,8 +389,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 5. Architecture */}
 			<motion.section
 				className="mb-12"
@@ -321,8 +396,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.6 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					5. Architecture
+				<h2
+					id="architecture"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					Architecture
 				</h2>
 
 				<div className="flex flex-wrap justify-center items-center gap-6 my-8">
@@ -379,8 +457,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 6. Impact */}
 			<motion.section
 				className="mb-12"
@@ -388,7 +464,12 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.7 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">6. Impact</h2>
+				<h2
+					id="impact"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					Impact
+				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
 					<p className="font-medium">Financial impact</p>
 					<ul className="list-disc list-inside space-y-2 ml-4">
@@ -419,8 +500,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 7. What I learned */}
 			<motion.section
 				className="mb-12"
@@ -428,8 +507,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.8 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					7. What I learned
+				<h2
+					id="what-i-learned"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					What I learned
 				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
 					<p>
@@ -461,8 +543,6 @@ export default function HolidayRentalPage() {
 				</div>
 			</motion.section>
 
-			<div className="text-center text-gray-400 text-2xl mb-12">⸻</div>
-
 			{/* 8. What I'd do differently */}
 			<motion.section
 				className="mb-12"
@@ -470,8 +550,11 @@ export default function HolidayRentalPage() {
 				animate={sectionMotion.animate}
 				transition={{ delay: 0.9 }}
 			>
-				<h2 className="text-2xl font-medium mb-6 text-center">
-					8. What I’d do differently
+				<h2
+					id="what-id-do-differently"
+					className="text-2xl font-medium mb-6 text-left scroll-mt-6"
+				>
+					What I’d do differently
 				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
 					<p>
