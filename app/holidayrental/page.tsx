@@ -35,7 +35,7 @@ function BlogImage({
 
 export default function HolidayRentalPage() {
 	return (
-		<article className="max-w-[49rem] mb-28">
+		<article className="max-w-[49rem] mb-28 scroll-mt-[100rem]">
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="introduction"
-						className="text-2xl font-medium mb-4 text-left scroll-mt-6"
+						className="text-2xl scroll-mt-28 font-medium mb-4 text-left"
 					>
 						Outline
 					</h2>
@@ -142,7 +142,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="introduction"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl scroll-mt-28 font-medium capitalize mb-8 text-left"
 					// text-3xl font-medium  text-center
 				>
 					Introduction
@@ -179,7 +179,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="the-business-problem"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					The business problem
 				</h2>
@@ -245,7 +245,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="the-solution"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					The solution
 				</h2>
@@ -381,7 +381,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="the-hardest-technical-challenge"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					The hardest technical challenge
 				</h2>
@@ -419,7 +419,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="architecture"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					Architecture
 				</h2>
@@ -527,7 +527,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="impact"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					Impact
 				</h2>
@@ -570,7 +570,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="what-i-learned"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					What I learned
 				</h2>
@@ -613,7 +613,7 @@ export default function HolidayRentalPage() {
 			>
 				<h2
 					id="what-id-do-differently"
-					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-6"
+					className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 				>
 					What I’d do differently
 				</h2>

@@ -7,6 +7,8 @@ import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
 import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
 import protfolioScreenshot1 from '@/public/protfolio-review-screenshot.png';
 import holidayRentalPlaceholder from '@/public/hero-2-sieben-giepfel-blick.png';
+// import holidayRentalPlaceholder from '@/public/picture-of-me-and-the-client-cropped-3.jpeg';
+// import holidayRentalPlaceholder from '@/public/picture-of-me-and-the-clientcropped-2.jpeg';
 
 // fixing the structure by using enums and genric types rather than as const
 
