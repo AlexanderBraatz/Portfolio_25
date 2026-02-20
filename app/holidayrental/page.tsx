@@ -14,20 +14,20 @@ const sectionMotion = {
 function BlogImage({
 	src,
 	alt,
-	className = 'rounded-lg w-full my-6'
+	className
 }: {
 	src: string;
 	alt: string;
 	className?: string;
 }) {
 	return (
-		<figure className={className}>
+		<figure className="w-full">
 			<Image
 				src={src}
 				alt={alt}
 				width={800}
 				height={500}
-				className="rounded-lg my-20 w-full object-cover"
+				className={`rounded-lg border border-black/5 w-full mb-20 mt-10 object-cover ${className}`}
 			/>
 		</figure>
 	);
@@ -147,7 +147,7 @@ export default function HolidayRentalPage() {
 				>
 					Introduction
 				</h2>
-				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
+				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
 					<p>My client approached me with a tricky situation.</p>
 					<p>
 						One day, while rifling through their mail, they found an
@@ -183,13 +183,13 @@ export default function HolidayRentalPage() {
 				>
 					The business problem
 				</h2>
-				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
+				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
 					<p>The issue was how the council decided to measure “letting”.</p>
 					<p>
-						They treat any dates marked as “unavailable” on Airbnb as days
-						booked days, assuming they were unavailable because they had already
-						been booked. No distinction was made between genuine bookings and
-						days the host blocked off for personal use.
+						They treat any dates marked as “unavailable” on Airbnb as booked
+						days, assuming they were unavailable because they had already been
+						booked. No distinction was made between genuine bookings and days
+						the host blocked off for personal use.
 					</p>
 
 					{/* <BlogImage
@@ -202,28 +202,36 @@ export default function HolidayRentalPage() {
 					/>
 
 					<p>
-						From the council’s point of view, this made enforcement easy They
-						could look at availability online and issue fines. But this placed
-						the burden of proof on the landlord to defend lawful use of their
-						own property.
+						For the council this made enforcement easy. They could look at
+						availability online and issue fines. But this placed the burden of
+						proof on the landlord costing them time to defend the lawful use of
+						their own property.
 					</p>
 					<p>
-						In that regulatory environment, Airbnb was no longer the right tool
+						In this regulatory environment, Airbnb was no longer the right tool
 						for two main reasons:
 					</p>
-					<p>
-						<strong>Financial:</strong> Airbnb’s fees (around 16%) materially
-						reduced earnings. When you only have a limited number of weeks
-						you’re allowed to rent, that cut becomes a painfully large share of
-						profits once fixed costs are deducted. In practice, it’s like giving
-						up 2 weeks of booking’s worth of earnings form the 8 week allowance.
+					<p className="ml-10">
+						<strong>Financial:</strong> Airbnb’s fees are around 16% of revenue
+						this reduces earnings considerably. When you only have a limited
+						number of weeks you’re allowed to rent, that cut becomes a painfully
+						large share of profits once fixed costs are deducted. In practice,
+						it’s like giving up 2 weeks of booking’s worth of earnings form the
+						8 week allowance.
 					</p>
-					<p>
+					<p className="ml-10">
 						<strong>Legal compliance:</strong> Airbnb doesn’t allow hosts to
 						hide availability. So even if the host is operating legally, they’re
 						pushed into a cycle of administrative overhead due to the legal
 						disputes required to present evidence just to avoid or challenge
 						unjustified fines.
+					</p>
+					<p>
+						Using a booking management Saas like Lodgify was not an option as
+						all-in-one platforms like these are also built around the UX of
+						showing availability publicly, just like Airbnb. Enterprise tools
+						like Bookinglayer can support custom workflows, but their
+						subscription costs don’t make sense for a single property.
 					</p>
 				</div>
 			</motion.section>
@@ -242,58 +250,56 @@ export default function HolidayRentalPage() {
 					The solution
 				</h2>
 
-				<BlogImage
-					src="/hero.png"
-					alt="Hero section of the booking site"
-				/>
-
-				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
+				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
 					<p>
-						The obvious alternative is a booking management Saas like Lodgify,
-						but these all-in-one platforms are also built around publicly
-						showing availability. Enterprise tools like Bookinglayer can support
-						custom workflows, but their subscription costs don’t make sense for
-						a single property.
-					</p>
-					<p>
-						The solution I designed was closer to a lean custom web app, which
-						allowed me to simplify an inquiry-to-book workflow to minimal
-						friction wile allowing for flexibility and management all in one
-						place.
-					</p>
-					<p>
-						This private booking platform has 2 main parts. First a custom
-						designed custom built client facing marketing website accompanied by
-						email templates. This site provides prospect guests with the
-						information they need and the consistency in professional branding
-						to build trust and confidently make a booking decision.
-					</p>
-					<p>
-						Second, a private booking management platform which consists of a
-						admin dashboard and automated sending of emails and taking payments.
-						The design provides a lean version of the traditional
-						inquiry-to-book workflow and crucially keeps availability hidden
-						while aggregating all booking data in one place for regulatory
-						transparency.
+						I designed a lean custom web app. In collaboration with the client i
+						was able to tailer an inquiry-to-book workflow to their precise
+						needs. I reduced the number of manual emails needed per booking to
+						zero and gave the property a premium and consistent brand identity.
 					</p>
 
+					<p>This private booking platform has 2 main parts. </p>
+
+					<p className="">
+						<strong>Marketing website:</strong> a custom designed custom built
+						client facing marketing website accompanied by email templates. This
+						site provides prospect guests with the information they need and the
+						consistency in professional branding to build trust and confidently
+						make a booking decision.
+					</p>
+					<BlogImage
+						src="/hero.png"
+						alt="Hero section of the booking site"
+					/>
+
+					<p className="">
+						<strong>Booking management platform: </strong> a private booking
+						management platform which consists of a admin dashboard and
+						automated sending of emails and taking payments. The design provides
+						a lean version of the traditional inquiry-to-book workflow and
+						crucially keeps availability hidden while aggregating all booking
+						data in one place for regulatory transparency.
+					</p>
 					<BlogImage
 						src="/bookings-table.png"
 						alt="Bookings table in admin dashboard"
 					/>
 
 					<p>
-						Reducing friction for both the host and the guests was what brought
-						everything together and mad the workflow a enjoyable alternative to
-						Airbnb
+						Outstanding User Experience design was crucial in delivering an
+						intuitive and effective solution. By reducing friction for both the
+						host and the guests i was able to make the site an enjoyable
+						alternative to Airbnb.
 					</p>
-					<p>For guests, the experience is simple:</p>
-					<ul className="list-disc list-inside space-y-2 ml-4">
-						<li>Explore the property, reviews, and details</li>
-						<li>Select a date range and submit an inquiry</li>
+					<p>
+						<strong>For guests</strong>, the experience is strait forward:
+					</p>
+					<ul className="list-decimal list-inside space-y-2 ml-4">
+						<li>Explore the reviews, amenities, and property details</li>
 						<li>
 							See a clear price estimate breakdown before they send the request
 						</li>
+						<li>Select a date range and submit an inquiry</li>
 						<li>
 							Receive an email when the host confirms, with a link to payment
 						</li>
@@ -306,15 +312,18 @@ export default function HolidayRentalPage() {
 					<BlogImage
 						src="/video-of-site-form-rooms-till-form.png"
 						alt="Video of site from rooms till form"
+						className="!mb-10"
 					/>
 
-					<p>
+					<p className="pb-20">
 						Consistent branding is used across the website, emails, and the
 						payment pages. This makes the experience feel professional and
-						builds trust between the user and site.
+						builds user trust in the site.
 					</p>
-					<p>For the host, I removed all manual admin work:</p>
-					<ul className="list-disc list-inside space-y-2 ml-4">
+					<p>
+						<strong>For the host</strong>, I removed all manual admin work:
+					</p>
+					<ul className="list-decimal list-inside space-y-2 ml-4">
 						<li>They get an email when a new inquiry is submitted</li>
 						<li>
 							They click through to a private dashboard to inspect details
@@ -325,12 +334,8 @@ export default function HolidayRentalPage() {
 							info is stored centrally
 						</li>
 					</ul>
-					<p>Accepting a standard booking takes two clicks!!</p>
-					<p>No manual copying of customer info.</p>
-					<p>No chasing bank transfers.</p>
-					<p>No repetitive emails.</p>
 
-					<BlogImage
+					{/* <BlogImage
 						src="/host-inquiry-notification-email.png"
 						alt="Host inquiry notification email"
 					/>
@@ -341,11 +346,18 @@ export default function HolidayRentalPage() {
 					<BlogImage
 						src="/paid-booking-state-highlight.png"
 						alt="Paid booking state highlight"
-					/>
+					/> */}
 					<BlogImage
 						src="/bookings-table.png"
 						alt="Bookings table"
+						className="!mb-10"
 					/>
+					<p>Accepting a standard booking takes two clicks!!</p>
+					<div>
+						<p>No manual copying of customer info.</p>
+						<p>No chasing bank transfers.</p>
+						<p>No repetitive emails.</p>
+					</div>
 
 					<p>
 						If booking data is ever requested, the host can export accurate
@@ -373,7 +385,7 @@ export default function HolidayRentalPage() {
 				>
 					The hardest technical challenge
 				</h2>
-				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
+				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
 					<p>
 						The hardest part was redesigning a traditional booking flow without
 						a public calendar.
@@ -385,13 +397,15 @@ export default function HolidayRentalPage() {
 						them the convince of instant booking and visible availability.
 					</p>
 					<p>
-						That meant getting the language, flow, and price breakdown right:
-						guests need enough confidence to submit an inquiry, while the host
+						That meant getting the language, flow, and price breakdown right.
+						Guests need enough confidence to submit an inquiry, while the host
 						keeps full control and compliance stays intact.
 					</p>
 					<p>
-						Getting the underlying access control and database design right was
-						crucial so private bookings stayed private.
+						<strong>
+							Getting the underlying access control and database design right
+							was crucial so private bookings stayed private.
+						</strong>
 					</p>
 				</div>
 			</motion.section>
@@ -410,7 +424,7 @@ export default function HolidayRentalPage() {
 					Architecture
 				</h2>
 
-				<div className="flex flex-wrap justify-center items-center gap-6 my-8">
+				<div className="grid items-end grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-4 space-y-4">
 					{[
 						{ src: '/logo-next.png', alt: 'Next.js' },
 						{ src: '/logo-typescript.png', alt: 'TypeScript' },
@@ -422,15 +436,17 @@ export default function HolidayRentalPage() {
 					].map(logo => (
 						<figure
 							key={logo.src}
-							className="flex items-center justify-center shrink-0 w-20 h-20 sm:w-24 sm:h-24"
+							className=" rounded-lg max-h-[80px]  h-[80px]  "
 						>
-							<Image
-								src={logo.src}
-								alt={logo.alt}
-								width={96}
-								height={96}
-								className="object-contain w-full h-full"
-							/>
+							<div className="overflow-hidden rounded-xl  max-h-[80px] mx-auto w-fit h-full bg-white border border-black/5">
+								<Image
+									src={logo.src}
+									alt={logo.alt}
+									width={200}
+									height={200}
+									className="object-contain max-h-[80px] w-full rounded-xl overflow-hidden  h-full"
+								/>
+							</div>
 						</figure>
 					))}
 				</div>
@@ -477,7 +493,7 @@ export default function HolidayRentalPage() {
 				>
 					Impact
 				</h2>
-				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
+				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
 					<p className="font-medium">Financial impact</p>
 					<ul className="list-disc list-inside space-y-2 ml-4">
 						<li>16% more revenue per booking</li>
@@ -520,7 +536,7 @@ export default function HolidayRentalPage() {
 				>
 					What I learned
 				</h2>
-				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
+				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
 					<p>
 						The biggest learning was how much better outcomes get when you treat
 						this as product work, not “a website”.
