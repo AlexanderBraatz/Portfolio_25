@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import { animate, motion } from 'framer-motion';
-import { homePageLinks } from '@/lib/data';
+import { motion } from 'framer-motion';
+import { homePageLinks, holidayRentalLinks } from '@/lib/data';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { useActiveSectionContext } from '@/context/active-section-context';
 import { usePathname } from 'next/navigation';
+import { BsArrowLeft } from 'react-icons/bs';
 
 export default function Header() {
 	const {
@@ -24,7 +25,11 @@ export default function Header() {
 	const pathname = usePathname();
 
 	const headerWidth =
-		headerSections === homePageLinks ? 'sm:w-[41rem]' : 'sm:w-[18rem]';
+		headerSections === holidayRentalLinks
+			? 'sm:w-[50rem]'
+			: headerSections === homePageLinks
+			? 'sm:w-[41rem]'
+			: 'sm:w-[18rem]';
 	return (
 		<header className="z-[999] relative">
 			<motion.div
@@ -54,6 +59,11 @@ export default function Header() {
 									}
 								)}
 								href={link.hash}
+								aria-label={
+									link.name === 'Home' && headerSections === holidayRentalLinks
+										? 'Back to home'
+										: undefined
+								}
 								onClick={() => {
 									if (link.hash === '/testimonials/new') {
 										if (
@@ -75,7 +85,15 @@ export default function Header() {
 									}
 								}}
 							>
-								{link.name}
+								{link.name === 'Home' &&
+								headerSections === holidayRentalLinks ? (
+									<BsArrowLeft
+										className="text-lg"
+										aria-hidden
+									/>
+								) : (
+									link.name
+								)}
 								{activeSection === link.name && (
 									<motion.span
 										className="bg-gray-100 rounded-full absolute inset-0 -z-10"

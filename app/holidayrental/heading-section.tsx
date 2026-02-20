@@ -30,7 +30,7 @@ const FaGithubSquareIcon = FaGithubSquare as React.ComponentType<
 export default function HeadingSection() {
 	const { activeSection, setActiveSection, setTimeOfLastCLick } =
 		useActiveSectionContext();
-	const { ref } = useSectionInView('Home', 0.5);
+	const { ref } = useSectionInView('Intro', 0.5);
 
 	return (
 		<section

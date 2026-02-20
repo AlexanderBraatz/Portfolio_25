@@ -1,10 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/section-heading';
 import HeadingSection from './heading-section';
+import { useActiveSectionContext } from '@/context/active-section-context';
+import { useSectionInView } from '@/lib/hooks';
+import { holidayRentalLinks } from '@/lib/data';
 
 const sectionMotion = {
 	initial: { opacity: 0, y: 50 },
@@ -34,6 +37,20 @@ function BlogImage({
 }
 
 export default function HolidayRentalPage() {
+	const { setHeaderSections, setActiveSection } = useActiveSectionContext();
+	const introRef = useSectionInView('Intro', 0.5);
+	const problemRef = useSectionInView('Problem', 0.1);
+	const solutionRef = useSectionInView('Solution', 0.1);
+	const challengeRef = useSectionInView('Challenge', 0.5);
+	const architectureRef = useSectionInView('Architecture', 0.5);
+	const impactRef = useSectionInView('Impact', 0.5);
+	const learningsRef = useSectionInView('Learnings', 0.5);
+
+	useEffect(() => {
+		setHeaderSections(holidayRentalLinks);
+		setActiveSection('Intro');
+	}, [setHeaderSections, setActiveSection]);
+
 	return (
 		<article className="max-w-[49rem] mb-28 scroll-mt-[100rem]">
 			<motion.div
@@ -54,7 +71,7 @@ export default function HolidayRentalPage() {
 					aria-label="Article outline"
 				>
 					<h2
-						id="introduction"
+						id="outline-heading"
 						className="text-2xl scroll-mt-28 font-medium mb-4 text-left"
 					>
 						Outline
@@ -135,6 +152,7 @@ export default function HolidayRentalPage() {
 
 			{/* 1. Introduction */}
 			<motion.section
+				ref={introRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}
@@ -172,6 +190,7 @@ export default function HolidayRentalPage() {
 
 			{/* 2. The business problem */}
 			<motion.section
+				ref={problemRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}
@@ -238,6 +257,7 @@ export default function HolidayRentalPage() {
 
 			{/* 3. The solution */}
 			<motion.section
+				ref={solutionRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}
@@ -374,6 +394,7 @@ export default function HolidayRentalPage() {
 
 			{/* 4. The hardest technical challenge */}
 			<motion.section
+				ref={challengeRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}
@@ -412,6 +433,7 @@ export default function HolidayRentalPage() {
 
 			{/* 5. Architecture */}
 			<motion.section
+				ref={architectureRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}
@@ -520,6 +542,7 @@ export default function HolidayRentalPage() {
 
 			{/* 6. Impact */}
 			<motion.section
+				ref={impactRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}
@@ -563,6 +586,7 @@ export default function HolidayRentalPage() {
 
 			{/* 7. What I learned */}
 			<motion.section
+				ref={learningsRef.ref}
 				className="mb-12"
 				initial={sectionMotion.initial}
 				animate={sectionMotion.animate}

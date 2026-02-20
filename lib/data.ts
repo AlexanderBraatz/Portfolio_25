@@ -21,7 +21,15 @@ export type LinkName =
 	| 'Experience'
 	| 'Contact'
 	| 'Review'
-	| 'Account';
+	| 'Account'
+	// Holiday rental case study nav (short labels for bar)
+	| 'Intro'
+	| 'Problem'
+	| 'Solution'
+	| 'Challenge'
+	| 'Architecture'
+	| 'Impact'
+	| 'Learnings';
 
 export type LinkHash =
 	| '/#home'
@@ -33,7 +41,15 @@ export type LinkHash =
 	| '#contact'
 	| '/'
 	| '/testimonials/new'
-	| '/account/logout';
+	| '/account/logout'
+	// Holiday rental section hashes (used on /holidayrental)
+	| '#introduction'
+	| '#the-business-problem'
+	| '#the-solution'
+	| '#the-hardest-technical-challenge'
+	| '#architecture'
+	| '#impact'
+	| '#what-i-learned';
 
 export interface LinkType {
 	readonly name: LinkName;
@@ -84,6 +100,17 @@ export const testimonialLinks: LinkType[] = [
 		name: 'Account',
 		hash: '/account/logout'
 	}
+];
+
+export const holidayRentalLinks: LinkType[] = [
+	{ name: 'Home', hash: '/' },
+	{ name: 'Intro', hash: '#introduction' },
+	{ name: 'Problem', hash: '#the-business-problem' },
+	{ name: 'Solution', hash: '#the-solution' },
+	{ name: 'Challenge', hash: '#the-hardest-technical-challenge' },
+	{ name: 'Architecture', hash: '#architecture' },
+	{ name: 'Impact', hash: '#impact' },
+	{ name: 'Learnings', hash: '#what-i-learned' }
 ];
 export const experiencesData = [
 	{

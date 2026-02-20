@@ -2,7 +2,7 @@
 
 import React, { useState, createContext, useContext } from 'react';
 import type { SectionName } from '@/lib/types/types';
-import { homePageLinks, testimonialLinks, type LinkType } from '@/lib/data';
+import { homePageLinks, testimonialLinks, holidayRentalLinks, type LinkType } from '@/lib/data';
 import { usePathname } from 'next/navigation';
 
 type ActiveSectionContextProviderProps = { children: React.ReactNode };
@@ -26,12 +26,13 @@ export default function ActiveSectionContextProvider({
 	const pathname = usePathname();
 	const onTestimonials = pathname.startsWith('/testimonials');
 	const onAccount = pathname.startsWith('/account');
+	const onHolidayRental = pathname.startsWith('/holidayrental');
 	const [activeSection, setActiveSection] = useState<SectionName>(
-		onAccount ? 'Account' : onTestimonials ? 'Review' : 'Home'
+		onAccount ? 'Account' : onTestimonials ? 'Review' : onHolidayRental ? 'Intro' : 'Home'
 	);
 	const [timeOfLastClick, setTimeOfLastCLick] = useState(0); // we need keep track of this to temporarrily block the observer
 	const [headerSections, setHeaderSections] = useState(
-		onAccount || onTestimonials ? testimonialLinks : homePageLinks
+		onAccount || onTestimonials ? testimonialLinks : onHolidayRental ? holidayRentalLinks : homePageLinks
 	);
 
 	return (
