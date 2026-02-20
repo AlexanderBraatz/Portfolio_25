@@ -423,16 +423,21 @@ export default function HolidayRentalPage() {
 				>
 					Architecture
 				</h2>
+				<p className="font-medium">
+					<strong>Customer-facing site:</strong>
+				</p>
 
 				<div className="grid items-end grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-4 space-y-4">
 					{[
 						{ src: '/logo-next.png', alt: 'Next.js' },
-						{ src: '/logo-typescript.png', alt: 'TypeScript' },
-						{ src: '/logo-framer-motion.jpeg', alt: 'Framer Motion' },
-						{ src: '/logo-supabase.png', alt: 'Supabase' },
-						{ src: '/logo-PostgreSQL.png', alt: 'PostgreSQL' },
-						{ src: '/logo-stripe.png', alt: 'Stripe' },
-						{ src: '/logo-resend.png', alt: 'Resend' }
+						{ src: '/logo-react.webp', alt: 'React' },
+						{ src: '/logo-tailwind.png', alt: 'Tailwind CSS' },
+						{ src: '/logo-framer.png', alt: 'Framer Motion' },
+						{ src: '/logo-figma.png', alt: 'Figma' }
+						// { src: '/logo-supabase.png', alt: 'Supabase' },
+						// { src: '/logo-PostgreSQL.png', alt: 'PostgreSQL' },
+						// { src: '/logo-stripe.png', alt: 'Stripe' },
+						// { src: '/logo-resend.png', alt: 'Resend' }
 					].map(logo => (
 						<figure
 							key={logo.src}
@@ -452,16 +457,49 @@ export default function HolidayRentalPage() {
 				</div>
 
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed">
-					<p className="font-medium">Customer-facing site:</p>
-					<ul className="list-disc list-inside space-y-2 ml-4">
-						<li>Next.js, React, Tailwind CSS, Framer Motion</li>
+					<ul className="list-disc mt-4 list-inside space-y-2 ml-4">
+						<li>Next.js</li>
+						<li>React</li>
+						<li>Tailwind CSS</li>
+						<li>Framer Motion</li>
 					</ul>
 					<p>
 						This Stack let me translate my Figma design into a responsive site
 						that works smoothly on desktop, tablet and mobile, with unique
-						interactivity at great performance (xxx lighthouse score)
+						interactivity at great performance ( 95 mobile light house score).
 					</p>
-					<p className="font-medium mt-6">Admin + backend workflows:</p>
+					<p className="font-medium pt-6">
+						<strong>Admin + backend workflows:</strong>
+					</p>
+					<div className="grid items-end grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-4 space-y-4">
+						{[
+							// { src: '/logo-next.png', alt: 'Next.js' },
+							// { src: '/logo-typescript.png', alt: 'TypeScript' },
+							// { src: '/logo-tailwind.png', alt: 'Tailwind CSS' },
+							// { src: '/logo-framer-motion.jpeg', alt: 'Framer Motion' }
+
+							{ src: '/logo-typescript.png', alt: 'TypeScript' },
+							{ src: '/logo-supabase.png', alt: 'Supabase' },
+							{ src: '/logo-PostgreSQL.png', alt: 'PostgreSQL' },
+							{ src: '/logo-stripe.png', alt: 'Stripe' },
+							{ src: '/logo-resend.png', alt: 'Resend' }
+						].map(logo => (
+							<figure
+								key={logo.src}
+								className=" rounded-lg max-h-[80px]  h-[80px]  "
+							>
+								<div className="overflow-hidden rounded-xl  max-h-[80px] mx-auto w-fit h-full bg-white border border-black/5">
+									<Image
+										src={logo.src}
+										alt={logo.alt}
+										width={200}
+										height={200}
+										className="object-contain max-h-[80px] w-full rounded-xl overflow-hidden  h-full"
+									/>
+								</div>
+							</figure>
+						))}
+					</div>
 					<ul className="list-disc list-inside space-y-2 ml-4">
 						<li>Next.js + TypeScript (type-safe server actions)</li>
 						<li>Supabase (Postgres + Auth)</li>
@@ -473,9 +511,9 @@ export default function HolidayRentalPage() {
 						</li>
 					</ul>
 					<p>
-						The workflow is event-driven in practice: for example, a successful
-						Stripe payment triggers a webhook that updates booking state and
-						sends confirmation emails automatically.
+						<strong>The workflow is event-driven in practice:</strong> for
+						example, a successful Stripe payment triggers a webhook that updates
+						booking state and sends confirmation emails automatically.
 					</p>
 				</div>
 			</motion.section>
@@ -494,25 +532,25 @@ export default function HolidayRentalPage() {
 					Impact
 				</h2>
 				<div className="text-left space-y-4 text-gray-700 leading-relaxed mb-20">
-					<p className="font-medium">Financial impact</p>
+					<p className="font-bold">Financial impact</p>
 					<ul className="list-disc list-inside space-y-2 ml-4">
 						<li>16% more revenue per booking</li>
 						<li>Equivalent to one extra booking’s earnings per six bookings</li>
 					</ul>
 
 					<BlogImage
-						src="/coffee-stamp-graphic-2.png"
+						src="/coffee-stamp-graphic-3.png"
 						alt="Coffee stamp graphic"
 					/>
 
-					<p className="font-medium mt-6">Operational impact</p>
+					<p className="font-bold mt-6">Operational impact</p>
 					<p>
 						Compared to organising a booking manually without Airbnb, we made
-						the admin process 36 times faster. The Host can now do in 5 minutes
-						what would have taken 3 hours of email coordination and tracking
-						bank transfers and other sensitive user data.
+						the admin process <strong>36 times faster!</strong> The Host can now
+						do in 5 minutes what would have taken 3 hours of email coordination
+						and tracking bank transfers and other sensitive user data.
 					</p>
-					<p className="font-medium mt-4">Strategic impact</p>
+					<p className="font-bold mt-4">Strategic impact</p>
 					<ul className="list-disc list-inside space-y-2 ml-4">
 						<li>Independence from third-party platforms</li>
 						<li>
@@ -585,8 +623,9 @@ export default function HolidayRentalPage() {
 						approach for the marketing site. While the bespoke animations and
 						interactions add personality and polish, the additional development
 						time wasn’t fully justified by the incremental “wow” factor. A
-						simpler design system could have delivered nearly the same user
-						confidence with significantly less effort.
+						simpler design system like <strong>Relume</strong> could have
+						delivered nearly the same user confidence with significantly less
+						effort.
 					</p>
 				</div>
 			</motion.section>
