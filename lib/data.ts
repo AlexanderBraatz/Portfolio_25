@@ -144,14 +144,22 @@ export const experiencesData = [
 			'Brought in to accelerate a B2B marketplace platform launch, achieving a two-month early rollout through critical UI contributions and swift collaboration.',
 		icon: React.createElement(CgWorkAlt),
 		date: '2025'
-	}
+	},
+	{
+		title: 'Freelance Software Engineer & Designer',
+		location: 'Bristol, UK (remote) ',
+		description:
+			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business from €2000 fines and 16% fees.',
+			icon: React.createElement(CgWorkAlt),
+		date: '2026'
+	},
 ] as const;
 
 export const projectsData = [
 	{
 		title: 'Custom Booking Site',
 		description:
-			'Replaced Airbnb with lean booking platform, designed a new Brand and saved business form €2000 fines.',
+			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business from €2000 fines and 16% fees.',
 		tags: [ 'Stripe', 'Tailwind', 'TypeScript', 'Figma', 'PostgreSQL', ],
 		imageUrl: holidayRentalPlaceholder,
 		link: '/holidayrental',
@@ -209,6 +217,7 @@ export const skillsData = [
 	'Git',
 	'Jest',
 	'Figma',
+	'AI',
 	'Technical & Non-technical Communication'
 ] as const;
 
