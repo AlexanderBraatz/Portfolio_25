@@ -604,41 +604,104 @@ export default function HolidayRentalPage() {
 						What I learned
 					</h2>
 					<div className="text-left space-y-8 text-gray-700 leading-relaxed mb-20">
+						<p className="font-bold">Frontend</p>
 						<p>
-							The biggest learning was how much better outcomes get when you
-							treat this as product work, not “a website”.
+							<strong>Building a stacking cards UI using scroll.</strong> I
+							built an animation where cards stack on top of each other as the
+							user scrolls down the page. To get this right, I had to pay close
+							attention to how position: sticky, the scroll container height,
+							card height, top alignment, and top margins all interact. The
+							final effect uses position: sticky plus Framer Motion tracking of
+							scroll progress to drive the stacking behaviour.
 						</p>
 						<p>
-							Weekly feedback loops helped us refine the journey as soon as the
-							UI became tangible. The legal constraint forced a different
-							architecture, and having full control meant we didn’t need to
-							compromise UX or add manual admin work just to fit a SaaS
-							template.
+							<strong>Building a user-controlled shuffle animation.</strong> I
+							also created a playful “polaroid shuffle” animation so users can
+							click through different room images. The main challenge was
+							choosing the right moment in the animation to change z-index to
+							avoid visible clipping as images overlap. Instead of using CSS
+							keyframes, I tracked animation progress in component state so the
+							user can drive the shuffle by clicking from one photo to the next.
+						</p>
+						<p className="font-bold">Trade-offs</p>
+						<p>
+							<strong>
+								Custom dashboard instead of a stitched-together SaaS workflow.
+							</strong>{' '}
+							I chose to build a custom dashboard where the client can manage
+							bookings and customer details in one place, rather than stitching
+							together existing tools (e.g. forms + manual tracking + manual
+							emails). This required more upfront work, but the result was a
+							simpler and more automated workflow. The client valued having
+							everything in one place and not needing to learn multiple systems.
+						</p>
+						<p className="font-bold">Backend</p>
+						<p>
+							<strong>Designing a robust event-driven architecture.</strong> I
+							designed the booking system to tolerate failures and remain
+							eventually consistent across distributed parts of the workflow. I
+							did this by using idempotency keys to prevent duplicate email
+							sends, and retry logic to ensure emails and database updates still
+							complete after transient failures. I achieved this without adding
+							explicit job queues by leaning on Stripe and Resend’s built-in
+							retry and idempotency features.
 						</p>
 						<p>
-							I also learned a lot about making event-driven workflows reliable
-							using API idempotency and retry logic.
+							<strong>Leveraging TypeScript generics.</strong> For the
+							email-sending layer, I used TypeScript generics to strongly couple
+							each email template with the props it expects. This makes it easy
+							to add new templates while keeping type safety. TypeScript can
+							validate at build time that the template and props match, which
+							reduces the risk of runtime bugs and time-consuming email
+							debugging. A union-based approach could work, but generics scale
+							more cleanly as the number of templates grows.
 						</p>
 						<p>
-							And finally, AI-assisted coding while useful I found to be a
-							trade-off. I hand-coded the marketing site where brand and
-							interaction quality mattered most, and used AI to accelerate the
-							speed of admin features rollout and testing, while keeping
-							security and authorisation rules firmly under my control by
-							setting them by hand as well.
+							<strong>Integrating Stripe.</strong> I chose Stripe for its
+							developer experience and the quality of its dashboard (useful if
+							the client ever needs to handle refunds). I implemented dynamic
+							pricing on the server and embedded Stripe Checkout components into
+							a custom checkout page, instead of using a redirect-to-Stripe URL
+							flow. This kept the user experience cohesive, and it let the
+							client set or adjust pricing from the admin dashboard rather than
+							managing prices directly in Stripe.
 						</p>
 						<p>
-							Also: I learned how to use position sticky and scroll containers
-							to create the stacking cards animation for the rooms section.
+							<strong>Ensuring database security.</strong> I protected user data
+							while still supporting database writes from unauthenticated users.
+							I did this with RLS policies in Postgres, combined with tightly
+							controlled usage of the service role key from server-only function
+							calls.
+						</p>
+						<p className="font-bold">Trade-offs</p>
+						<ol className="list-decimal list-inside space-y-2 ml-4">
+							<li>
+								<strong>No explicit rate limiting:</strong> Unauthenticated
+								users can trigger certain writes, but I assessed the likelihood
+								and business impact of abuse as low for this project. Adding
+								rate limiting infrastructure didn’t feel justified at this
+								stage.
+							</li>
+							<li>
+								<strong>No separate email job queue:</strong> I relied on Resend
+								retry logic plus idempotency keys, because the expected email
+								volume is low enough that a dedicated queue would add complexity
+								without clear upside.
+							</li>
+						</ol>
+						<p className="font-bold">Project delivery</p>
+						<p>
+							<strong>Agile iteration with the client using prototypes.</strong>{' '}
+							Close collaboration with the client improved the final outcome.
+							Getting feedback early surfaced important insights while changes
+							were still cheap, and reduced the amount of work I had to throw
+							away later.
 						</p>
 						<p>
-							types at email teplates send email functions needed to use generic
-							types idenpotency and retry logic to ensure emails are not sent
-							multiple times. position sticky and custo scroll containers to
-							create the stacking cards animation for the rooms section. setting
-							up cron jobs for scheduled emails.Making sure my system was
-							eventually consistent by setting up a webhook to listen for stripe
-							payments and update the database and send emails.
+							I also learned that details matter, even during early exploration.
+							Keeping spelling, tone, and placeholder copy on-brand helped
+							feedback sessions stay focused on the product, instead of getting
+							distracted by avoidable rough edges.
 						</p>
 					</div>
 				</motion.section>
