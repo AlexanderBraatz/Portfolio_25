@@ -24,9 +24,8 @@ export type LinkName =
 	| 'Account'
 	// Holiday rental case study nav (short labels for bar)
 	| 'Intro'
-	| 'Problem'
+	| 'Aim'
 	| 'Solution'
-	| 'Challenge'
 	| 'Architecture'
 	| 'Impact'
 	| 'Learnings';
@@ -44,9 +43,8 @@ export type LinkHash =
 	| '/account/logout'
 	// Holiday rental section hashes (used on /holidayrental)
 	| '#introduction'
-	| '#the-business-problem'
+	| '#the-aim-of-the-project'
 	| '#the-solution'
-	| '#the-hardest-technical-challenge'
 	| '#architecture'
 	| '#impact'
 	| '#what-i-learned';
@@ -105,9 +103,8 @@ export const testimonialLinks: LinkType[] = [
 export const holidayRentalLinks: LinkType[] = [
 	{ name: 'Home', hash: '/' },
 	{ name: 'Intro', hash: '#introduction' },
-	{ name: 'Problem', hash: '#the-business-problem' },
+	{ name: 'Aim', hash: '#the-aim-of-the-project' },
 	{ name: 'Solution', hash: '#the-solution' },
-	{ name: 'Challenge', hash: '#the-hardest-technical-challenge' },
 	{ name: 'Architecture', hash: '#architecture' },
 	{ name: 'Impact', hash: '#impact' },
 	{ name: 'Learnings', hash: '#what-i-learned' }
@@ -159,7 +156,7 @@ export const projectsData = [
 	{
 		title: 'Custom Booking Site',
 		description:
-			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business from €2000 fines and 16% fees.',
+			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business 16% platform fees.',
 		tags: [ 'Stripe', 'Tailwind', 'TypeScript', 'Figma', 'PostgreSQL', ],
 		imageUrl: holidayRentalPlaceholder,
 		link: '/holidayrental',

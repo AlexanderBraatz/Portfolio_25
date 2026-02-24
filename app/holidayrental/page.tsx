@@ -39,9 +39,8 @@ function BlogImage({
 export default function HolidayRentalPage() {
 	const { setHeaderSections, setActiveSection } = useActiveSectionContext();
 	const introRef = useSectionInView('Intro', 0.5);
-	const problemRef = useSectionInView('Problem', 0.1);
+	const aimRef = useSectionInView('Aim', 0.1);
 	const solutionRef = useSectionInView('Solution', 0.1);
-	const challengeRef = useSectionInView('Challenge', 0.5);
 	const architectureRef = useSectionInView('Architecture', 0.5);
 	const impactRef = useSectionInView('Impact', 0.5);
 	const learningsRef = useSectionInView('Learnings', 0.5);
@@ -87,10 +86,10 @@ export default function HolidayRentalPage() {
 						</li>
 						<li>
 							<a
-								href="#the-business-problem"
+								href="#the-aim-of-the-project"
 								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
 							>
-								The business problem
+								The Aim of the Project
 							</a>
 						</li>
 						<li>
@@ -99,14 +98,6 @@ export default function HolidayRentalPage() {
 								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
 							>
 								The solution
-							</a>
-						</li>
-						<li>
-							<a
-								href="#the-hardest-technical-challenge"
-								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
-							>
-								The hardest technical challenge
 							</a>
 						</li>
 						<li>
@@ -162,97 +153,91 @@ export default function HolidayRentalPage() {
 					<h2
 						id="introduction"
 						className="text-3xl scroll-mt-28 font-medium capitalize mb-8 text-left"
-						// text-3xl font-medium  text-center
 					>
 						Introduction
 					</h2>
 					<div className="text-left space-y-8 text-gray-700 leading-relaxed mb-20">
-						<p>My client approached me with a tricky situation.</p>
 						<p>
-							One day, while rifling through their mail, they found an
-							official-looking letter from the local council. Inside was a €2000
-							(£1780) fine.
+							This project involved the end-to-end design and development of a
+							fully custom booking platform that enabled my client to move away
+							from Airbnb and reclaim the 16% platform fee previously deducted
+							from every booking. The objective was not simply to replicate
+							Airbnb’s functionality, but to build a streamlined, branded, and
+							highly automated inquiry-to-book system tailored precisely to the
+							client’s business needs.
 						</p>
 						<p>
-							The reason? The council had introduced legislation to cap
-							short-term letting to 8 weeks per year, as part of a crackdown on
-							high-volume holiday rentals (Airbnbs). This had my client feeling
-							pretty confused and angry, because they had only rented out the
-							property for around 6 weeks that year.
+							Through close collaboration, we mapped the ideal user journey for
+							both guests and host, eliminating manual admin work while
+							preserving the sense of trust and professionalism that third-party
+							platforms typically provide. The result is a lean, event-driven
+							booking solution combining a premium marketing website with a
+							private management dashboard, automated payments, and intelligent
+							email workflows.
 						</p>
 						<p>
-							The property was meant to be used primarily by them, plus friends
-							and family. Renting to paying guests was just a way to fill gaps
-							and help cover the mortgage.
+							In this article, I’ll break down the architecture, user experience
+							decisions, technical trade-offs, and measurable business impact of
+							delivering a robust, fully independent booking ecosystem.
 						</p>
-						<p>So why were they being fined?</p>
 					</div>
 				</motion.section>
 
-				{/* 2. The business problem */}
+				{/* 2. The Aim of the Project */}
 				<motion.section
-					ref={problemRef.ref}
+					ref={aimRef.ref}
 					className="mb-12"
 					initial={sectionMotion.initial}
 					animate={sectionMotion.animate}
 					transition={{ delay: 0.3 }}
 				>
 					<h2
-						id="the-business-problem"
+						id="the-aim-of-the-project"
 						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
-						The business problem
+						The Aim of the Project
 					</h2>
 					<div className="text-left space-y-8 text-gray-700 leading-relaxed mb-20">
-						<p>The issue was how the council decided to measure “letting”.</p>
 						<p>
-							They treat any dates marked as “unavailable” on Airbnb as booked
-							days, assuming they were unavailable because they had already been
-							booked. No distinction was made between genuine bookings and days
-							the host blocked off for personal use.
+							The primary aim of this project was to give the client full
+							independence from third-party booking platforms while preserving
+							the trust, simplicity, and reliability those platforms provide.
 						</p>
-
-						{/* <BlogImage
-						src="/airbnb-check-availability-button.png"
-						alt="Airbnb check availability button"
-					/> */}
-						<BlogImage
-							src="/airbnb-availability-calendar-2.png"
-							alt="Airbnb availability calendar"
-						/>
-
-						<p>
-							For the council this made enforcement easy. They could look at
-							availability online and issue fines. But this placed the burden of
-							proof on the landlord costing them time to defend the lawful use
-							of their own property.
-						</p>
-						<p>
-							In this regulatory environment, Airbnb was no longer the right
-							tool for two main reasons:
-						</p>
-						<p className="ml-10">
-							<strong>Financial:</strong> Airbnb’s fees are around 16% of
-							revenue this reduces earnings considerably. When you only have a
-							limited number of weeks you’re allowed to rent, that cut becomes a
-							painfully large share of profits once fixed costs are deducted. In
-							practice, it’s like giving up 2 weeks of booking’s worth of
-							earnings form the 8 week allowance.
-						</p>
-						<p className="ml-10">
-							<strong>Legal compliance:</strong> Airbnb doesn’t allow hosts to
-							hide availability. So even if the host is operating legally,
-							they’re pushed into a cycle of administrative overhead due to the
-							legal disputes required to present evidence just to avoid or
-							challenge unjustified fines.
-						</p>
-						<p>
-							Using a booking management Saas like Lodgify was not an option as
-							all-in-one platforms like these are also built around the UX of
-							showing availability publicly, just like Airbnb. Enterprise tools
-							like Bookinglayer can support custom workflows, but their
-							subscription costs don’t make sense for a single property.
-						</p>
+						<p>More specifically, the project set out to:</p>
+						<ol className="list-decimal list-inside space-y-4 ml-4">
+							<li>
+								<strong>Increase Revenue Per Booking</strong>
+								<br />
+								Eliminate Airbnb’s 16% platform fee and allow the client to
+								retain more profit from every confirmed stay.
+							</li>
+							<li>
+								<strong>Replace Platform Trust with Brand Trust</strong>
+								<br />
+								Design a premium, cohesive digital experience that would inspire
+								the same level of confidence guests typically associate with
+								large booking platforms.
+							</li>
+							<li>
+								<strong>Automate the Inquiry-to-Book Workflow</strong>
+								<br />
+								Remove manual email coordination, bank transfer tracking, and
+								repetitive admin tasks by building an event-driven, automated
+								system.
+							</li>
+							<li>
+								<strong>Centralise Booking Management</strong>
+								<br />
+								Provide a private dashboard where all inquiries, payments, guest
+								details, and booking records are stored in one secure location.
+							</li>
+							<li>
+								<strong>Deliver a Lean, Intuitive User Experience</strong>
+								<br />
+								Reduce friction for both guests and host, ensuring the custom
+								solution felt simpler — not more complicated — than Airbnb.
+							</li>
+						</ol>
 					</div>
 				</motion.section>
 
@@ -297,12 +282,11 @@ export default function HolidayRentalPage() {
 						/>
 
 						<p className="">
-							<strong>Booking management platform: </strong> a private booking
+							<strong>Booking management platform:</strong> a private booking
 							management platform consisting of a private admin dashboard and
 							automated workflows for sending emails and taking payments. The
 							design provides a lean version of the traditional inquiry-to-book
-							workflow and crucially keeps availability hidden while aggregating
-							all booking data in one place for regulatory transparency.
+							workflow.
 						</p>
 						<BlogImage
 							src="/bookings-table.png"
@@ -397,52 +381,13 @@ export default function HolidayRentalPage() {
 					</div>
 				</motion.section>
 
-				{/* 4. The hardest technical challenge */}
-				<motion.section
-					ref={challengeRef.ref}
-					className="mb-12"
-					initial={sectionMotion.initial}
-					animate={sectionMotion.animate}
-					transition={{ delay: 0.5 }}
-				>
-					<h2
-						id="the-hardest-technical-challenge"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
-					>
-						The hardest technical challenge
-					</h2>
-					<div className="text-left space-y-8 text-gray-700 leading-relaxed mb-20">
-						<p>
-							The hardest part was redesigning a traditional booking flow
-							without a public calendar.
-						</p>
-						<p>
-							Normally, booking sites use availability as the foundation of the
-							UX. Here, showing availability created legal risk. So the system
-							needed to feel clear and trustworthy for guests without offering
-							them the convince of instant booking and visible availability.
-						</p>
-						<p>
-							That meant getting the language, flow, and price breakdown right.
-							Guests need enough confidence to submit an inquiry, while the host
-							keeps full control and compliance stays intact.
-						</p>
-						<p>
-							<strong>
-								Getting the underlying access control and database design right
-								was crucial so private bookings stayed private.
-							</strong>
-						</p>
-					</div>
-				</motion.section>
-
-				{/* 5. Architecture */}
+				{/* 4. Architecture */}
 				<motion.section
 					ref={architectureRef.ref}
 					className="mb-12"
 					initial={sectionMotion.initial}
 					animate={sectionMotion.animate}
-					transition={{ delay: 0.6 }}
+					transition={{ delay: 0.5 }}
 				>
 					<h2
 						id="architecture"
@@ -542,13 +487,13 @@ export default function HolidayRentalPage() {
 					</div>
 				</motion.section>
 
-				{/* 6. Impact */}
+				{/* 5. Impact */}
 				<motion.section
 					ref={impactRef.ref}
 					className="mb-12"
 					initial={sectionMotion.initial}
 					animate={sectionMotion.animate}
-					transition={{ delay: 0.7 }}
+					transition={{ delay: 0.6 }}
 				>
 					<h2
 						id="impact"
@@ -581,21 +526,18 @@ export default function HolidayRentalPage() {
 						<p className="font-bold mt-4">Strategic impact</p>
 						<ul className="list-disc list-inside space-y-2 ml-4">
 							<li>Independence from third-party platforms</li>
-							<li>
-								Reduced regulatory exposure (no public availability calendar)
-							</li>
 							<li>Full control over branding and customer experience</li>
 						</ul>
 					</div>
 				</motion.section>
 
-				{/* 7. What I learned */}
+				{/* 6. What I learned */}
 				<motion.section
 					ref={learningsRef.ref}
 					className="mb-12"
 					initial={sectionMotion.initial}
 					animate={sectionMotion.animate}
-					transition={{ delay: 0.8 }}
+					transition={{ delay: 0.7 }}
 				>
 					<h2
 						id="what-i-learned"
@@ -706,12 +648,12 @@ export default function HolidayRentalPage() {
 					</div>
 				</motion.section>
 
-				{/* 8. What I'd do differently */}
+				{/* 7. What I'd do differently */}
 				<motion.section
 					className="mb-12"
 					initial={sectionMotion.initial}
 					animate={sectionMotion.animate}
-					transition={{ delay: 0.9 }}
+					transition={{ delay: 0.8 }}
 				>
 					<h2
 						id="what-id-do-differently"
