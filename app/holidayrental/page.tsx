@@ -656,15 +656,14 @@ export default function HolidayRentalPage() {
 						id="ai"
 						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
-						How i used AI
+						Balancing genAI with Handcoding.
 					</h2>
 					<div className="text-left space-y-8 text-gray-700 leading-relaxed mb-20">
 						<p>
-							<strong>Balancing AI with Handcoding.</strong> For the
-							customer-facing site, I wrote everything by hand. The design was
-							highly intentional, with complex animations and delicate
-							responsive breakpoints in the hero section, and I wanted full
-							control over the implementation.
+							For the customer-facing site, I wrote everything by hand. The
+							design was highly intentional, with complex animations and
+							delicate responsive breakpoints in the hero section, and I wanted
+							full control over the implementation.
 						</p>
 						<p>
 							For the admin interface, I took a different approach. I used genAI
