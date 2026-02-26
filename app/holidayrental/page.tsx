@@ -44,6 +44,7 @@ export default function HolidayRentalPage() {
 	const architectureRef = useSectionInView('Architecture', 0.5);
 	const impactRef = useSectionInView('Impact', 0.5);
 	const learningsRef = useSectionInView('Learnings', 0.5);
+	const aiRef = useSectionInView('AI', 0.5);
 
 	useEffect(() => {
 		setHeaderSections(holidayRentalLinks);
@@ -161,10 +162,9 @@ export default function HolidayRentalPage() {
 							This project involved the end-to-end design and development of a
 							fully custom booking platform that enabled my client to move away
 							from Airbnb and reclaim the 16% platform fee previously deducted
-							from every booking. The objective was not simply to replicate
-							Airbnb’s functionality, but to build a streamlined, branded, and
-							highly automated inquiry-to-book system tailored precisely to the
-							client’s business needs.
+							from every booking. The aim was to build a streamlined, branded,
+							and highly automated inquiry-to-book system tailored precisely to
+							the client’s business needs.
 						</p>
 						<p>
 							Through close collaboration, we mapped the ideal user journey for
@@ -172,7 +172,7 @@ export default function HolidayRentalPage() {
 							preserving the sense of trust and professionalism that third-party
 							platforms typically provide. The result is a lean, event-driven
 							booking solution combining a premium marketing website with a
-							private management dashboard, automated payments, and intelligent
+							private management dashboard, automated payments and automated
 							email workflows.
 						</p>
 						<p>
@@ -235,7 +235,7 @@ export default function HolidayRentalPage() {
 								<strong>Deliver a Lean, Intuitive User Experience</strong>
 								<br />
 								Reduce friction for both guests and host, ensuring the custom
-								solution felt simpler — not more complicated — than Airbnb.
+								solution felt simpler than Airbnb.
 							</li>
 						</ol>
 					</div>
@@ -313,8 +313,8 @@ export default function HolidayRentalPage() {
 								Receive an email when the host confirms, with a link to payment
 							</li>
 							<li>
-								After payment, receive a pre-arrival email (one day before
-								check-in)
+								After payment, receive a pre-arrival email (scheduled for one
+								day before check-in)
 							</li>
 						</ul>
 
@@ -434,6 +434,7 @@ export default function HolidayRentalPage() {
 							<li>React</li>
 							<li>Tailwind CSS</li>
 							<li>Framer Motion</li>
+							<li>Figma</li>
 						</ul>
 						<p>
 							This Stack let me translate my Figma design into a responsive site
@@ -480,9 +481,9 @@ export default function HolidayRentalPage() {
 							<li>Serverless functions + cron jobs for scheduled emails</li>
 						</ul>
 						<p>
-							<strong>The workflow is event-driven in practice:</strong> for
-							example, a successful Stripe payment triggers a webhook that
-							updates booking state and sends confirmation emails automatically.
+							<strong>The workflow is event-driven</strong> a successful Stripe
+							payment triggers a webhook that updates booking state and sends
+							confirmation emails automatically.
 						</p>
 					</div>
 				</motion.section>
@@ -523,11 +524,6 @@ export default function HolidayRentalPage() {
 							coordination and tracking bank transfers and other sensitive user
 							data.
 						</p>
-						<p className="font-bold mt-4">Strategic impact</p>
-						<ul className="list-disc list-inside space-y-2 ml-4">
-							<li>Independence from third-party platforms</li>
-							<li>Full control over branding and customer experience</li>
-						</ul>
 					</div>
 				</motion.section>
 
@@ -551,14 +547,14 @@ export default function HolidayRentalPage() {
 							<strong>Building a stacking cards UI using scroll.</strong> I
 							built an animation where cards stack on top of each other as the
 							user scrolls down the page. To get this right, I had to pay close
-							attention to how position: sticky, the scroll container height,
+							attention to how position sticky, the scroll container height,
 							card height, top alignment, and top margins all interact. The
-							final effect uses position: sticky plus Framer Motion tracking of
-							scroll progress to drive the stacking behaviour.
+							final effect uses position sticky plus Framer Motion tracking of
+							scroll progress to drive the stacking behavior.
 						</p>
 						<p>
 							<strong>Building a user-controlled shuffle animation.</strong> I
-							also created a playful “polaroid shuffle” animation so users can
+							also created a playful “Polaroid shuffle” animation so users can
 							click through different room images. The main challenge was
 							choosing the right moment in the animation to change z-index to
 							avoid visible clipping as images overlap. Instead of using CSS
@@ -572,10 +568,11 @@ export default function HolidayRentalPage() {
 							</strong>{' '}
 							I chose to build a custom dashboard where the client can manage
 							bookings and customer details in one place, rather than stitching
-							together existing tools (e.g. forms + manual tracking + manual
-							emails). This required more upfront work, but the result was a
-							simpler and more automated workflow. The client valued having
-							everything in one place and not needing to learn multiple systems.
+							together existing tools (e.g. google forms + manual tracking +
+							manual emails). This required more upfront work, but the result
+							was a simpler and more automated workflow. The client valued
+							having everything in one place and not needing to learn multiple
+							systems.
 						</p>
 						<p className="font-bold">Backend</p>
 						<p>
@@ -611,7 +608,7 @@ export default function HolidayRentalPage() {
 						<p>
 							<strong>Ensuring database security.</strong> I protected user data
 							while still supporting database writes from unauthenticated users.
-							I did this with RLS policies in Postgres, combined with tightly
+							I did this with RLS policies in PostgreSQL, combined with tightly
 							controlled usage of the service role key from server-only function
 							calls.
 						</p>
@@ -621,8 +618,7 @@ export default function HolidayRentalPage() {
 								<strong>No explicit rate limiting:</strong> Unauthenticated
 								users can trigger certain writes, but I assessed the likelihood
 								and business impact of abuse as low for this project. Adding
-								rate limiting infrastructure didn’t feel justified at this
-								stage.
+								rate limiting infrastructure was not justified at this stage.
 							</li>
 							<li>
 								<strong>No separate email job queue:</strong> I relied on Resend
@@ -648,7 +644,48 @@ export default function HolidayRentalPage() {
 					</div>
 				</motion.section>
 
-				{/* 7. What I'd do differently */}
+				{/* 7. AI */}
+				<motion.section
+					ref={aiRef.ref}
+					className="mb-12"
+					initial={sectionMotion.initial}
+					animate={sectionMotion.animate}
+					transition={{ delay: 0.6 }}
+				>
+					<h2
+						id="ai"
+						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+					>
+						How i used AI
+					</h2>
+					<div className="text-left space-y-8 text-gray-700 leading-relaxed mb-20">
+						<p>
+							<strong>Balancing AI with Handcoding.</strong> For the
+							customer-facing site, I wrote everything by hand. The design was
+							highly intentional, with complex animations and delicate
+							responsive breakpoints in the hero section, and I wanted full
+							control over the implementation.
+						</p>
+						<p>
+							For the admin interface, I took a different approach. I used genAI
+							(Cursor’s Composer in agentic mode) to accelerate scaffolding and
+							repetitive sections, while giving very explicit guidance on
+							structure and constraints. I found AI most effective when
+							extending an existing patterns like wiring up existing form inputs
+							with zod and React Hook Form and Zod based, or for generating
+							email templates that followed the established front-end styles.
+						</p>
+						<p className="font-bold">Trade-offs</p>
+						<p>
+							I spent a longer time coding features by hand where precision was
+							important for brand experience or data security and sped up
+							iteration where how things worked was more important then how they
+							looked, selectively adding extra polish by hand afterwards.
+						</p>
+					</div>
+				</motion.section>
+
+				{/* 8. What I'd do differently */}
 				<motion.section
 					className="mb-12"
 					initial={sectionMotion.initial}

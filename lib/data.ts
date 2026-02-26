@@ -28,7 +28,8 @@ export type LinkName =
 	| 'Solution'
 	| 'Architecture'
 	| 'Impact'
-	| 'Learnings';
+	| 'Learnings'
+	| 'AI';
 
 export type LinkHash =
 	| '/#home'
@@ -47,7 +48,8 @@ export type LinkHash =
 	| '#the-solution'
 	| '#architecture'
 	| '#impact'
-	| '#what-i-learned';
+	| '#what-i-learned'
+	| "#ai";
 
 export interface LinkType {
 	readonly name: LinkName;
@@ -107,7 +109,8 @@ export const holidayRentalLinks: LinkType[] = [
 	{ name: 'Solution', hash: '#the-solution' },
 	{ name: 'Architecture', hash: '#architecture' },
 	{ name: 'Impact', hash: '#impact' },
-	{ name: 'Learnings', hash: '#what-i-learned' }
+	{ name: 'Learnings', hash: '#what-i-learned' },
+	{ name: 'AI', hash: '#ai' }
 ];
 export const experiencesData = [
 	{
@@ -146,7 +149,7 @@ export const experiencesData = [
 		title: 'Freelance Software Engineer & Designer',
 		location: 'Bristol, UK (remote) ',
 		description:
-			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business from €2000 fines and 16% fees.',
+			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business 16% in platform fees.',
 			icon: React.createElement(CgWorkAlt),
 		date: '2026'
 	},

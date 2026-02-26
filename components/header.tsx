@@ -26,7 +26,7 @@ export default function Header() {
 
 	const headerWidth =
 		headerSections === holidayRentalLinks
-			? 'sm:w-[50rem]'
+			? 'sm:w-[44rem]'
 			: headerSections === homePageLinks
 			? 'sm:w-[41rem]'
 			: 'sm:w-[18rem]';
