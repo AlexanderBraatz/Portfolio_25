@@ -4,7 +4,7 @@ export default function Footer() {
 	return (
 		<footer className="h-20 px-4 text-gray-400 text-center">
 			<small className="mb-2 block text-xs">
-				&copy; Alexander Braatz 2025 All rights reserved.
+				&copy; Alexander Braatz 2026 All rights reserved.
 			</small>
 			<p className="text-xs">
 				<span className="font-semibold">About this website : </span> Built with

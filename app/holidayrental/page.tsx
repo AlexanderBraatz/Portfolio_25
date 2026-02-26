@@ -17,10 +17,12 @@ const sectionMotion = {
 function BlogImage({
 	src,
 	alt,
+	caption,
 	className
 }: {
 	src: string;
 	alt: string;
+	caption?: string;
 	className?: string;
 }) {
 	return (
@@ -30,21 +32,28 @@ function BlogImage({
 				alt={alt}
 				width={800}
 				height={500}
-				className={`rounded-lg border border-black/5 w-full mb-20 mt-10 object-cover ${className}`}
+				className={`rounded-lg border border-black/5 w-full mt-10 object-cover ${
+					caption ? 'mb-2' : 'mb-20'
+				} ${className}`}
 			/>
+			{caption && (
+				<figcaption className="text-sm text-gray-600 mb-20  italic">
+					{caption}
+				</figcaption>
+			)}
 		</figure>
 	);
 }
 
 export default function HolidayRentalPage() {
 	const { setHeaderSections, setActiveSection } = useActiveSectionContext();
-	const introRef = useSectionInView('Intro', 0.5);
+	const introRef = useSectionInView('Intro', 0.2);
 	const aimRef = useSectionInView('Aim', 0.1);
 	const solutionRef = useSectionInView('Solution', 0.1);
-	const architectureRef = useSectionInView('Architecture', 0.5);
+	const architectureRef = useSectionInView('Architecture', 0.1);
 	const impactRef = useSectionInView('Impact', 0.5);
-	const learningsRef = useSectionInView('Learnings', 0.5);
-	const aiRef = useSectionInView('AI', 0.5);
+	const learningsRef = useSectionInView('Learnings', 0.1);
+	const aiRef = useSectionInView('AI', 0.1);
 
 	useEffect(() => {
 		setHeaderSections(holidayRentalLinks);
@@ -127,6 +136,14 @@ export default function HolidayRentalPage() {
 						</li>
 						<li>
 							<a
+								href="#ai"
+								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
+							>
+								AI vs Handcoding
+							</a>
+						</li>
+						<li>
+							<a
 								href="#what-id-do-differently"
 								className="text-gray-800 hover:text-gray-600 hover:underline focus:underline focus:outline-none [&:not(:hover)]:no-underline"
 							>
@@ -142,7 +159,7 @@ export default function HolidayRentalPage() {
 				alt="Picture of me and the client"
 			/> */}
 
-			<div className=" max-w-[49rem] mx-auto p-4 px-6 rounded-lg  border-black/5 ">
+			<div className=" max-w-[49rem] mx-auto py-4 md:px-6  rounded-lg  border-black/5 ">
 				{/* 1. Introduction */}
 				<motion.section
 					ref={introRef.ref}
@@ -193,7 +210,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="the-aim-of-the-project"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						The Aim of the Project
 					</h2>
@@ -204,7 +221,7 @@ export default function HolidayRentalPage() {
 							the trust, simplicity, and reliability those platforms provide.
 						</p>
 						<p>More specifically, the project set out to:</p>
-						<ol className="list-decimal list-inside space-y-4 ml-4">
+						<ol className="list-none list-inside space-y-4 ml-4">
 							<li>
 								<strong>Increase Revenue Per Booking</strong>
 								<br />
@@ -251,7 +268,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="the-solution"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						The solution
 					</h2>
@@ -279,6 +296,7 @@ export default function HolidayRentalPage() {
 						<BlogImage
 							src="/hero.png"
 							alt="Hero section of the booking site"
+							caption="Hero section of the custom booking site: main marketing message and clear call-to-action."
 						/>
 
 						<p className="">
@@ -291,6 +309,12 @@ export default function HolidayRentalPage() {
 						<BlogImage
 							src="/bookings-table.png"
 							alt="Bookings table in admin dashboard"
+							caption="The admin dashboard shows a table of all bookings with their status, dates, and guest details in one place."
+						/>
+						<BlogImage
+							src="/price-breakdown-and-accept-button.png"
+							alt="Price breakdown and accept button"
+							caption="The host can view a price breakdown for each inquiry and accept or decline the booking with a single click."
 						/>
 
 						<p>
@@ -321,7 +345,7 @@ export default function HolidayRentalPage() {
 						<BlogImage
 							src="/video-of-site-form-rooms-till-form.png"
 							alt="Video of site from rooms till form"
-							className="!mb-10"
+							caption="An interactive card stack and Polaroid stack showing the rooms."
 						/>
 
 						<p className="pb-20">
@@ -359,25 +383,16 @@ export default function HolidayRentalPage() {
 						<BlogImage
 							src="/bookings-table.png"
 							alt="Bookings table"
-							className="!mb-10"
+							caption="The bookings table gives the host a single view of every inquiry and paid booking without switching tools."
 						/>
-						<p>Accepting a standard booking now takes two clicks!!</p>
-						<div>
-							<p className="font-bold">No manual copying of customer info.</p>
-							<p className="font-bold">No chasing bank transfers.</p>
-							<p className="font-bold">No repetitive emails.</p>
-						</div>
-
-						<p>
-							If booking data is ever requested, the host can export accurate
-							records showing which days were actually paid guest stays versus
-							private use.
+						<p className="font-bold">
+							Accepting a standard booking now takes two clicks!!
 						</p>
-
-						<BlogImage
-							src="/image-of-export-button.png"
-							alt="Image of export button"
-						/>
+						<div>
+							<p className="">No manual copying of customer info.</p>
+							<p className="">No chasing bank transfers.</p>
+							<p className="">No repetitive emails.</p>
+						</div>
 					</div>
 				</motion.section>
 
@@ -391,7 +406,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="architecture"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						Architecture
 					</h2>
@@ -439,7 +454,7 @@ export default function HolidayRentalPage() {
 						<p>
 							This Stack let me translate my Figma design into a responsive site
 							that works smoothly on desktop, tablet and mobile, with unique
-							interactivity at great performance ( 95 mobile light house score).
+							interactivity at great performance.
 						</p>
 						<p className="font-medium pt-6">
 							<strong>Admin dashboard + automated workflows:</strong>
@@ -498,7 +513,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="impact"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						Impact
 					</h2>
@@ -514,6 +529,7 @@ export default function HolidayRentalPage() {
 						<BlogImage
 							src="/coffee-stamp-graphic-3.png"
 							alt="Coffee stamp graphic"
+							caption="Illustration of the 16% revenue gain: one extra booking’s earnings for every six bookings."
 						/>
 
 						<p className="font-bold mt-6">Operational impact</p>
@@ -537,7 +553,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="what-i-learned"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						What I learned
 					</h2>
@@ -654,7 +670,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="ai"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						Balancing genAI with Handcoding.
 					</h2>
@@ -693,7 +709,7 @@ export default function HolidayRentalPage() {
 				>
 					<h2
 						id="what-id-do-differently"
-						className="text-3xl font-medium capitalize mb-8 text-left scroll-mt-28"
+						className="text-3xl/10 font-medium capitalize mb-8 text-left scroll-mt-28"
 					>
 						What I’d do differently
 					</h2>

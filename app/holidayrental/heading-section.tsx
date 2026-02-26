@@ -105,17 +105,17 @@ export default function HeadingSection() {
 					href="https://staging.alexanderbraatz.com/admin/bookings"
 					target="_blank"
 				>
-					Go to Admin Dashboard{' '}
+					Test Admin Dashboard{' '}
 					<ArrowRightIcon className="opacity-60 group-hover:translate-y-1 transition" />
 				</a>
 				<div className="flex flex-row gap-2">
-					<a
+					{/* <a
 						className="transform-gpu bg-white w-[56px] p-4 text-gray-700 flex items-center justify-center gap-2 rounded-full  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
 						href="https://linkedin.com/in/alexander-braatz-90436a109"
 						target="_blank"
 					>
 						<BsLinkedinIcon />
-					</a>
+					</a> */}
 					<a
 						className="transform-gpu bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem]  outline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
 						href="https://github.com/AlexanderBraatz/airbnb-integration-rental-booking_25"
