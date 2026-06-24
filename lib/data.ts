@@ -157,33 +157,47 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
-	{
-		title: 'SME Rebrand',
-		description:
-			'Developed a performant marketing site, sharpening brand identity through custom design and animations. ',
-		tags: [ 'Tailwind', 'Figma', 'React' , 'motion','Next.js'],
-		imageUrl: akCrystalCleanHomepage,
-		link: 'https://cms-based-marketing-site-for-smb-cl-six.vercel.app/',
-		linkText:'open live site'
-	},
+{
+	title: 'CMS Marketing Site for Cleaning SME',
+	description:
+		'Built editable Next.js marketing site with TinaCMS-backed content and a Vercel deployment workflow.',
+	tags: [
+		'Next.js',
+		'TinaCMS',
+		'API Routes',
+		'Tailwind',
+		'Vercel',
+	],
+	imageUrl: akCrystalCleanHomepage,
+	link: 'https://cms-based-marketing-site-for-smb-cl-six.vercel.app/',
+	linkText: 'open live site'
+},
 	{
 		title: 'Custom Booking Site',
 		description:
 			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business 16% platform fees.',
-		tags: [ 'Stripe', 'Tailwind', 'TypeScript', 'Figma', 'PostgreSQL', ],
+		tags: [ 'Stripe API', 'Tailwind', 'TypeScript', 'Figma', 'PostgreSQL', ],
 		imageUrl: holidayRentalPlaceholder,
 		link: '/holidayrental',
 		linkText: 'Read case study'
 	},
-	{
-		title: 'Portfolio Reviews',
-		description:
-			'Built out full-stack Review CMS with magic-link user auth flow, image storage and mobile-responsive carousel.',
-		tags: ['SMTP server', 'PostgreSQL', 'TypeScript','Shadcn'],
-		imageUrl: protfolioScreenshot1,
-		link: 'https://alexanderbraatz.com/#reviews',
-		linkText: 'open live site'
-	},
+{
+
+	title: 'Review CMS & Auth',
+	description:
+		'Built a full-stack review system with magic-link auth, image uploads, PostgreSQL data storage  and a responsive testimonial carousel.',
+	tags: [
+		'Next.js',
+		'TypeScript',
+		'PostgreSQL',
+		'Auth',
+		'Image Storage',
+		'Shadcn'
+	],
+	imageUrl: protfolioScreenshot1,
+	link: 'https://alexanderbraatz.com/#reviews',
+	linkText: 'open live site'
+},
 	{
 		title: 'Scale-up Contractor',
 		description:
@@ -193,15 +207,22 @@ export const projectsData = [
 		link: 'https://renewable.exchange/platform-3-demo-request/',
 		linkText: 'Get a Demo'
 	},
-	{
-		title: 'AI Image Generator',
-		description:
-			'Developed this web app for a convention showcase, where users designed and downloaded 200+ LinkedIn cover images.',
-		tags: ['Next.js', 'JavaScript', 'API', 'Figma', 'CI/CD'],
-		imageUrl: linkedinScreenshot1,
-		link: 'https://linkedin-banner-image-generator.vercel.app',
-		linkText: 'open live site'
-	},
+{
+	title: 'AI Image Generator',
+	description:
+		'Built a convention web app integrating an external AI image API, handling user prompts, generated assets and 200+ LinkedIn banner downloads.',
+	tags: [
+		'Next.js',
+		'JavaScript',
+		'External API',
+		'Serverless',
+		'Figma',
+		'CI/CD'
+	],
+	imageUrl: linkedinScreenshot1,
+	link: 'https://linkedin-banner-image-generator.vercel.app',
+	linkText: 'open live site'
+},
 	{
 		title: 'Architecture Firm',
 		description:
