@@ -7,6 +7,7 @@ import linkedinScreenshot1 from '@/public/linkedin-screenshot-3.png';
 import winsorScreenshot1 from '@/public/winsor-screenshot-1.jpg';
 import protfolioScreenshot1 from '@/public/protfolio-review-screenshot.png';
 import holidayRentalPlaceholder from '@/public/hero-2-sieben-giepfel-blick.png';
+import akCrystalCleanHomepage from '@/public/ak-crystal-clean-wide2.png';
 // import holidayRentalPlaceholder from '@/public/picture-of-me-and-the-client-cropped-3.jpeg';
 // import holidayRentalPlaceholder from '@/public/picture-of-me-and-the-clientcropped-2.jpeg';
 
@@ -149,13 +150,22 @@ export const experiencesData = [
 		title: 'Freelance Software Engineer & Designer',
 		location: 'Bristol, UK (remote) ',
 		description:
-			'Replaced Airbnb with lean booking platform, designed new Brand identity and saved business 16% in platform fees.',
+			'- Replaced Airbnb with lean booking platform, designed new Brand identity and saved business 16% in platform fees. \n\n- Redesigned Brand identity around existing assets, delivering a high performant marketing site, driving sales',
 			icon: React.createElement(CgWorkAlt),
 		date: '2026'
 	},
 ] as const;
 
 export const projectsData = [
+	{
+		title: 'SME Rebrand',
+		description:
+			'Developed a performant marketing site, sharpening brand identity through custom design and animations. ',
+		tags: [ 'Tailwind', 'Figma', 'React' , 'motion','Next.js'],
+		imageUrl: akCrystalCleanHomepage,
+		link: 'https://cms-based-marketing-site-for-smb-cl-six.vercel.app/',
+		linkText:'open live site'
+	},
 	{
 		title: 'Custom Booking Site',
 		description:
