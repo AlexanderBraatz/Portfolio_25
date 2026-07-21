@@ -113,6 +113,7 @@ function BookButton() {
 
 type PaymentCardProps = {
 	href: string;
+	id?: string;
 	recommended?: boolean;
 	delay?: number;
 	className?: string;
@@ -121,6 +122,7 @@ type PaymentCardProps = {
 
 function PaymentCard({
 	href,
+	id,
 	recommended = false,
 	delay = 0,
 	className,
@@ -128,6 +130,7 @@ function PaymentCard({
 }: PaymentCardProps) {
 	return (
 		<motion.a
+			id={id}
 			href={href}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -247,9 +250,10 @@ export default function PaymentPage() {
 			</motion.div>
 
 			<PaymentCard
+				id="conversion"
 				href={ADD_ON_STRIPE_URL}
 				delay={0.3}
-				className="p-6 sm:p-8"
+				className="scroll-mt-16 p-6 sm:p-8"
 			>
 				<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
 					<div>
@@ -274,9 +278,10 @@ export default function PaymentPage() {
 			</PaymentCard>
 
 			<PaymentCard
+				id="hourly"
 				href="https://buy.stripe.com/dRm5kE2Dp1Sf5Svasv3wQ05"
 				delay={0.35}
-				className="mt-6 p-6 sm:p-8"
+				className="mt-6 scroll-mt-16 p-6 sm:p-8"
 			>
 				<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
 					<div>
