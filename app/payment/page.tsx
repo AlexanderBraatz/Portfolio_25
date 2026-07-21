@@ -57,6 +57,33 @@ const addOnFeatures = [
 	'Abschlussbericht mit Empfehlungen'
 ];
 
+const developmentExamples = [
+	{
+		title: 'Austausch einer Leistung',
+		detail: 'Bilder, Navigation, Formularanpassung oder Tests',
+		hours: '4 Stunden',
+		price: '300 €'
+	},
+	{
+		title: 'Austausch von 5 Bildern',
+		detail: 'inklusive Farbanpassung und Zuschneiden',
+		hours: '2 Stunden',
+		price: '150 €'
+	},
+	{
+		title: 'Ergänzung eines bestehenden Abschnitts',
+		detail: 'z. B. ein weiteres Bild mit Text auf der Startseite',
+		hours: '2 Stunden',
+		price: '150 €'
+	},
+	{
+		title: 'Design und Entwicklung eines neuen Features',
+		detail: 'z. B. ein Blog',
+		hours: '10 Stunden',
+		price: '750 €'
+	}
+];
+
 const cardSurfaceClass =
 	'bg-gradient-to-br from-[#fde2e3]/25 via-[#e9e7fa] to-[#f4f3fd]';
 
@@ -78,7 +105,7 @@ function FeatureList({ features }: { features: string[] }) {
 
 function BookButton() {
 	return (
-		<span className="relative z-10 mt-6 block w-full text-center bg-gray-900 text-white px-7 py-3 rounded-full transition-colors group-hover:bg-gray-950">
+		<span className="mt-6 block w-full text-center bg-gray-900 text-white px-7 py-3 rounded-full">
 			Jetzt buchen
 		</span>
 	);
@@ -244,6 +271,65 @@ export default function PaymentPage() {
 				</div>
 				<FeatureList features={addOnFeatures} />
 				<BookButton />
+			</PaymentCard>
+
+			<PaymentCard
+				href="https://buy.stripe.com/dRm5kE2Dp1Sf5Svasv3wQ05"
+				delay={0.35}
+				className="mt-6 p-6 sm:p-8"
+			>
+				<div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+					<div>
+						<span className="inline-block bg-gray-900 text-white text-xs px-3 py-1 rounded-full mb-3">
+							Nach Aufwand
+						</span>
+						<h2 className="text-2xl font-medium mb-1">
+							Zusätzliche Entwicklungsleistungen
+						</h2>
+						<p className="text-sm text-gray-600 max-w-2xl">
+							Größere Erweiterungen, neue Funktionen, zusätzliche Seiten,
+							Designanpassungen oder umfangreichere Entwicklungsarbeiten, die
+							über die Wartung hinausgehen, werden nach Aufwand abgerechnet.
+						</p>
+					</div>
+					<p className="shrink-0 sm:text-right">
+						<span className="text-2xl font-bold">75,00 €</span>{' '}
+						<span className="text-sm text-gray-600">pro Stunde</span>
+					</p>
+				</div>
+
+				<div className="border-t border-black/10 pt-4">
+					<p className="text-xs font-medium uppercase tracking-wide text-gray-500 mb-3">
+						Unverbindliche Beispiele
+					</p>
+					<ul className="space-y-3">
+						{developmentExamples.map(example => (
+							<li
+								key={example.title}
+								className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4"
+							>
+								<div className="flex gap-2 min-w-0">
+									<span className="mt-0.5 shrink-0 text-gray-900">✓</span>
+									<div>
+										<p className="text-sm text-gray-900">{example.title}</p>
+										<p className="text-sm text-gray-600">{example.detail}</p>
+									</div>
+								</div>
+								<p className="shrink-0 text-sm text-gray-700 sm:text-right pl-5 sm:pl-0">
+									<span className="font-medium">{example.hours}</span>
+									<span className="text-gray-500"> / </span>
+									<span className="font-medium">{example.price}</span>
+								</p>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<BookButton />
+				<p className="mt-3 text-center text-sm text-gray-600">
+					Bitte sprechen Sie zuerst mit mir, damit wir den Zeitaufwand
+					gemeinsam realistisch einschätzen können.
+				</p>
 			</PaymentCard>
 		</div>
 	);
