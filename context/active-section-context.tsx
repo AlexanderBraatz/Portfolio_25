@@ -14,6 +14,7 @@ type ActiveSectionContextType = {
 	setTimeOfLastCLick: React.Dispatch<React.SetStateAction<number>>;
 	headerSections: LinkType[];
 	setHeaderSections: React.Dispatch<React.SetStateAction<LinkType[]>>;
+	showHeader: boolean;
 };
 
 const ActiveSectionContext = createContext<ActiveSectionContextType | null>(
@@ -27,6 +28,7 @@ export default function ActiveSectionContextProvider({
 	const onTestimonials = pathname.startsWith('/testimonials');
 	const onAccount = pathname.startsWith('/account');
 	const onHolidayRental = pathname.startsWith('/holidayrental');
+	const onPayment = pathname.startsWith('/payment');
 	const [activeSection, setActiveSection] = useState<SectionName>(
 		onAccount ? 'Account' : onTestimonials ? 'Review' : onHolidayRental ? 'Intro' : 'Home'
 	);
@@ -43,7 +45,8 @@ export default function ActiveSectionContextProvider({
 				timeOfLastClick,
 				setTimeOfLastCLick,
 				headerSections,
-				setHeaderSections
+				setHeaderSections,
+				showHeader: !onPayment
 			}}
 		>
 			{children}

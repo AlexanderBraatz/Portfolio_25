@@ -1,9 +1,7 @@
-import Header from '@/components/header';
+import AppShell from '@/components/app-shell';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import ActiveSectionContext from '@/context/active-section-context';
-import { Toaster } from 'react-hot-toast';
-import Footer from '@/components/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -33,13 +31,7 @@ export default function RootLayout({
         sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left=[-15rem] 2xl:left-[-5rem]"
 				></div>
 				<ActiveSectionContext>
-					<Header />
-					<main className="flex flex-col items-center px-4 -mb-20 min-h-screen pt-28 sm:pt-36">
-						{children}
-						<div className="h-20"></div>
-					</main>
-					<Toaster position="top-right" />
-					<Footer />
+					<AppShell>{children}</AppShell>
 				</ActiveSectionContext>
 			</body>
 		</html>

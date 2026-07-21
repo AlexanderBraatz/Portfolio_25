@@ -214,10 +214,10 @@ export const projectsData = [
 	tags: [
 		'Next.js',
 		'JavaScript',
-		'External API',
+		'API',
 		'Serverless',
 		'Figma',
-		'CI/CD'
+		// 'CI/CD'
 	],
 	imageUrl: linkedinScreenshot1,
 	link: 'https://linkedin-banner-image-generator.vercel.app',
