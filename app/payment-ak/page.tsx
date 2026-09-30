@@ -32,9 +32,7 @@ const plans = [
 		period: 'pro Monat',
 		stripeUrl: 'https://buy.stripe.com/bJe5kEguf7cz80D0RV3wQ01',
 		recommended: true,
-		extras: [
-			'2 Stunden pro Monat für kleinere Anpassungen an der Website ohne separates Angebot'
-		]
+		extras: ['4 Stunden für kleinere Anpassungen alle zwei Monate inklusive.']
 	},
 	{
 		name: 'Business Betreuung',
@@ -43,7 +41,7 @@ const plans = [
 		stripeUrl: 'https://buy.stripe.com/9B66oIguf1Sf6Wz1VZ3wQ02',
 		recommended: false,
 		extras: [
-			'Bis zu 4 Stunden Inhaltsänderungen oder kleinere Weiterentwicklungen pro Monat inklusive',
+			'Bis zu 8 Stunden Inhaltsänderungen oder kleinere Weiterentwicklungen alle zwei Monate.',
 			'Regelmäßige Optimierung der Website hinsichtlich Performance',
 			'Reaktionszeit innerhalb von 24 Stunden (an Werktagen)'
 		]
@@ -332,8 +330,8 @@ export default function PaymentPage() {
 
 				<BookButton />
 				<p className="mt-3 text-center text-sm text-gray-600">
-					Bitte sprechen Sie zuerst mit mir, damit wir den Zeitaufwand
-					gemeinsam realistisch einschätzen können.
+					Bitte sprechen Sie zuerst mit mir, damit wir den Zeitaufwand gemeinsam
+					realistisch einschätzen können.
 				</p>
 			</PaymentCard>
 		</div>
